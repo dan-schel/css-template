@@ -1,0 +1,83 @@
+@use 'theme';
+
+select {
+    height: 40px;
+    padding: 0px 12px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    outline: none;
+    font-size: theme.$font-size;
+    text-overflow: ellipsis;
+
+    option.default {
+        display: none;
+    }
+}
+.light option, .dark option {
+    color: theme.$color-l-text;
+}
+
+@function color-to-hex($colour) {
+    @return '%23' + str-slice('#{$colour}', 2, -1);
+}
+@mixin dropdown-arrow($color) {
+    background-image: url("data:image/svg+xml;utf8,<svg fill='#{color-to-hex($color)}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 0.2rem);
+    background-position-y: 50%;
+}
+
+.light {
+    select {
+        background-color: theme.$color-l-button-bg;
+        border: 1px solid theme.$color-l-button-border;
+        @include dropdown-arrow(theme.$color-l-text);
+        
+        &:hover {
+            background-color: theme.$color-l-button-bg-hover;
+            border: 1px solid theme.$color-l-button-border-hover;
+        }
+        &:active {
+            background-color: theme.$color-l-button-bg-active;
+            border: 1px solid theme.$color-l-button-border-active;
+        }
+        &:focus {
+            background-color: theme.$color-l-button-bg;
+            border: 1px solid theme.$color-l-button-border-focus;
+        }
+        &:disabled {
+            background-color: transparent;
+            opacity: 0.5;
+            border: 1px solid theme.$color-l-button-border;
+        }
+    }
+}
+.dark {
+    select {
+        background-color: theme.$color-d-button-bg;
+        border: 1px solid theme.$color-d-button-border;
+        @include dropdown-arrow(theme.$color-d-text);
+
+        &:hover {
+            background-color: theme.$color-d-button-bg-hover;
+            border: 1px solid theme.$color-d-button-border-hover;
+        }
+        &:active {
+            background-color: theme.$color-d-button-bg-active;
+            border: 1px solid theme.$color-d-button-border-active;
+        }
+        &:focus {
+            background-color: theme.$color-d-button-bg;
+            border: 1px solid theme.$color-d-button-border-focus;
+        }
+        &:disabled {
+            background-color: transparent;
+            opacity: 0.5;
+            border: 1px solid theme.$color-d-button-border;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@use 'reset';
+@use 'theme';
+
+@forward 'theme';
+@forward 'surfaces';
+@forward 'text';
+@forward 'buttons';
+@forward 'buttons_icon';
+@forward 'buttons_subtle';
+@forward 'inputs';
+@forward 'dialog';
+@forward 'selects';
+@forward 'radio';
+@forward 'picker';
+
+body, div, header, article, section, footer, aside, main, nav {
+    display: flex;
+    flex-direction: column;
+}
+body {
+    min-height: 100vh;
+}
+
+.page-centerer {
+    flex-direction: column;
+    align-items: center;
+    .page-centered {
+        width: min(100%, theme.$page-max-size);
+    }
+}

@@ -1,0 +1,109 @@
+@import '../theme';
+
+// DIMENSIONS
+
+$page-max-size: 1064px !default;
+
+// TYPOGRAPHY
+
+$font-display: sans-serif !default;
+$font-main: sans-serif !default;
+$font-code: monospace !default;
+$font-size: 1rem !default;
+
+$font-display-line-height: 1.5em !default;
+$font-display-line-height-half-margin-correction: -0.25em !default;
+$font-main-line-height: 1.5em !default;
+$font-main-line-height-half-margin-correction: -0.25em !default;
+$font-code-line-height: 1.5em !default;
+$font-code-line-height-half-margin-correction: -0.25em !default;
+
+// LIGHT
+$color-l-bg0:                   hsl(220, 30%, 90%) !default;
+$color-l-bg1:                   hsl(220, 35%, 95%) !default;
+$color-l-bg2:                   hsl(220, 35%, 98%) !default;
+$color-l-bg3:                   hsl(220, 40%, 100%) !default;
+
+$color-shade-on-l:              hsl(220, 30%, 30%);
+$color-l-border:                rgba($color-shade-on-l, 30%) !default;
+$color-l-surface-shadow:        rgba($color-shade-on-l, 10%) !default;
+
+$color-l-text-strong:           #000000ff !default;
+$color-l-text:                  #000000d0 !default;
+$color-l-text-weak:             #00000080 !default;
+$color-l-accent:                #0060f0 !default;
+$color-l-error:                 #DC0F0F !default;
+$color-l-code-bg:               rgba($color-shade-on-l, 10%) !default;
+
+$color-l-input-bg:              transparent !default;
+$color-l-input-border:          rgba($color-shade-on-l, 30%) !default;
+$color-l-input-border-hover:    rgba($color-shade-on-l, 45%) !default;
+$color-l-input-shadow:          rgba($color-l-accent, 0.3) !default;
+
+
+$color-l-button-bg:             rgba($color-shade-on-l, 5%) !default;
+$color-l-button-border:         rgba($color-shade-on-l, 25%) !default;
+$color-l-button-bg-hover:       rgba($color-shade-on-l, 10%) !default;
+$color-l-button-border-hover:   rgba($color-shade-on-l, 30%) !default;
+$color-l-button-bg-active:      rgba($color-shade-on-l, 15%) !default;
+$color-l-button-border-active:  rgba($color-shade-on-l, 35%) !default;
+$color-l-button-border-focus:   $color-l-accent !default;
+
+$color-l-radio-bg:              $color-l-button-bg !default;
+$color-l-radio-border:          $color-l-button-border !default;
+$color-l-radio-bg-hover:        $color-l-button-bg-hover !default;
+$color-l-radio-border-hover:    $color-l-button-border-hover !default;
+$color-l-radio-bg-active:       $color-l-button-bg-active !default;
+$color-l-radio-border-active:   $color-l-button-border-active !default;
+$color-l-radio-border-focus:    $color-l-accent !default;
+$color-l-radio-check:           $color-l-accent !default;
+
+$color-l-picker-subtle:         $color-l-text-weak !default;
+$color-l-picker-subtle-hover:   $color-l-text !default;
+$color-l-picker-subtle-active:  $color-l-text-strong !default;
+$color-l-picker-subtle-check:   $color-l-accent !default;
+
+
+// DARK
+$color-d-bg0:                   hsl(220, 10%, 7%) !default;
+$color-d-bg1:                   hsl(220, 10%, 10%) !default;
+$color-d-bg2:                   hsl(220, 10%, 13%) !default;
+$color-d-bg3:                   hsl(220, 10%, 15%) !default;
+
+$color-shade-on-d:              hsl(220, 50%, 80%);
+$color-d-border:                rgba($color-shade-on-d, 20%) !default;
+$color-d-surface-shadow:        hsl(220, 10%, 0%, 20%) !default;
+
+$color-d-text-strong:           #ffffffff !default;
+$color-d-text:                  #ffffffd0 !default;
+$color-d-text-weak:             #ffffff80 !default;
+$color-d-accent:                #60b0ff !default;
+$color-d-error:                 #FF5252 !default;
+$color-d-code-bg:               rgba($color-shade-on-d, 8%) !default;
+
+$color-d-input-bg:              transparent !default;
+$color-d-input-border:          rgba($color-shade-on-d, 20%) !default;
+$color-d-input-border-hover:    rgba($color-shade-on-d, 30%) !default;
+$color-d-input-shadow:          rgba($color-d-accent, 0.5) !default;
+
+$color-d-button-bg:             rgba($color-shade-on-d, 5%)  !default;
+$color-d-button-border:         rgba($color-shade-on-d, 15%)  !default;
+$color-d-button-bg-hover:       rgba($color-shade-on-d, 8%)  !default;
+$color-d-button-border-hover:   rgba($color-shade-on-d, 18%)  !default;
+$color-d-button-bg-active:      rgba($color-shade-on-d, 11%)  !default;
+$color-d-button-border-active:  rgba($color-shade-on-d, 21%)  !default;
+$color-d-button-border-focus:   $color-d-accent !default;
+
+$color-d-radio-bg:              $color-d-button-bg !default;
+$color-d-radio-border:          $color-d-button-border !default;
+$color-d-radio-bg-hover:        $color-d-button-bg-hover !default;
+$color-d-radio-border-hover:    $color-d-button-border-hover !default;
+$color-d-radio-bg-active:       $color-d-button-bg-active !default;
+$color-d-radio-border-active:   $color-d-button-border-active !default;
+$color-d-radio-border-focus:    $color-d-accent !default;
+$color-d-radio-check:           $color-d-accent !default;
+
+$color-d-picker-subtle:         $color-d-text-weak !default;
+$color-d-picker-subtle-hover:   $color-d-text !default;
+$color-d-picker-subtle-active:  $color-d-text-strong !default;
+$color-d-picker-subtle-check:   $color-d-accent !default;

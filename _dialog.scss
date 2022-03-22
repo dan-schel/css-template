@@ -1,0 +1,43 @@
+.dialog-overlay {
+    position: fixed;
+    z-index: 99999;
+    pointer-events: all;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    #dialog {
+        min-width: 300px;
+        min-height: 64px;
+        padding: 24px;
+        overflow: auto;
+        position: relative;
+        margin: 16px;
+        
+        button#dialog-close-button {
+            border-radius: 12px;
+            position: absolute;
+            left: calc(100% - 52px);
+            top: 12px;
+        }
+    }
+}
+.dark .dialog-overlay {
+    background-color: rgba($color: black, $alpha: 0.75);
+    #dialog {
+        filter: drop-shadow(0px 4px 16px #00000080);
+    }
+}
+.light .dialog-overlay {
+    background-color: rgba($color: black, $alpha: 0.25);
+    #dialog {
+        filter: drop-shadow(0px 4px 8px #00000020);
+    }
+}
+
+body.dialog-open {
+    overflow: hidden;
+}

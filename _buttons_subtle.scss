@@ -1,0 +1,68 @@
+@use 'theme';
+
+$subtle-button-selectors: 'button.subtle, input.subtle[type=button], input.subtle[type=submit], input.subtle[type=reset], a.button-subtle';
+
+#{$subtle-button-selectors} {
+    height: 40px;
+    padding: 0px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    outline: none;
+    i {
+        font-size: calc(theme.$font-size * 1.25);
+    }
+}
+
+.light {
+    #{$subtle-button-selectors} {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            background-color: theme.$color-l-button-bg-hover;
+            border: none;
+        }
+        &:active {
+            background-color: theme.$color-l-button-bg-active;
+            border: none;
+        }
+        // &:focus {
+        //     border: 1px solid theme.$color-l-button-border-focus;
+        // }
+        &:disabled, &[disabled] {
+            opacity: 0.5;
+
+            // override hover, active, or focus (even though these are the default)
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+.dark {
+    #{$subtle-button-selectors} {
+        background-color: transparent;
+        border: none;
+
+        &:hover {
+            background-color: theme.$color-d-button-bg-hover;
+            border: none;
+        }
+        &:active {
+            background-color: theme.$color-d-button-bg-active;
+            border: none;
+        }
+        // &:focus {
+        //     border: 1px solid theme.$color-d-button-border-focus;
+        // }
+        &:disabled, &[disabled] {
+            opacity: 0.5;
+            
+            // override hover, active, or focus (even though these are the default)
+            background-color: transparent;
+            border: none;
+        }
+    }
+}

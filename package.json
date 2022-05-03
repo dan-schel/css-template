@@ -7,7 +7,7 @@
     "clean": "rimraf test/**/*.css.map & rimraf test/**/*.css",
     "prebuild": "npm run clean",
     "build": "sass test/index.scss test/index.css",
-    "watch": "sass -w test/index.scss test/index.css",
+    "watch": "onchange \"**/*.scss\" -- sass test/index.scss test/index.css",
     "start": "serve test/",
     "dev": "npm run build & concurrently \"npm run watch\" \"npm run start\""
   },
@@ -23,6 +23,7 @@
   "homepage": "https://github.com/schel-d/css-template#readme",
   "dependencies": {
     "concurrently": "^7.1.0",
+    "onchange": "^7.1.0",
     "rimraf": "^3.0.2",
     "sass": "^1.51.0",
     "serve": "^13.0.2"

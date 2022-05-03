@@ -1,11 +1,14 @@
 @use "button";
+@use "link";
+@use "theme";
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-div {
+div,
+button {
   display: flex;
   flex-direction: column;
 }

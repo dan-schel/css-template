@@ -1,4 +1,18 @@
-.btn {
+button {
   -moz-appearance: none;
   -webkit-appearance: none;
+  font: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+@mixin btn() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn {
+  @include btn();
 }

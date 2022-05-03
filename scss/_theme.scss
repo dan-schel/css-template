@@ -1,31 +1,10 @@
-button {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  font: inherit;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  outline: none;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  font: inherit;
-}
-
 :root {
   --col-surface-0-light: hsl(220, 30%, 90%);
   --col-surface-1-light: hsl(220, 35%, 95%);
   --col-surface-2-light: hsl(220, 35%, 98%);
   --col-surface-3-light: hsl(220, 40%, 100%);
   --col-on-surface-light: black;
+
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
@@ -33,60 +12,56 @@ a {
   --col-on-surface-dark: white;
 }
 
-.light {
+@mixin light {
   --col-surface-0: var(--col-surface-0-light);
   --col-surface-1: var(--col-surface-1-light);
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
   --col-on-surface: var(--col-on-surface-light);
 }
+.light {
+  @include light;
+}
 
-.dark {
+@mixin dark {
   --col-surface-0: var(--col-surface-0-dark);
   --col-surface-1: var(--col-surface-1-dark);
   --col-surface-2: var(--col-surface-2-dark);
   --col-surface-3: var(--col-surface-3-dark);
   --col-on-surface: var(--col-on-surface-dark);
 }
+.dark {
+  @include dark;
+}
 
-.level-0 {
+@mixin level-0 {
   background-color: var(--col-surface-0);
 }
-
-.level-1 {
+.level-0 {
+  @include level-0();
+}
+@mixin level-1 {
   background-color: var(--col-surface-1);
 }
-
-.level-2 {
+.level-1 {
+  @include level-1();
+}
+@mixin level-2 {
   background-color: var(--col-surface-2);
 }
-
-.level-3 {
+.level-2 {
+  @include level-2();
+}
+@mixin level-3 {
   background-color: var(--col-surface-3);
+}
+.level-3 {
+  @include level-3();
 }
 
 :root {
-  --col-surface-0: var(--col-surface-0-light);
-  --col-surface-1: var(--col-surface-1-light);
-  --col-surface-2: var(--col-surface-2-light);
-  --col-surface-3: var(--col-surface-3-light);
-  --col-on-surface: var(--col-on-surface-light);
+  @include light();
 }
-
 body {
-  background-color: var(--col-surface-1);
+  @include level-1();
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-div,
-button {
-  display: flex;
-  flex-direction: column;
-}
-
-/*# sourceMappingURL=index.css.map */

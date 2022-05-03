@@ -1,0 +1,33 @@
+{
+  "name": "css-template",
+  "version": "1.0.0",
+  "description": "My standard template for CSS styling with SASS.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf test/**/*.css.map & rimraf test/**/*.css",
+    "prebuild": "npm run clean",
+    "build": "sass test/index.scss test/index.css",
+    "watch": "sass -w test/index.scss test/index.css",
+    "start": "serve test/",
+    "dev": "npm run build & concurrently \"npm run watch\" \"npm run start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schel-d/css-template.git"
+  },
+  "author": "schel-d",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/schel-d/css-template/issues"
+  },
+  "homepage": "https://github.com/schel-d/css-template#readme",
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.51.0",
+    "serve": "^13.0.2"
+  },
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
+}

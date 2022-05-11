@@ -77,6 +77,53 @@ body {
   background-color: var(--col-surface-1);
 }
 
+:root {
+  --line-spacing: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--col-on-surface);
+  line-height: calc(1em + var(--line-spacing));
+}
+h1::before, h1::after,
+h2::before,
+h2::after,
+h3::before,
+h3::after,
+h4::before,
+h4::after,
+h5::before,
+h5::after,
+h6::before,
+h6::after,
+p::before,
+p::after {
+  content: "";
+  margin-top: calc(var(--line-spacing) / -2);
+  height: 0;
+  display: block;
+}
+
+i,
+em {
+  font: inherit;
+  font-style: italic;
+}
+
+b,
+strong {
+  font: inherit;
+  font-weight: bold;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -87,6 +134,14 @@ div,
 button {
   display: flex;
   flex-direction: column;
+}
+
+* {
+  font-family: sans-serif;
+}
+
+div {
+  padding: 16px;
 }
 
 /*# sourceMappingURL=index.css.map */

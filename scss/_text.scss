@@ -1,0 +1,36 @@
+:root {
+  --line-spacing: 1em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: var(--col-on-surface);
+  line-height: calc(1em + var(--line-spacing));
+
+  &::before,
+  &::after {
+    content: "";
+    margin-top: calc(var(--line-spacing) / -2);
+    height: 0;
+    display: block;
+  }
+}
+
+i,
+em {
+  font: inherit;
+  font-style: italic;
+}
+
+b,
+strong {
+  font: inherit;
+  font-weight: bold;
+}

@@ -4,12 +4,14 @@
   --col-surface-2-light: hsl(220, 35%, 98%);
   --col-surface-3-light: hsl(220, 40%, 100%);
   --col-on-surface-light: black;
+  --col-accent-light: hsl(210, 100%, 40%);
 
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
   --col-surface-3-dark: hsl(220, 10%, 15%);
   --col-on-surface-dark: white;
+  --col-accent-dark: hsl(210, 100%, 80%);
 }
 
 @mixin light {
@@ -18,6 +20,7 @@
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
   --col-on-surface: var(--col-on-surface-light);
+  --col-accent: var(--col-accent-light);
 }
 .light {
   @include light;
@@ -29,6 +32,7 @@
   --col-surface-2: var(--col-surface-2-dark);
   --col-surface-3: var(--col-surface-3-dark);
   --col-on-surface: var(--col-on-surface-dark);
+  --col-accent: var(--col-accent-dark);
 }
 .dark {
   @include dark;

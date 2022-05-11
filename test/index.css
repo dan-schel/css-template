@@ -20,17 +20,29 @@ a {
   font: inherit;
 }
 
+.link {
+  --link-col: var(--col-accent);
+  color: var(--link-col);
+  text-decoration: underline transparent;
+  transition: text-decoration-color 0.1s;
+}
+.link:hover {
+  text-decoration: underline var(--link-col);
+}
+
 :root {
   --col-surface-0-light: hsl(220, 30%, 90%);
   --col-surface-1-light: hsl(220, 35%, 95%);
   --col-surface-2-light: hsl(220, 35%, 98%);
   --col-surface-3-light: hsl(220, 40%, 100%);
   --col-on-surface-light: black;
+  --col-accent-light: hsl(210, 100%, 40%);
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
   --col-surface-3-dark: hsl(220, 10%, 15%);
   --col-on-surface-dark: white;
+  --col-accent-dark: hsl(210, 100%, 80%);
 }
 
 .light {
@@ -39,6 +51,7 @@ a {
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
   --col-on-surface: var(--col-on-surface-light);
+  --col-accent: var(--col-accent-light);
 }
 
 .dark {
@@ -47,6 +60,7 @@ a {
   --col-surface-2: var(--col-surface-2-dark);
   --col-surface-3: var(--col-surface-3-dark);
   --col-on-surface: var(--col-on-surface-dark);
+  --col-accent: var(--col-accent-dark);
 }
 
 .level-0 {
@@ -71,6 +85,7 @@ a {
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
   --col-on-surface: var(--col-on-surface-light);
+  --col-accent: var(--col-accent-light);
 }
 
 body {
@@ -79,7 +94,7 @@ body {
 
 :root {
   --font-default: sans-serif;
-  --line-spacing: 1em;
+  --line-spacing: 0.5em;
 }
 
 h1,
@@ -126,6 +141,19 @@ strong {
   font-weight: bold;
 }
 
+.one-line > :is(h1, h2, h3, h4, h5, h6, p) {
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 0.25em;
+}
+.one-line::after {
+  content: "";
+  margin-bottom: -0.25em;
+  height: 0;
+  display: block;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -142,8 +170,13 @@ button {
   --font-default: "Source Sans Pro";
 }
 
-div {
-  padding: 16px;
+.light,
+.dark {
+  padding: 24px;
+}
+.light > *:not(:last-child),
+.dark > *:not(:last-child) {
+  margin-bottom: 12px;
 }
 
 /*# sourceMappingURL=index.css.map */

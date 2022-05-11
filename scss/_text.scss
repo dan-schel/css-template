@@ -1,6 +1,6 @@
 :root {
   --font-default: sans-serif;
-  --line-spacing: 1em;
+  --line-spacing: 0.5em;
 }
 
 h1,
@@ -35,4 +35,22 @@ b,
 strong {
   font: inherit;
   font-weight: bold;
+}
+
+@mixin one-line {
+  & > :is(h1, h2, h3, h4, h5, h6, p) {
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-bottom: 0.25em;
+  }
+  &::after {
+    content: "";
+    margin-bottom: -0.25em;
+    height: 0;
+    display: block;
+  }
+}
+.one-line {
+  @include one-line;
 }

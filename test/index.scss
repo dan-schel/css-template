@@ -3,6 +3,10 @@
 :root {
   --font-default: "Source Sans Pro";
 }
-div {
-  padding: 16px;
+.light,
+.dark {
+  padding: 24px;
+  & > *:not(:last-child) {
+    margin-bottom: 12px;
+  }
 }

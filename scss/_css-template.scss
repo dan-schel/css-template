@@ -1,7 +1,7 @@
-@use "button";
-@use "link";
-@use "theme";
-@use "text";
+@forward "button";
+@forward "link";
+@forward "theme";
+@forward "text";
 
 * {
   box-sizing: border-box;

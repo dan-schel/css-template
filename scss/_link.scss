@@ -3,3 +3,18 @@ a {
   color: inherit;
   font: inherit;
 }
+
+@mixin link {
+  --link-col: var(--col-accent);
+
+  color: var(--link-col);
+  text-decoration: underline transparent;
+  transition: text-decoration-color 0.1s;
+
+  &:hover {
+    text-decoration: underline var(--link-col);
+  }
+}
+.link {
+  @include link;
+}

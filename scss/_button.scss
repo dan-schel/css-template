@@ -8,11 +8,11 @@ button {
   outline: none;
 }
 
-@mixin btn() {
+@mixin btn {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .btn {
-  @include btn();
+  @include btn;
 }

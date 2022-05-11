@@ -78,6 +78,7 @@ body {
 }
 
 :root {
+  --font-default: sans-serif;
   --line-spacing: 1em;
 }
 
@@ -88,6 +89,7 @@ h4,
 h5,
 h6,
 p {
+  font-family: var(--font-default);
   font-size: 1rem;
   font-weight: normal;
   color: var(--col-on-surface);
@@ -136,8 +138,8 @@ button {
   flex-direction: column;
 }
 
-* {
-  font-family: sans-serif;
+:root {
+  --font-default: "Source Sans Pro";
 }
 
 div {

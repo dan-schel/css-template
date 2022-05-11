@@ -1,7 +1,7 @@
 @use "../scss/css-template";
 
-* {
-  font-family: sans-serif;
+:root {
+  --font-default: "Source Sans Pro";
 }
 div {
   padding: 16px;

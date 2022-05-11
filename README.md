@@ -11,7 +11,8 @@ My standard template for CSS styling with SASS.
 
 ## Themeable
 
-- `line-height`
+- `--line-height`
+- `--font-default`
 - `--col-surface-0-light`
 - --col-surface-1-light`
 - --col-surface-2-light`

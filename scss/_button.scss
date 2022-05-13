@@ -1,3 +1,10 @@
+@use "utils";
+
+:root {
+  --btn-rounding: 4px;
+  --btn-outline: 2px;
+}
+
 button {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -9,10 +16,127 @@ button {
 }
 
 @mixin btn {
+  --btn-col-on-button: var(--col-on-surface);
+  color: var(--col-on-surface);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .btn {
   @include btn;
+}
+
+@mixin btn-basic {
+  --btn-col-comps: var(--col-on-surface-comps);
+
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
+  --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline: transparent;
+  --btn-col-outline-hover: transparent;
+  --btn-col-outline-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: var(--col-on-surface);
+  --btn-col-content-active: var(--col-on-surface);
+
+  color: var(--btn-col-content);
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+
+  // TODO: Border makes button 36x36 despite border-box on
+  // To fix this, let's just have the button content directly in the button.
+  // So each button will have a btn-style type class and btn-content type class
+  // on it.
+  // TODO: Add every button class I've added so far to readme!
+
+  &:hover,
+  &:focus-visible {
+    color: var(--btn-col-content-hover);
+    background-color: var(--btn-col-bg-hover);
+    border-color: var(--btn-col-outline-hover);
+  }
+  &:active {
+    color: var(--btn-col-content-active);
+    background-color: var(--btn-col-bg-active);
+    border-color: var(--btn-col-outline-active);
+  }
+}
+.btn-basic {
+  @include btn-basic;
+}
+
+@mixin btn-subtle {
+  @include btn-basic;
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: transparent;
+  --btn-col-bg-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: hsla(var(--col-on-surface-comps), 100%);
+  --btn-col-content-active: hsla(var(--col-on-surface-comps), 70%);
+}
+.btn-subtle {
+  @include btn-subtle;
+}
+@mixin btn-outline {
+  @include btn-basic;
+  --btn-col-outline: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline-hover: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline-active: hsla(var(--btn-col-comps), 20%);
+}
+.btn-outline {
+  @include btn-outline;
+}
+@mixin btn-accent {
+  @include btn-basic;
+}
+.btn-accent {
+  @include btn-accent;
+  --btn-col-bg: hsla(var(--col-accent-comps), 100%);
+  --btn-col-bg-hover: hsla(var(--col-accent-comps), 90%);
+  --btn-col-bg-active: hsla(var(--col-accent-comps), 80%);
+  --btn-col-content: var(--col-on-accent-strong);
+  --btn-col-content-hover: var(--col-on-accent-strong);
+  --btn-col-content-active: var(--col-on-accent-strong);
+}
+
+@mixin btn-content {
+}
+
+@mixin btn-content-icon {
+  @include btn-content;
+  color: inherit;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  & > .iconify {
+    color: inherit;
+    font-size: 1.2rem;
+  }
+}
+.btn-content-icon {
+  @include btn-content-icon;
+}
+
+@mixin btn-content-icon-text {
+  @include btn-content;
+  @include utils.row;
+  color: inherit;
+  height: 32px;
+  padding-inline: 6px;
+  justify-content: center;
+  & > .iconify {
+    color: inherit;
+    font-size: 1.2rem;
+    margin-right: 8px;
+  }
+  & > p {
+    color: inherit;
+    margin-bottom: 1px;
+  }
+}
+.btn-content-icon-text {
+  @include btn-content-icon-text;
 }

@@ -1,3 +1,27 @@
+.gone {
+  display: none !important;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+  flex-direction: inherit;
+}
+
+.flip-180 {
+  transform: rotate(180deg);
+}
+
+:root {
+  --btn-rounding: 4px;
+  --btn-outline: 2px;
+}
+
 button {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -9,9 +33,169 @@ button {
 }
 
 .btn {
+  --btn-col-on-button: var(--col-on-surface);
+  color: var(--col-on-surface);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-basic {
+  --btn-col-comps: var(--col-on-surface-comps);
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
+  --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline: transparent;
+  --btn-col-outline-hover: transparent;
+  --btn-col-outline-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: var(--col-on-surface);
+  --btn-col-content-active: var(--col-on-surface);
+  color: var(--btn-col-content);
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+}
+.btn-basic:hover, .btn-basic:focus-visible {
+  color: var(--btn-col-content-hover);
+  background-color: var(--btn-col-bg-hover);
+  border-color: var(--btn-col-outline-hover);
+}
+.btn-basic:active {
+  color: var(--btn-col-content-active);
+  background-color: var(--btn-col-bg-active);
+  border-color: var(--btn-col-outline-active);
+}
+
+.btn-subtle {
+  --btn-col-comps: var(--col-on-surface-comps);
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
+  --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline: transparent;
+  --btn-col-outline-hover: transparent;
+  --btn-col-outline-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: var(--col-on-surface);
+  --btn-col-content-active: var(--col-on-surface);
+  color: var(--btn-col-content);
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: transparent;
+  --btn-col-bg-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: hsla(var(--col-on-surface-comps), 100%);
+  --btn-col-content-active: hsla(var(--col-on-surface-comps), 70%);
+}
+.btn-subtle:hover, .btn-subtle:focus-visible {
+  color: var(--btn-col-content-hover);
+  background-color: var(--btn-col-bg-hover);
+  border-color: var(--btn-col-outline-hover);
+}
+.btn-subtle:active {
+  color: var(--btn-col-content-active);
+  background-color: var(--btn-col-bg-active);
+  border-color: var(--btn-col-outline-active);
+}
+
+.btn-outline {
+  --btn-col-comps: var(--col-on-surface-comps);
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
+  --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline: transparent;
+  --btn-col-outline-hover: transparent;
+  --btn-col-outline-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: var(--col-on-surface);
+  --btn-col-content-active: var(--col-on-surface);
+  color: var(--btn-col-content);
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+  --btn-col-outline: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline-hover: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline-active: hsla(var(--btn-col-comps), 20%);
+}
+.btn-outline:hover, .btn-outline:focus-visible {
+  color: var(--btn-col-content-hover);
+  background-color: var(--btn-col-bg-hover);
+  border-color: var(--btn-col-outline-hover);
+}
+.btn-outline:active {
+  color: var(--btn-col-content-active);
+  background-color: var(--btn-col-bg-active);
+  border-color: var(--btn-col-outline-active);
+}
+
+.btn-accent {
+  --btn-col-comps: var(--col-on-surface-comps);
+  --btn-col-bg: transparent;
+  --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
+  --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
+  --btn-col-outline: transparent;
+  --btn-col-outline-hover: transparent;
+  --btn-col-outline-active: transparent;
+  --btn-col-content: var(--col-on-surface);
+  --btn-col-content-hover: var(--col-on-surface);
+  --btn-col-content-active: var(--col-on-surface);
+  color: var(--btn-col-content);
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+  --btn-col-bg: hsla(var(--col-accent-comps), 100%);
+  --btn-col-bg-hover: hsla(var(--col-accent-comps), 90%);
+  --btn-col-bg-active: hsla(var(--col-accent-comps), 80%);
+  --btn-col-content: var(--col-on-accent-strong);
+  --btn-col-content-hover: var(--col-on-accent-strong);
+  --btn-col-content-active: var(--col-on-accent-strong);
+}
+.btn-accent:hover, .btn-accent:focus-visible {
+  color: var(--btn-col-content-hover);
+  background-color: var(--btn-col-bg-hover);
+  border-color: var(--btn-col-outline-hover);
+}
+.btn-accent:active {
+  color: var(--btn-col-content-active);
+  background-color: var(--btn-col-bg-active);
+  border-color: var(--btn-col-outline-active);
+}
+
+.btn-content-icon {
+  color: inherit;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+}
+.btn-content-icon > .iconify {
+  color: inherit;
+  font-size: 1.2rem;
+}
+
+.btn-content-icon-text {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: inherit;
+  height: 32px;
+  padding-inline: 6px;
+  justify-content: center;
+}
+.btn-content-icon-text > .iconify {
+  color: inherit;
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+.btn-content-icon-text > p {
+  color: inherit;
+  margin-bottom: 1px;
 }
 
 a {
@@ -25,8 +209,9 @@ a {
   color: var(--link-col);
   text-decoration: underline transparent;
   transition: text-decoration-color 0.1s;
+  outline: none;
 }
-.link:hover {
+.link:hover, .link:focus-visible {
   text-decoration: underline var(--link-col);
 }
 
@@ -35,14 +220,30 @@ a {
   --col-surface-1-light: hsl(220, 35%, 95%);
   --col-surface-2-light: hsl(220, 35%, 98%);
   --col-surface-3-light: hsl(220, 40%, 100%);
-  --col-on-surface-light: black;
-  --col-accent-light: hsl(210, 100%, 40%);
+  --col-on-surface-light-comps: 0, 0%, 0%;
+  --col-on-surface-light-strong: hsla(var(--col-on-surface-light-comps), 100%);
+  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 80%);
+  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 60%);
+  --col-accent-light-comps: 210, 100%, 40%;
+  --col-accent-light: hsl(var(--col-accent-light-comps));
+  --col-on-accent-light-comps: 0, 0%, 100%;
+  --col-on-accent-light-strong: hsla(var(--col-on-accent-light-comps), 100%);
+  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 80%);
+  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 60%);
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
   --col-surface-3-dark: hsl(220, 10%, 15%);
-  --col-on-surface-dark: white;
-  --col-accent-dark: hsl(210, 100%, 80%);
+  --col-on-surface-dark-comps: 0, 0%, 100%;
+  --col-on-surface-dark-strong: hsla(var(--col-on-surface-dark-comps), 100%);
+  --col-on-surface-dark: hsla(var(--col-on-surface-dark-comps), 80%);
+  --col-on-surface-dark-weak: hsla(var(--col-on-surface-dark-comps), 60%);
+  --col-accent-dark-comps: 210, 100%, 80%;
+  --col-accent-dark: hsl(var(--col-accent-dark-comps));
+  --col-on-accent-dark-comps: 0, 0%, 0%;
+  --col-on-accent-dark-strong: hsla(var(--col-on-accent-dark-comps), 100%);
+  --col-on-accent-dark: hsla(var(--col-on-accent-dark-comps), 80%);
+  --col-on-accent-dark-weak: hsla(var(--col-on-accent-dark-comps), 60%);
 }
 
 .light {
@@ -50,8 +251,16 @@ a {
   --col-surface-1: var(--col-surface-1-light);
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
+  --col-on-surface-comps: var(--col-on-surface-light-comps);
+  --col-on-surface-strong: var(--col-on-surface-light-strong);
   --col-on-surface: var(--col-on-surface-light);
+  --col-on-surface-weak: var(--col-on-surface-light-weak);
+  --col-accent-comps: var(--col-accent-light-comps);
   --col-accent: var(--col-accent-light);
+  --col-on-accent-comps: var(--col-on-accent-light-comps);
+  --col-on-accent-strong: var(--col-on-accent-light-strong);
+  --col-on-accent: var(--col-on-accent-light);
+  --col-on-accent-weak: var(--col-on-accent-light-weak);
 }
 
 .dark {
@@ -59,8 +268,16 @@ a {
   --col-surface-1: var(--col-surface-1-dark);
   --col-surface-2: var(--col-surface-2-dark);
   --col-surface-3: var(--col-surface-3-dark);
+  --col-on-surface-comps: var(--col-on-surface-dark-comps);
+  --col-on-surface-strong: var(--col-on-surface-dark-strong);
   --col-on-surface: var(--col-on-surface-dark);
+  --col-on-surface-weak: var(--col-on-surface-dark-weak);
+  --col-accent-comps: var(--col-accent-dark-comps);
   --col-accent: var(--col-accent-dark);
+  --col-on-accent-comps: var(--col-on-accent-dark-comps);
+  --col-on-accent-strong: var(--col-on-accent-dark-strong);
+  --col-on-accent: var(--col-on-accent-dark);
+  --col-on-accent-weak: var(--col-on-accent-dark-weak);
 }
 
 .level-0 {
@@ -79,13 +296,37 @@ a {
   background-color: var(--col-surface-3);
 }
 
+.color-normal {
+  color: var(--col-on-surface);
+}
+
+.color-strong {
+  color: var(--col-on-surface-strong);
+}
+
+.color-weak {
+  color: var(--col-on-surface-weak);
+}
+
+.color-accent {
+  color: var(--col-accent);
+}
+
 :root {
   --col-surface-0: var(--col-surface-0-light);
   --col-surface-1: var(--col-surface-1-light);
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
+  --col-on-surface-comps: var(--col-on-surface-light-comps);
+  --col-on-surface-strong: var(--col-on-surface-light-strong);
   --col-on-surface: var(--col-on-surface-light);
+  --col-on-surface-weak: var(--col-on-surface-light-weak);
+  --col-accent-comps: var(--col-accent-light-comps);
   --col-accent: var(--col-accent-light);
+  --col-on-accent-comps: var(--col-on-accent-light-comps);
+  --col-on-accent-strong: var(--col-on-accent-light-strong);
+  --col-on-accent: var(--col-on-accent-light);
+  --col-on-accent-weak: var(--col-on-accent-light-weak);
 }
 
 body {
@@ -104,10 +345,10 @@ h4,
 h5,
 h6,
 p {
+  color: var(--col-on-surface);
   font-family: var(--font-default);
   font-size: 1rem;
   font-weight: normal;
-  color: var(--col-on-surface);
   line-height: calc(1em + var(--line-spacing));
 }
 h1::before, h1::after,
@@ -129,15 +370,25 @@ p::after {
   display: block;
 }
 
+.iconify {
+  color: var(--col-on-surface);
+}
+
+i,
+em,
+b,
+strong,
+span {
+  font: inherit;
+}
+
 i,
 em {
-  font: inherit;
   font-style: italic;
 }
 
 b,
 strong {
-  font: inherit;
   font-weight: bold;
 }
 
@@ -177,6 +428,16 @@ button {
 .light > *:not(:last-child),
 .dark > *:not(:last-child) {
   margin-bottom: 12px;
+}
+
+.test-button-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: -8px;
+}
+.test-button-row button {
+  margin-right: 8px;
 }
 
 /*# sourceMappingURL=index.css.map */

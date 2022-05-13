@@ -3,15 +3,33 @@
   --col-surface-1-light: hsl(220, 35%, 95%);
   --col-surface-2-light: hsl(220, 35%, 98%);
   --col-surface-3-light: hsl(220, 40%, 100%);
-  --col-on-surface-light: black;
-  --col-accent-light: hsl(210, 100%, 40%);
+  --col-on-surface-light-comps: 0, 0%, 0%;
+  --col-on-surface-light-strong: hsla(var(--col-on-surface-light-comps), 100%);
+  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 80%);
+  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 60%);
+
+  --col-accent-light-comps: 210, 100%, 40%;
+  --col-accent-light: hsl(var(--col-accent-light-comps));
+  --col-on-accent-light-comps: 0, 0%, 100%;
+  --col-on-accent-light-strong: hsla(var(--col-on-accent-light-comps), 100%);
+  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 80%);
+  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 60%);
 
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
   --col-surface-3-dark: hsl(220, 10%, 15%);
-  --col-on-surface-dark: white;
-  --col-accent-dark: hsl(210, 100%, 80%);
+  --col-on-surface-dark-comps: 0, 0%, 100%;
+  --col-on-surface-dark-strong: hsla(var(--col-on-surface-dark-comps), 100%);
+  --col-on-surface-dark: hsla(var(--col-on-surface-dark-comps), 80%);
+  --col-on-surface-dark-weak: hsla(var(--col-on-surface-dark-comps), 60%);
+
+  --col-accent-dark-comps: 210, 100%, 80%;
+  --col-accent-dark: hsl(var(--col-accent-dark-comps));
+  --col-on-accent-dark-comps: 0, 0%, 0%;
+  --col-on-accent-dark-strong: hsla(var(--col-on-accent-dark-comps), 100%);
+  --col-on-accent-dark: hsla(var(--col-on-accent-dark-comps), 80%);
+  --col-on-accent-dark-weak: hsla(var(--col-on-accent-dark-comps), 60%);
 }
 
 @mixin light {
@@ -19,8 +37,16 @@
   --col-surface-1: var(--col-surface-1-light);
   --col-surface-2: var(--col-surface-2-light);
   --col-surface-3: var(--col-surface-3-light);
+  --col-on-surface-comps: var(--col-on-surface-light-comps);
+  --col-on-surface-strong: var(--col-on-surface-light-strong);
   --col-on-surface: var(--col-on-surface-light);
+  --col-on-surface-weak: var(--col-on-surface-light-weak);
+  --col-accent-comps: var(--col-accent-light-comps);
   --col-accent: var(--col-accent-light);
+  --col-on-accent-comps: var(--col-on-accent-light-comps);
+  --col-on-accent-strong: var(--col-on-accent-light-strong);
+  --col-on-accent: var(--col-on-accent-light);
+  --col-on-accent-weak: var(--col-on-accent-light-weak);
 }
 .light {
   @include light;
@@ -31,8 +57,16 @@
   --col-surface-1: var(--col-surface-1-dark);
   --col-surface-2: var(--col-surface-2-dark);
   --col-surface-3: var(--col-surface-3-dark);
+  --col-on-surface-comps: var(--col-on-surface-dark-comps);
+  --col-on-surface-strong: var(--col-on-surface-dark-strong);
   --col-on-surface: var(--col-on-surface-dark);
+  --col-on-surface-weak: var(--col-on-surface-dark-weak);
+  --col-accent-comps: var(--col-accent-dark-comps);
   --col-accent: var(--col-accent-dark);
+  --col-on-accent-comps: var(--col-on-accent-dark-comps);
+  --col-on-accent-strong: var(--col-on-accent-dark-strong);
+  --col-on-accent: var(--col-on-accent-dark);
+  --col-on-accent-weak: var(--col-on-accent-dark-weak);
 }
 .dark {
   @include dark;
@@ -42,30 +76,55 @@
   background-color: var(--col-surface-0);
 }
 .level-0 {
-  @include level-0();
+  @include level-0;
 }
 @mixin level-1 {
   background-color: var(--col-surface-1);
 }
 .level-1 {
-  @include level-1();
+  @include level-1;
 }
 @mixin level-2 {
   background-color: var(--col-surface-2);
 }
 .level-2 {
-  @include level-2();
+  @include level-2;
 }
 @mixin level-3 {
   background-color: var(--col-surface-3);
 }
 .level-3 {
-  @include level-3();
+  @include level-3;
+}
+
+@mixin color-normal {
+  color: var(--col-on-surface);
+}
+.color-normal {
+  @include color-normal;
+}
+@mixin color-strong {
+  color: var(--col-on-surface-strong);
+}
+.color-strong {
+  @include color-strong;
+}
+@mixin color-weak {
+  color: var(--col-on-surface-weak);
+}
+.color-weak {
+  @include color-weak;
+}
+@mixin color-accent {
+  color: var(--col-accent);
+}
+.color-accent {
+  @include color-accent;
 }
 
 :root {
-  @include light();
+  @include light;
 }
 body {
-  @include level-1();
+  @include level-1;
 }

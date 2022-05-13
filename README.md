@@ -23,6 +23,14 @@ My standard template for CSS styling with SASS.
 - `btn`
 - `link`
 - `one-line` - Must be applied to wrapper div.
+- `color-normal`
+- `color-strong`
+- `color-weak`
+- `color-accent`
+- `gone`
+- `row`
+- `flex-grow`
+- `flip-180`
 
 ## Themeable
 

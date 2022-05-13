@@ -10,8 +10,10 @@ a {
   color: var(--link-col);
   text-decoration: underline transparent;
   transition: text-decoration-color 0.1s;
+  outline: none;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     text-decoration: underline var(--link-col);
   }
 }

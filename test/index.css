@@ -23,6 +23,7 @@
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
   -moz-appearance: none;
   -webkit-appearance: none;
   font: inherit;
@@ -30,14 +31,6 @@ button {
   background-color: transparent;
   border: none;
   outline: none;
-}
-
-.btn {
-  --btn-col-on-button: var(--col-on-surface);
-  color: var(--col-on-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .btn-basic {
@@ -168,9 +161,9 @@ button {
 }
 
 .btn-content-icon {
-  color: inherit;
   width: 32px;
   height: 32px;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -183,22 +176,25 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: inherit;
   height: 32px;
-  padding-inline: 6px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 32px auto;
 }
 .btn-content-icon-text > .iconify {
+  grid-column: 1;
   color: inherit;
   font-size: 1.2rem;
-  margin-right: 8px;
+  justify-self: center;
+  align-self: center;
 }
 .btn-content-icon-text > p {
+  grid-column: 2;
   color: inherit;
-  margin-bottom: 1px;
+  margin-right: 8px;
 }
 
 a {
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   color: inherit;
   font: inherit;
@@ -393,7 +389,7 @@ strong {
 }
 
 .one-line > :is(h1, h2, h3, h4, h5, h6, p) {
-  overflow-x: hidden;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   padding-bottom: 0.25em;
@@ -434,10 +430,14 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  margin-top: 12px;
   margin-right: -8px;
+  margin-bottom: -8px;
 }
 .test-button-row button {
   margin-right: 8px;
+  margin-bottom: 8px;
 }
 
 /*# sourceMappingURL=index.css.map */

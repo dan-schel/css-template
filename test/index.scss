@@ -12,9 +12,13 @@
 }
 .test-button-row {
   @include css-template.row;
+  flex-wrap: wrap;
 
+  margin-top: 12px;
   margin-right: -8px;
+  margin-bottom: -8px;
   button {
     margin-right: 8px;
+    margin-bottom: 8px;
   }
 }

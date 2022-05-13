@@ -51,7 +51,7 @@ strong {
 
 @mixin one-line {
   & > :is(h1, h2, h3, h4, h5, h6, p) {
-    overflow-x: hidden;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     padding-bottom: 0.25em;

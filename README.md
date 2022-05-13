@@ -20,7 +20,8 @@ My standard template for CSS styling with SASS.
 
 - `light`/`dark`
 - `level-0`/`level-1`/`level-2`/`level-3`
-- `btn`
+- `btn-basic`/`btn-subtle`/`btn-outline`/`btn-accent`
+- `btn-content-icon`/`btn-content-icon-text`
 - `link`
 - `one-line` - Must be applied to wrapper div.
 - `color-normal`

@@ -6,6 +6,7 @@
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
   -moz-appearance: none;
   -webkit-appearance: none;
   font: inherit;
@@ -13,17 +14,6 @@ button {
   background-color: transparent;
   border: none;
   outline: none;
-}
-
-@mixin btn {
-  --btn-col-on-button: var(--col-on-surface);
-  color: var(--col-on-surface);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn {
-  @include btn;
 }
 
 @mixin btn-basic {
@@ -44,12 +34,6 @@ button {
   border-radius: var(--btn-rounding);
   transition: background-color 0.1s, border-color 0.1s, color 0.1s;
   border: var(--btn-outline) solid var(--btn-col-outline);
-
-  // TODO: Border makes button 36x36 despite border-box on
-  // To fix this, let's just have the button content directly in the button.
-  // So each button will have a btn-style type class and btn-content type class
-  // on it.
-  // TODO: Add every button class I've added so far to readme!
 
   &:hover,
   &:focus-visible {
@@ -79,6 +63,7 @@ button {
 .btn-subtle {
   @include btn-subtle;
 }
+
 @mixin btn-outline {
   @include btn-basic;
   --btn-col-outline: hsla(var(--btn-col-comps), 20%);
@@ -88,6 +73,7 @@ button {
 .btn-outline {
   @include btn-outline;
 }
+
 @mixin btn-accent {
   @include btn-basic;
 }
@@ -101,14 +87,10 @@ button {
   --btn-col-content-active: var(--col-on-accent-strong);
 }
 
-@mixin btn-content {
-}
-
 @mixin btn-content-icon {
-  @include btn-content;
-  color: inherit;
   width: 32px;
   height: 32px;
+  display: flex;
   align-items: center;
   justify-content: center;
   & > .iconify {
@@ -121,20 +103,25 @@ button {
 }
 
 @mixin btn-content-icon-text {
-  @include btn-content;
+  // TODO: This layout is *still* affected by borders :/, maybe a rectangle with
+  // borders should be done with a relatively positioned puesdo-element (on the
+  // button)?
+
   @include utils.row;
-  color: inherit;
   height: 32px;
-  padding-inline: 6px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 32px auto;
   & > .iconify {
+    grid-column: 1;
     color: inherit;
     font-size: 1.2rem;
-    margin-right: 8px;
+    justify-self: center;
+    align-self: center;
   }
   & > p {
+    grid-column: 2;
     color: inherit;
-    margin-bottom: 1px;
+    margin-right: 8px;
   }
 }
 .btn-content-icon-text {

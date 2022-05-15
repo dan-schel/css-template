@@ -5,15 +5,15 @@
   --col-surface-3-light: hsl(220, 40%, 100%);
   --col-on-surface-light-comps: 0, 0%, 0%;
   --col-on-surface-light-strong: hsla(var(--col-on-surface-light-comps), 100%);
-  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 80%);
-  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 60%);
+  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 70%);
+  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 40%);
 
   --col-accent-light-comps: 210, 100%, 40%;
   --col-accent-light: hsl(var(--col-accent-light-comps));
   --col-on-accent-light-comps: 0, 0%, 100%;
   --col-on-accent-light-strong: hsla(var(--col-on-accent-light-comps), 100%);
-  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 80%);
-  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 60%);
+  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 70%);
+  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 40%);
 
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);

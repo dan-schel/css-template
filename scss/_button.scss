@@ -2,7 +2,7 @@
 
 :root {
   --btn-rounding: 4px;
-  --btn-outline: 2px;
+  --btn-outline: 1px;
 }
 
 button {
@@ -29,22 +29,40 @@ button {
   --btn-col-content-hover: var(--col-on-surface);
   --btn-col-content-active: var(--col-on-surface);
 
+  position: relative;
   color: var(--btn-col-content);
-  background-color: var(--btn-col-bg);
-  border-radius: var(--btn-rounding);
-  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
-  border: var(--btn-outline) solid var(--btn-col-outline);
+
+  & > * {
+    z-index: 1;
+  }
+  &::before {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--btn-col-bg);
+    border-radius: var(--btn-rounding);
+    transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+    border: var(--btn-outline) solid var(--btn-col-outline);
+  }
 
   &:hover,
   &:focus-visible {
     color: var(--btn-col-content-hover);
-    background-color: var(--btn-col-bg-hover);
-    border-color: var(--btn-col-outline-hover);
+    &::before {
+      background-color: var(--btn-col-bg-hover);
+      border-color: var(--btn-col-outline-hover);
+    }
   }
   &:active {
     color: var(--btn-col-content-active);
-    background-color: var(--btn-col-bg-active);
-    border-color: var(--btn-col-outline-active);
+    &::before {
+      background-color: var(--btn-col-bg-active);
+      border-color: var(--btn-col-outline-active);
+    }
   }
 }
 .btn-basic {
@@ -103,15 +121,11 @@ button {
 }
 
 @mixin btn-content-icon-text {
-  // TODO: This layout is *still* affected by borders :/, maybe a rectangle with
-  // borders should be done with a relatively positioned puesdo-element (on the
-  // button)?
-
   @include utils.row;
   height: 32px;
   display: grid;
   grid-template-columns: 32px auto;
-  & > .iconify {
+  & > svg {
     grid-column: 1;
     color: inherit;
     font-size: 1.2rem;
@@ -122,6 +136,7 @@ button {
     grid-column: 2;
     color: inherit;
     margin-right: 8px;
+    justify-self: start;
   }
 }
 .btn-content-icon-text {

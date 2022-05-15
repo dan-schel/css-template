@@ -19,7 +19,7 @@
 
 :root {
   --btn-rounding: 4px;
-  --btn-outline: 2px;
+  --btn-outline: 1px;
 }
 
 button {
@@ -44,7 +44,20 @@ button {
   --btn-col-content: var(--col-on-surface);
   --btn-col-content-hover: var(--col-on-surface);
   --btn-col-content-active: var(--col-on-surface);
+  position: relative;
   color: var(--btn-col-content);
+}
+.btn-basic > * {
+  z-index: 1;
+}
+.btn-basic::before {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--btn-col-bg);
   border-radius: var(--btn-rounding);
   transition: background-color 0.1s, border-color 0.1s, color 0.1s;
@@ -52,11 +65,15 @@ button {
 }
 .btn-basic:hover, .btn-basic:focus-visible {
   color: var(--btn-col-content-hover);
+}
+.btn-basic:hover::before, .btn-basic:focus-visible::before {
   background-color: var(--btn-col-bg-hover);
   border-color: var(--btn-col-outline-hover);
 }
 .btn-basic:active {
   color: var(--btn-col-content-active);
+}
+.btn-basic:active::before {
   background-color: var(--btn-col-bg-active);
   border-color: var(--btn-col-outline-active);
 }
@@ -72,11 +89,8 @@ button {
   --btn-col-content: var(--col-on-surface);
   --btn-col-content-hover: var(--col-on-surface);
   --btn-col-content-active: var(--col-on-surface);
+  position: relative;
   color: var(--btn-col-content);
-  background-color: var(--btn-col-bg);
-  border-radius: var(--btn-rounding);
-  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
-  border: var(--btn-outline) solid var(--btn-col-outline);
   --btn-col-bg: transparent;
   --btn-col-bg-hover: transparent;
   --btn-col-bg-active: transparent;
@@ -84,13 +98,33 @@ button {
   --btn-col-content-hover: hsla(var(--col-on-surface-comps), 100%);
   --btn-col-content-active: hsla(var(--col-on-surface-comps), 70%);
 }
+.btn-subtle > * {
+  z-index: 1;
+}
+.btn-subtle::before {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+}
 .btn-subtle:hover, .btn-subtle:focus-visible {
   color: var(--btn-col-content-hover);
+}
+.btn-subtle:hover::before, .btn-subtle:focus-visible::before {
   background-color: var(--btn-col-bg-hover);
   border-color: var(--btn-col-outline-hover);
 }
 .btn-subtle:active {
   color: var(--btn-col-content-active);
+}
+.btn-subtle:active::before {
   background-color: var(--btn-col-bg-active);
   border-color: var(--btn-col-outline-active);
 }
@@ -106,22 +140,39 @@ button {
   --btn-col-content: var(--col-on-surface);
   --btn-col-content-hover: var(--col-on-surface);
   --btn-col-content-active: var(--col-on-surface);
+  position: relative;
   color: var(--btn-col-content);
-  background-color: var(--btn-col-bg);
-  border-radius: var(--btn-rounding);
-  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
-  border: var(--btn-outline) solid var(--btn-col-outline);
   --btn-col-outline: hsla(var(--btn-col-comps), 20%);
   --btn-col-outline-hover: hsla(var(--btn-col-comps), 20%);
   --btn-col-outline-active: hsla(var(--btn-col-comps), 20%);
 }
+.btn-outline > * {
+  z-index: 1;
+}
+.btn-outline::before {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+}
 .btn-outline:hover, .btn-outline:focus-visible {
   color: var(--btn-col-content-hover);
+}
+.btn-outline:hover::before, .btn-outline:focus-visible::before {
   background-color: var(--btn-col-bg-hover);
   border-color: var(--btn-col-outline-hover);
 }
 .btn-outline:active {
   color: var(--btn-col-content-active);
+}
+.btn-outline:active::before {
   background-color: var(--btn-col-bg-active);
   border-color: var(--btn-col-outline-active);
 }
@@ -137,11 +188,8 @@ button {
   --btn-col-content: var(--col-on-surface);
   --btn-col-content-hover: var(--col-on-surface);
   --btn-col-content-active: var(--col-on-surface);
+  position: relative;
   color: var(--btn-col-content);
-  background-color: var(--btn-col-bg);
-  border-radius: var(--btn-rounding);
-  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
-  border: var(--btn-outline) solid var(--btn-col-outline);
   --btn-col-bg: hsla(var(--col-accent-comps), 100%);
   --btn-col-bg-hover: hsla(var(--col-accent-comps), 90%);
   --btn-col-bg-active: hsla(var(--col-accent-comps), 80%);
@@ -149,13 +197,33 @@ button {
   --btn-col-content-hover: var(--col-on-accent-strong);
   --btn-col-content-active: var(--col-on-accent-strong);
 }
+.btn-accent > * {
+  z-index: 1;
+}
+.btn-accent::before {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--btn-col-bg);
+  border-radius: var(--btn-rounding);
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+  border: var(--btn-outline) solid var(--btn-col-outline);
+}
 .btn-accent:hover, .btn-accent:focus-visible {
   color: var(--btn-col-content-hover);
+}
+.btn-accent:hover::before, .btn-accent:focus-visible::before {
   background-color: var(--btn-col-bg-hover);
   border-color: var(--btn-col-outline-hover);
 }
 .btn-accent:active {
   color: var(--btn-col-content-active);
+}
+.btn-accent:active::before {
   background-color: var(--btn-col-bg-active);
   border-color: var(--btn-col-outline-active);
 }
@@ -180,7 +248,7 @@ button {
   display: grid;
   grid-template-columns: 32px auto;
 }
-.btn-content-icon-text > .iconify {
+.btn-content-icon-text > svg {
   grid-column: 1;
   color: inherit;
   font-size: 1.2rem;
@@ -191,6 +259,7 @@ button {
   grid-column: 2;
   color: inherit;
   margin-right: 8px;
+  justify-self: start;
 }
 
 a {
@@ -218,14 +287,14 @@ a {
   --col-surface-3-light: hsl(220, 40%, 100%);
   --col-on-surface-light-comps: 0, 0%, 0%;
   --col-on-surface-light-strong: hsla(var(--col-on-surface-light-comps), 100%);
-  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 80%);
-  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 60%);
+  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 70%);
+  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 40%);
   --col-accent-light-comps: 210, 100%, 40%;
   --col-accent-light: hsl(var(--col-accent-light-comps));
   --col-on-accent-light-comps: 0, 0%, 100%;
   --col-on-accent-light-strong: hsla(var(--col-on-accent-light-comps), 100%);
-  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 80%);
-  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 60%);
+  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 70%);
+  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 40%);
   --col-surface-0-dark: hsl(220, 10%, 7%);
   --col-surface-1-dark: hsl(220, 10%, 10%);
   --col-surface-2-dark: hsl(220, 10%, 13%);
@@ -414,30 +483,51 @@ button {
 }
 
 :root {
-  --font-default: "Source Sans Pro";
+  --font-default: "Poppins";
 }
 
-.light,
-.dark {
-  padding: 24px;
-}
-.light > *:not(:last-child),
-.dark > *:not(:last-child) {
-  margin-bottom: 12px;
-}
-
-.test-button-row {
+.title-bar {
   display: flex;
   flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
-  margin-top: 12px;
-  margin-right: -8px;
-  margin-bottom: -8px;
+  padding: 8px 10px;
 }
-.test-button-row button {
-  margin-right: 8px;
+
+.content {
+  margin: 16px;
+  height: 400px;
+  border-radius: 16px;
+}
+
+.station-name {
+  margin-inline: 16px;
+  align-self: center;
+  margin-top: 16px;
   margin-bottom: 8px;
+}
+.station-name h1 {
+  color: var(--col-on-surface-strong);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.station-name .line-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 2px;
+}
+.station-name .line-bar > div {
+  flex-grow: 1;
+  flex-direction: inherit;
+  height: 4px;
+}
+.station-name .line-bar > div:first-child {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.station-name .line-bar > div:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 /*# sourceMappingURL=index.css.map */

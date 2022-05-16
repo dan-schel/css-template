@@ -12,7 +12,7 @@ h4,
 h5,
 h6,
 p {
-  @include theme.color-normal;
+  //@include theme.color-normal;
   font-family: var(--font-default);
   font-size: 1rem;
   font-weight: normal;
@@ -28,7 +28,7 @@ p {
 }
 
 .iconify {
-  @include theme.color-normal;
+  //@include theme.color-normal;
 }
 
 i,

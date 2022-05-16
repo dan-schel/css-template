@@ -281,121 +281,39 @@ a {
 }
 
 :root {
-  --col-surface-0-light: hsl(220, 30%, 90%);
-  --col-surface-1-light: hsl(220, 35%, 95%);
-  --col-surface-2-light: hsl(220, 35%, 98%);
-  --col-surface-3-light: hsl(220, 40%, 100%);
-  --col-on-surface-light-comps: 0, 0%, 0%;
-  --col-on-surface-light-strong: hsla(var(--col-on-surface-light-comps), 100%);
-  --col-on-surface-light: hsla(var(--col-on-surface-light-comps), 70%);
-  --col-on-surface-light-weak: hsla(var(--col-on-surface-light-comps), 40%);
-  --col-accent-light-comps: 210, 100%, 40%;
-  --col-accent-light: hsl(var(--col-accent-light-comps));
-  --col-on-accent-light-comps: 0, 0%, 100%;
-  --col-on-accent-light-strong: hsla(var(--col-on-accent-light-comps), 100%);
-  --col-on-accent-light: hsla(var(--col-on-accent-light-comps), 70%);
-  --col-on-accent-light-weak: hsla(var(--col-on-accent-light-comps), 40%);
-  --col-surface-0-dark: hsl(220, 10%, 7%);
-  --col-surface-1-dark: hsl(220, 10%, 10%);
-  --col-surface-2-dark: hsl(220, 10%, 13%);
-  --col-surface-3-dark: hsl(220, 10%, 15%);
-  --col-on-surface-dark-comps: 0, 0%, 100%;
-  --col-on-surface-dark-strong: hsla(var(--col-on-surface-dark-comps), 100%);
-  --col-on-surface-dark: hsla(var(--col-on-surface-dark-comps), 80%);
-  --col-on-surface-dark-weak: hsla(var(--col-on-surface-dark-comps), 60%);
-  --col-accent-dark-comps: 210, 100%, 80%;
-  --col-accent-dark: hsl(var(--col-accent-dark-comps));
-  --col-on-accent-dark-comps: 0, 0%, 0%;
-  --col-on-accent-dark-strong: hsla(var(--col-on-accent-dark-comps), 100%);
-  --col-on-accent-dark: hsla(var(--col-on-accent-dark-comps), 80%);
-  --col-on-accent-dark-weak: hsla(var(--col-on-accent-dark-comps), 60%);
+  --clr-light-surface-0: hsl(220deg, 25%, 80%);
+  --clr-light-surface-10: hsl(220deg, 30%, 84%);
+  --clr-light-surface-20: hsl(220deg, 35%, 88%);
+  --clr-light-surface-30: hsl(220deg, 40%, 92%);
+  --clr-dark-surface-0: hsl(220deg, 15%, 10%);
+  --clr-dark-surface-10: hsl(220deg, 16%, 13%);
+  --clr-dark-surface-20: hsl(220deg, 17%, 16%);
+  --clr-dark-surface-30: hsl(220deg, 18%, 19%);
 }
 
 .light {
-  --col-surface-0: var(--col-surface-0-light);
-  --col-surface-1: var(--col-surface-1-light);
-  --col-surface-2: var(--col-surface-2-light);
-  --col-surface-3: var(--col-surface-3-light);
-  --col-on-surface-comps: var(--col-on-surface-light-comps);
-  --col-on-surface-strong: var(--col-on-surface-light-strong);
-  --col-on-surface: var(--col-on-surface-light);
-  --col-on-surface-weak: var(--col-on-surface-light-weak);
-  --col-accent-comps: var(--col-accent-light-comps);
-  --col-accent: var(--col-accent-light);
-  --col-on-accent-comps: var(--col-on-accent-light-comps);
-  --col-on-accent-strong: var(--col-on-accent-light-strong);
-  --col-on-accent: var(--col-on-accent-light);
-  --col-on-accent-weak: var(--col-on-accent-light-weak);
+  --clr-theme-surface-0: var(--clr-light-surface-0);
+  --clr-theme-surface-10: var(--clr-light-surface-10);
+  --clr-theme-surface-20: var(--clr-light-surface-20);
+  --clr-theme-surface-30: var(--clr-light-surface-30);
 }
 
 .dark {
-  --col-surface-0: var(--col-surface-0-dark);
-  --col-surface-1: var(--col-surface-1-dark);
-  --col-surface-2: var(--col-surface-2-dark);
-  --col-surface-3: var(--col-surface-3-dark);
-  --col-on-surface-comps: var(--col-on-surface-dark-comps);
-  --col-on-surface-strong: var(--col-on-surface-dark-strong);
-  --col-on-surface: var(--col-on-surface-dark);
-  --col-on-surface-weak: var(--col-on-surface-dark-weak);
-  --col-accent-comps: var(--col-accent-dark-comps);
-  --col-accent: var(--col-accent-dark);
-  --col-on-accent-comps: var(--col-on-accent-dark-comps);
-  --col-on-accent-strong: var(--col-on-accent-dark-strong);
-  --col-on-accent: var(--col-on-accent-dark);
-  --col-on-accent-weak: var(--col-on-accent-dark-weak);
-}
-
-.level-0 {
-  background-color: var(--col-surface-0);
-}
-
-.level-1 {
-  background-color: var(--col-surface-1);
-}
-
-.level-2 {
-  background-color: var(--col-surface-2);
-}
-
-.level-3 {
-  background-color: var(--col-surface-3);
-}
-
-.color-normal {
-  color: var(--col-on-surface);
-}
-
-.color-strong {
-  color: var(--col-on-surface-strong);
-}
-
-.color-weak {
-  color: var(--col-on-surface-weak);
-}
-
-.color-accent {
-  color: var(--col-accent);
+  --clr-theme-surface-0: var(--clr-dark-surface-0);
+  --clr-theme-surface-10: var(--clr-dark-surface-10);
+  --clr-theme-surface-20: var(--clr-dark-surface-20);
+  --clr-theme-surface-30: var(--clr-dark-surface-30);
 }
 
 :root {
-  --col-surface-0: var(--col-surface-0-light);
-  --col-surface-1: var(--col-surface-1-light);
-  --col-surface-2: var(--col-surface-2-light);
-  --col-surface-3: var(--col-surface-3-light);
-  --col-on-surface-comps: var(--col-on-surface-light-comps);
-  --col-on-surface-strong: var(--col-on-surface-light-strong);
-  --col-on-surface: var(--col-on-surface-light);
-  --col-on-surface-weak: var(--col-on-surface-light-weak);
-  --col-accent-comps: var(--col-accent-light-comps);
-  --col-accent: var(--col-accent-light);
-  --col-on-accent-comps: var(--col-on-accent-light-comps);
-  --col-on-accent-strong: var(--col-on-accent-light-strong);
-  --col-on-accent: var(--col-on-accent-light);
-  --col-on-accent-weak: var(--col-on-accent-light-weak);
+  --clr-theme-surface-0: var(--clr-light-surface-0);
+  --clr-theme-surface-10: var(--clr-light-surface-10);
+  --clr-theme-surface-20: var(--clr-light-surface-20);
+  --clr-theme-surface-30: var(--clr-light-surface-30);
 }
 
 body {
-  background-color: var(--col-surface-1);
+  background-color: var(--clr-theme-surface-10);
 }
 
 :root {
@@ -410,7 +328,6 @@ h4,
 h5,
 h6,
 p {
-  color: var(--col-on-surface);
   font-family: var(--font-default);
   font-size: 1rem;
   font-weight: normal;
@@ -433,10 +350,6 @@ p::after {
   margin-top: calc(var(--line-spacing) / -2);
   height: 0;
   display: block;
-}
-
-.iconify {
-  color: var(--col-on-surface);
 }
 
 i,
@@ -470,14 +383,25 @@ strong {
   display: block;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+}
+
+* {
   margin: 0;
   padding: 0;
 }
 
 div,
-button {
+main,
+section,
+header,
+footer,
+aside,
+button,
+body {
   display: flex;
   flex-direction: column;
 }
@@ -486,48 +410,61 @@ button {
   --font-default: "Poppins";
 }
 
-.title-bar {
-  display: flex;
-  flex-direction: row;
+body {
+  min-height: 100vh;
+  background-color: rgb(80, 80, 80);
+  justify-content: center;
   align-items: center;
-  padding: 8px 10px;
 }
 
-.content {
-  margin: 16px;
-  height: 400px;
-  border-radius: 16px;
+.theme-panel:nth-child(1) {
+  --clr-theme-surface-0: var(--clr-light-surface-0);
+  --clr-theme-surface-10: var(--clr-light-surface-10);
+  --clr-theme-surface-20: var(--clr-light-surface-20);
+  --clr-theme-surface-30: var(--clr-light-surface-30);
+}
+.theme-panel:nth-child(2) {
+  --clr-theme-surface-0: var(--clr-dark-surface-0);
+  --clr-theme-surface-10: var(--clr-dark-surface-10);
+  --clr-theme-surface-20: var(--clr-dark-surface-20);
+  --clr-theme-surface-30: var(--clr-dark-surface-30);
 }
 
-.station-name {
-  margin-inline: 16px;
-  align-self: center;
-  margin-top: 16px;
-  margin-bottom: 8px;
+.swatch {
+  padding: 24px;
 }
-.station-name h1 {
-  color: var(--col-on-surface-strong);
-  font-weight: bold;
+.swatch h1 {
+  margin-bottom: 4px;
   font-size: 1.5rem;
+  font-weight: bold;
 }
-.station-name .line-bar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 2px;
+.swatch h2 {
+  margin-bottom: 16px;
+  font-size: 0.8rem;
 }
-.station-name .line-bar > div {
-  flex-grow: 1;
-  flex-direction: inherit;
-  height: 4px;
+.swatch:nth-child(1) {
+  background-color: var(--clr-theme-surface-30);
 }
-.station-name .line-bar > div:first-child {
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
+.swatch:nth-child(2) {
+  background-color: var(--clr-theme-surface-20);
 }
-.station-name .line-bar > div:last-child {
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+.swatch:nth-child(3) {
+  background-color: var(--clr-theme-surface-10);
+}
+.swatch:nth-child(4) {
+  background-color: var(--clr-theme-surface-0);
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .theme-panel {
+    max-width: 400px;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

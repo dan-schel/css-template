@@ -15,7 +15,6 @@ button {
   border: none;
   outline: none;
 }
-
 @mixin btn-basic {
   --btn-col-comps: var(--col-on-surface-comps);
 
@@ -65,10 +64,6 @@ button {
     }
   }
 }
-.btn-basic {
-  @include btn-basic;
-}
-
 @mixin btn-subtle {
   @include btn-basic;
   --btn-col-bg: transparent;
@@ -78,31 +73,14 @@ button {
   --btn-col-content-hover: hsla(var(--col-on-surface-comps), 100%);
   --btn-col-content-active: hsla(var(--col-on-surface-comps), 70%);
 }
-.btn-subtle {
-  @include btn-subtle;
-}
-
 @mixin btn-outline {
   @include btn-basic;
   --btn-col-outline: hsla(var(--btn-col-comps), 20%);
   --btn-col-outline-hover: hsla(var(--btn-col-comps), 20%);
   --btn-col-outline-active: hsla(var(--btn-col-comps), 20%);
 }
-.btn-outline {
-  @include btn-outline;
-}
-
 @mixin btn-accent {
   @include btn-basic;
-}
-.btn-accent {
-  @include btn-accent;
-  --btn-col-bg: hsla(var(--col-accent-comps), 100%);
-  --btn-col-bg-hover: hsla(var(--col-accent-comps), 90%);
-  --btn-col-bg-active: hsla(var(--col-accent-comps), 80%);
-  --btn-col-content: var(--col-on-accent-strong);
-  --btn-col-content-hover: var(--col-on-accent-strong);
-  --btn-col-content-active: var(--col-on-accent-strong);
 }
 
 @mixin btn-content-icon {
@@ -116,10 +94,6 @@ button {
     font-size: 1.2rem;
   }
 }
-.btn-content-icon {
-  @include btn-content-icon;
-}
-
 @mixin btn-content-icon-text {
   @include utils.row;
   height: 32px;
@@ -138,7 +112,4 @@ button {
     margin-right: 8px;
     justify-self: start;
   }
-}
-.btn-content-icon-text {
-  @include btn-content-icon-text;
 }

@@ -1,30 +1,28 @@
 @mixin gone {
   display: none !important;
 }
-.gone {
-  @include gone;
-}
-
 @mixin row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.row {
-  @include row;
-}
-
 @mixin flex-grow {
   flex-grow: 1;
   flex-direction: inherit;
 }
-.flex-grow {
-  @include flex-grow;
-}
-
 @mixin flip-180 {
   transform: rotate(180deg);
 }
-.flip-180 {
-  @include flip-180;
+
+// This project tries to avoid using utility classes, to keep the resulting
+// css lightweight. However, these classes are used often enough, they are
+// considered an exception.
+.gone {
+  @include gone;
+}
+.row {
+  @include row;
+}
+.flex-grow {
+  @include flex-grow;
 }

@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Assumes there is a project in a test/ folder, builds the scss files into css,
-# and then serves the project. Runs faster if rimraf and concurrently are
-# installed.
+# and then serves the project. Runs faster if rimraf, concurrently and onchange
+# are installed.
 npx rimraf test/**/*.css.map & rimraf test/**/*.css
-npx concurrently "npx sass -w test/index.scss test/index.css" "npx serve test/"
+npx sass test/index.scss test/index.css
+npx concurrently "onchange \"**/*.scss\" -- npx sass test/index.scss test/index.css" "npx serve test/"

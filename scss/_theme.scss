@@ -22,18 +22,11 @@
   --clr-theme-surface-20: var(--clr-light-surface-20);
   --clr-theme-surface-30: var(--clr-light-surface-30);
 }
-.light {
-  @include light;
-}
-
 @mixin dark {
   --clr-theme-surface-0: var(--clr-dark-surface-0);
   --clr-theme-surface-10: var(--clr-dark-surface-10);
   --clr-theme-surface-20: var(--clr-dark-surface-20);
   --clr-theme-surface-30: var(--clr-dark-surface-30);
-}
-.dark {
-  @include dark;
 }
 
 @mixin bg-clr-surface-0 {

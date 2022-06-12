@@ -1,23 +1,21 @@
 a {
-  -webkit-tap-highlight-color: transparent;
-  text-decoration: none;
   color: inherit;
   font: inherit;
+  text-decoration: none;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 @mixin link {
-  --link-col: var(--col-accent);
+  --link-clr: dodgerblue;
 
-  color: var(--link-col);
+  color: var(--link-clr);
   text-decoration: underline transparent;
   transition: text-decoration-color 0.1s;
   outline: none;
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline var(--link-col);
+    text-decoration: underline var(--link-clr);
   }
-}
-.link {
-  @include link;
 }

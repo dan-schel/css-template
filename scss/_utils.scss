@@ -13,16 +13,3 @@
 @mixin flip-180 {
   transform: rotate(180deg);
 }
-
-// This project tries to avoid using utility classes, to keep the resulting
-// css lightweight. However, these classes are used often enough, they are
-// considered an exception.
-.gone {
-  @include gone;
-}
-.row {
-  @include row;
-}
-.flex-grow {
-  @include flex-grow;
-}

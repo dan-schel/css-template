@@ -13,3 +13,7 @@
 @mixin flip-180 {
   transform: rotate(180deg);
 }
+@mixin no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}

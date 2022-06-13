@@ -1,8 +1,15 @@
+// == LIGHT MODE ==
 @function gen-light-paper($hue, $shade) {
   @return hsl($hue, calc(25% + $shade * 0.5%), calc(90% + $shade * 0.35%));
 }
 @function gen-light-ink($hue, $shade) {
   @return hsla($hue, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
+}
+@mixin clrs-light-shadow {
+  --clr-light-shadow-100: #{gen-light-ink(220, 100)};
+  --clr-light-shadow-80: #{gen-light-ink(220, 80)};
+  --clr-light-shadow-50: #{gen-light-ink(220, 50)};
+  --clr-light-shadow-20: #{gen-light-ink(220, 20)};
 }
 :root {
   --clr-light-paper-0: #{gen-light-paper(220, 0)};
@@ -21,43 +28,60 @@
   --clr-light-ink-20: #{gen-light-ink(220, 20)};
   --clr-light-ink-10: #{gen-light-ink(220, 10)};
 
-  --clr-light-shadow-100: #{gen-light-ink(220, 100)};
-  --clr-light-shadow-80: #{gen-light-ink(220, 80)};
-  --clr-light-shadow-50: #{gen-light-ink(220, 50)};
-  --clr-light-shadow-20: #{gen-light-ink(220, 20)};
+  @include clrs-light-shadow;
 
   --clr-light-accent: hsl(220, 70%, 50%);
 }
-@mixin light {
-  --clr-paper-0: var(--clr-light-paper-0);
-  --clr-paper-10: var(--clr-light-paper-10);
-  --clr-paper-20: var(--clr-light-paper-20);
-  --clr-paper-30: var(--clr-light-paper-30);
-
-  --clr-ink-100: var(--clr-light-ink-100);
-  --clr-ink-90: var(--clr-light-ink-90);
-  --clr-ink-80: var(--clr-light-ink-80);
-  --clr-ink-70: var(--clr-light-ink-70);
-  --clr-ink-60: var(--clr-light-ink-60);
-  --clr-ink-50: var(--clr-light-ink-50);
-  --clr-ink-40: var(--clr-light-ink-40);
-  --clr-ink-30: var(--clr-light-ink-30);
-  --clr-ink-20: var(--clr-light-ink-20);
-  --clr-ink-10: var(--clr-light-ink-10);
-
-  --clr-shadow-100: var(--clr-light-shadow-100);
-  --clr-shadow-80: var(--clr-light-shadow-80);
-  --clr-shadow-50: var(--clr-light-shadow-50);
-  --clr-shadow-20: var(--clr-light-shadow-20);
-
-  --clr-accent: var(--clr-light-accent);
+dialog::backdrop {
+  @include clrs-light-shadow;
 }
+@mixin light {
+  :root {
+    --clr-paper-0: var(--clr-light-paper-0);
+    --clr-paper-10: var(--clr-light-paper-10);
+    --clr-paper-20: var(--clr-light-paper-20);
+    --clr-paper-30: var(--clr-light-paper-30);
 
+    --clr-ink-100: var(--clr-light-ink-100);
+    --clr-ink-90: var(--clr-light-ink-90);
+    --clr-ink-80: var(--clr-light-ink-80);
+    --clr-ink-70: var(--clr-light-ink-70);
+    --clr-ink-60: var(--clr-light-ink-60);
+    --clr-ink-50: var(--clr-light-ink-50);
+    --clr-ink-40: var(--clr-light-ink-40);
+    --clr-ink-30: var(--clr-light-ink-30);
+    --clr-ink-20: var(--clr-light-ink-20);
+    --clr-ink-10: var(--clr-light-ink-10);
+
+    --clr-shadow-100: var(--clr-light-shadow-100);
+    --clr-shadow-80: var(--clr-light-shadow-80);
+    --clr-shadow-50: var(--clr-light-shadow-50);
+    --clr-shadow-20: var(--clr-light-shadow-20);
+
+    --clr-accent: var(--clr-light-accent);
+  }
+  dialog::backdrop {
+    --clr-shadow-100: var(--clr-light-shadow-100);
+    --clr-shadow-80: var(--clr-light-shadow-80);
+    --clr-shadow-50: var(--clr-light-shadow-50);
+    --clr-shadow-20: var(--clr-light-shadow-20);
+  }
+}
+// == END LIGHT MODE COLORS ==
+
+// == DARK MODE COLORS ==
 @function gen-dark-paper($hue, $shade) {
   @return hsl($hue, calc(15% + $shade * 0.1%), calc(2% + $shade * 0.5%));
 }
 @function gen-dark-ink($hue, $shade) {
   @return hsla($hue, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
+}
+@mixin clrs-dark-shadow {
+  // Use light theme ink colors (shadows should always be black!)
+  --clr-dark-shadow-100: #{gen-light-ink(220, 100)};
+  --clr-dark-shadow-80: #{gen-light-ink(220, 80)};
+  --clr-dark-shadow-50: #{gen-light-ink(220, 50)};
+  --clr-dark-shadow-20: #{gen-light-ink(220, 20)};
 }
 :root {
   --clr-dark-paper-0: #{gen-dark-paper(220, 0)};
@@ -76,13 +100,12 @@
   --clr-dark-ink-20: #{gen-dark-ink(220, 20)};
   --clr-dark-ink-10: #{gen-dark-ink(220, 10)};
 
-  // Use light theme ink colors (shadows should always be black!)
-  --clr-dark-shadow-100: #{gen-light-ink(220, 100)};
-  --clr-dark-shadow-80: #{gen-light-ink(220, 80)};
-  --clr-dark-shadow-50: #{gen-light-ink(220, 50)};
-  --clr-dark-shadow-20: #{gen-light-ink(220, 20)};
+  @include clrs-dark-shadow;
 
   --clr-dark-accent: hsl(220, 100%, 70%);
+}
+dialog::backdrop {
+  @include clrs-dark-shadow;
 }
 @mixin dark {
   --clr-paper-0: var(--clr-dark-paper-0);
@@ -108,6 +131,7 @@
 
   --clr-accent: var(--clr-dark-accent);
 }
+// == END DARK MODE COLORS ==
 
 @mixin bg-paper-0 {
   background-color: var(--clr-paper-0);
@@ -122,9 +146,8 @@
   background-color: var(--clr-paper-30);
 }
 
-:root {
-  @include light;
-}
+// Set default theme to light.
+@include light;
 body {
   @include bg-paper-10;
 }

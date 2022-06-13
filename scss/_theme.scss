@@ -6,10 +6,10 @@
   @return hsla($hue, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
 }
 @mixin clrs-light-shadow {
-  --clr-light-shadow-100: #{gen-light-ink(220, 100)};
-  --clr-light-shadow-80: #{gen-light-ink(220, 80)};
-  --clr-light-shadow-50: #{gen-light-ink(220, 50)};
-  --clr-light-shadow-20: #{gen-light-ink(220, 20)};
+  --clr-light-shadow-100: black;
+  --clr-light-shadow-70: rgba(black, 70%);
+  --clr-light-shadow-40: rgba(black, 40%);
+  --clr-light-shadow-10: rgba(black, 10%);
 }
 :root {
   --clr-light-paper-0: #{gen-light-paper(220, 0)};
@@ -77,11 +77,10 @@ dialog::backdrop {
   @return hsla($hue, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
 }
 @mixin clrs-dark-shadow {
-  // Use light theme ink colors (shadows should always be black!)
-  --clr-dark-shadow-100: #{gen-light-ink(220, 100)};
-  --clr-dark-shadow-80: #{gen-light-ink(220, 80)};
-  --clr-dark-shadow-50: #{gen-light-ink(220, 50)};
-  --clr-dark-shadow-20: #{gen-light-ink(220, 20)};
+  --clr-dark-shadow-100: black;
+  --clr-dark-shadow-70: rgba(black, 70%);
+  --clr-dark-shadow-40: rgba(black, 40%);
+  --clr-dark-shadow-10: rgba(black, 10%);
 }
 :root {
   --clr-dark-paper-0: #{gen-dark-paper(220, 0)};

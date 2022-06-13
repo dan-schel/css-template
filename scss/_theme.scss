@@ -73,41 +73,43 @@ dialog::backdrop {
 }
 
 @mixin gen-theme($theme) {
-  @mixin #{$theme} {
-    :root {
-      --clr-paper-0: var(--clr-#{$theme}-paper-0);
-      --clr-paper-10: var(--clr-#{$theme}-paper-10);
-      --clr-paper-20: var(--clr-#{$theme}-paper-20);
-      --clr-paper-30: var(--clr-#{$theme}-paper-30);
+  :root {
+    --clr-paper-0: var(--clr-#{$theme}-paper-0);
+    --clr-paper-10: var(--clr-#{$theme}-paper-10);
+    --clr-paper-20: var(--clr-#{$theme}-paper-20);
+    --clr-paper-30: var(--clr-#{$theme}-paper-30);
 
-      --clr-ink-100: var(--clr-#{$theme}-ink-100);
-      --clr-ink-90: var(--clr-#{$theme}-ink-90);
-      --clr-ink-80: var(--clr-#{$theme}-ink-80);
-      --clr-ink-70: var(--clr-#{$theme}-ink-70);
-      --clr-ink-60: var(--clr-#{$theme}-ink-60);
-      --clr-ink-50: var(--clr-#{$theme}-ink-50);
-      --clr-ink-40: var(--clr-#{$theme}-ink-40);
-      --clr-ink-30: var(--clr-#{$theme}-ink-30);
-      --clr-ink-20: var(--clr-#{$theme}-ink-20);
-      --clr-ink-10: var(--clr-#{$theme}-ink-10);
+    --clr-ink-100: var(--clr-#{$theme}-ink-100);
+    --clr-ink-90: var(--clr-#{$theme}-ink-90);
+    --clr-ink-80: var(--clr-#{$theme}-ink-80);
+    --clr-ink-70: var(--clr-#{$theme}-ink-70);
+    --clr-ink-60: var(--clr-#{$theme}-ink-60);
+    --clr-ink-50: var(--clr-#{$theme}-ink-50);
+    --clr-ink-40: var(--clr-#{$theme}-ink-40);
+    --clr-ink-30: var(--clr-#{$theme}-ink-30);
+    --clr-ink-20: var(--clr-#{$theme}-ink-20);
+    --clr-ink-10: var(--clr-#{$theme}-ink-10);
 
-      --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
-      --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
-      --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
-      --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
+    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
+    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
+    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
+    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
 
-      --clr-accent: var(--clr-#{$theme}-accent);
-    }
-    dialog::backdrop {
-      --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
-      --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
-      --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
-      --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
-    }
+    --clr-accent: var(--clr-#{$theme}-accent);
+  }
+  dialog::backdrop {
+    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
+    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
+    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
+    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
   }
 }
-@include gen-theme("light");
-@include gen-theme("dark");
+@mixin light {
+  @include gen-theme("light");
+}
+@mixin dark {
+  @include gen-theme("dark");
+}
 
 @mixin bg-paper-0 {
   background-color: var(--clr-paper-0);

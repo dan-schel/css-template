@@ -1,51 +1,42 @@
 @use "sass:meta";
 
 @mixin gen-paper-swatches($theme, $paper-function) {
-  --clr-#{$theme}-paper-0: #{meta.call($paper-function, 220, 0)};
-  --clr-#{$theme}-paper-10: #{meta.call($paper-function, 220, 10)};
-  --clr-#{$theme}-paper-20: #{meta.call($paper-function, 220, 20)};
-  --clr-#{$theme}-paper-30: #{meta.call($paper-function, 220, 30)};
+  --clr-#{$theme}-paper-0: #{meta.call($paper-function, 0)};
+  --clr-#{$theme}-paper-10: #{meta.call($paper-function, 10)};
+  --clr-#{$theme}-paper-20: #{meta.call($paper-function, 20)};
+  --clr-#{$theme}-paper-30: #{meta.call($paper-function, 30)};
+}
+@mixin gen-ink-swatches($theme, $ink-function) {
+  --clr-#{$theme}-ink-100: #{meta.call($ink-function, 100)};
+  --clr-#{$theme}-ink-90: #{meta.call($ink-function, 90)};
+  --clr-#{$theme}-ink-80: #{meta.call($ink-function, 80)};
+  --clr-#{$theme}-ink-70: #{meta.call($ink-function, 70)};
+  --clr-#{$theme}-ink-60: #{meta.call($ink-function, 60)};
+  --clr-#{$theme}-ink-50: #{meta.call($ink-function, 50)};
+  --clr-#{$theme}-ink-40: #{meta.call($ink-function, 40)};
+  --clr-#{$theme}-ink-30: #{meta.call($ink-function, 30)};
+  --clr-#{$theme}-ink-20: #{meta.call($ink-function, 20)};
+  --clr-#{$theme}-ink-10: #{meta.call($ink-function, 10)};
 }
 
-@function gen-light-paper($hue, $shade) {
-  @return hsl($hue, calc(25% + $shade * 0.5%), calc(90% + $shade * 0.35%));
+@function gen-light-paper($shade) {
+  @return hsl(220, calc(25% + $shade * 0.5%), calc(90% + $shade * 0.35%));
 }
-@function gen-light-ink($hue, $shade) {
-  @return hsla($hue, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
+@function gen-light-ink($shade) {
+  @return hsla(220, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
 }
+@function gen-dark-paper($shade) {
+  @return hsl(220, calc(15% + $shade * 0.1%), calc(2% + $shade * 0.5%));
+}
+@function gen-dark-ink($shade) {
+  @return hsla(220, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
+}
+
 @mixin clrs-light-shadow {
   --clr-light-shadow-100: black;
   --clr-light-shadow-30: rgba(0, 0, 0, 70%);
   --clr-light-shadow-20: rgba(0, 0, 0, 40%);
   --clr-light-shadow-10: rgba(0, 0, 0, 10%);
-}
-:root {
-  @include gen-paper-swatches("light", meta.get-function("gen-light-paper"));
-
-  --clr-light-ink-100: #{gen-light-ink(220, 100)};
-  --clr-light-ink-90: #{gen-light-ink(220, 90)};
-  --clr-light-ink-80: #{gen-light-ink(220, 80)};
-  --clr-light-ink-70: #{gen-light-ink(220, 70)};
-  --clr-light-ink-60: #{gen-light-ink(220, 60)};
-  --clr-light-ink-50: #{gen-light-ink(220, 50)};
-  --clr-light-ink-40: #{gen-light-ink(220, 40)};
-  --clr-light-ink-30: #{gen-light-ink(220, 30)};
-  --clr-light-ink-20: #{gen-light-ink(220, 20)};
-  --clr-light-ink-10: #{gen-light-ink(220, 10)};
-
-  @include clrs-light-shadow;
-
-  --clr-light-accent: hsl(220, 70%, 50%);
-}
-dialog::backdrop {
-  @include clrs-light-shadow;
-}
-
-@function gen-dark-paper($hue, $shade) {
-  @return hsl($hue, calc(15% + $shade * 0.1%), calc(2% + $shade * 0.5%));
-}
-@function gen-dark-ink($hue, $shade) {
-  @return hsla($hue, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
 }
 @mixin clrs-dark-shadow {
   --clr-dark-shadow-100: black;
@@ -53,32 +44,29 @@ dialog::backdrop {
   --clr-dark-shadow-20: rgba(0, 0, 0, 60%);
   --clr-dark-shadow-10: rgba(0, 0, 0, 20%);
 }
+
 :root {
-  --clr-dark-paper-0: #{gen-dark-paper(220, 0)};
-  --clr-dark-paper-10: #{gen-dark-paper(220, 10)};
-  --clr-dark-paper-20: #{gen-dark-paper(220, 20)};
-  --clr-dark-paper-30: #{gen-dark-paper(220, 30)};
+  @include gen-paper-swatches("light", meta.get-function("gen-light-paper"));
+  @include gen-ink-swatches("light", meta.get-function("gen-light-ink"));
+  --clr-light-accent: hsl(220, 70%, 50%);
 
-  --clr-dark-ink-100: #{gen-dark-ink(220, 100)};
-  --clr-dark-ink-90: #{gen-dark-ink(220, 90)};
-  --clr-dark-ink-80: #{gen-dark-ink(220, 80)};
-  --clr-dark-ink-70: #{gen-dark-ink(220, 70)};
-  --clr-dark-ink-60: #{gen-dark-ink(220, 60)};
-  --clr-dark-ink-50: #{gen-dark-ink(220, 50)};
-  --clr-dark-ink-40: #{gen-dark-ink(220, 40)};
-  --clr-dark-ink-30: #{gen-dark-ink(220, 30)};
-  --clr-dark-ink-20: #{gen-dark-ink(220, 20)};
-  --clr-dark-ink-10: #{gen-dark-ink(220, 10)};
-
-  @include clrs-dark-shadow;
-
+  @include gen-paper-swatches("dark", meta.get-function("gen-dark-paper"));
+  @include gen-ink-swatches("dark", meta.get-function("gen-dark-ink"));
   --clr-dark-accent: hsl(220, 100%, 70%);
 }
+:root,
 dialog::backdrop {
+  @include clrs-light-shadow;
   @include clrs-dark-shadow;
 }
 
 @mixin gen-theme($theme) {
+  @mixin gen-theme-shadow() {
+    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
+    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
+    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
+    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
+  }
   :root {
     --clr-paper-0: var(--clr-#{$theme}-paper-0);
     --clr-paper-10: var(--clr-#{$theme}-paper-10);
@@ -96,18 +84,11 @@ dialog::backdrop {
     --clr-ink-20: var(--clr-#{$theme}-ink-20);
     --clr-ink-10: var(--clr-#{$theme}-ink-10);
 
-    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
-    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
-    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
-    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
-
     --clr-accent: var(--clr-#{$theme}-accent);
   }
+  :root,
   dialog::backdrop {
-    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
-    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
-    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
-    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
+    @include gen-theme-shadow;
   }
 }
 @mixin light {

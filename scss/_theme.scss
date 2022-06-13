@@ -7,9 +7,9 @@
 }
 @mixin clrs-light-shadow {
   --clr-light-shadow-100: black;
-  --clr-light-shadow-70: red;
-  --clr-light-shadow-40: blue;
-  --clr-light-shadow-10: green;
+  --clr-light-shadow-70: rgba(0, 0, 0, 70%);
+  --clr-light-shadow-40: rgba(0, 0, 0, 40%);
+  --clr-light-shadow-10: rgba(0, 0, 0, 10%);
 }
 :root {
   --clr-light-paper-0: #{gen-light-paper(220, 0)};
@@ -78,9 +78,9 @@ dialog::backdrop {
 }
 @mixin clrs-dark-shadow {
   --clr-dark-shadow-100: black;
-  --clr-dark-shadow-70: red;
-  --clr-dark-shadow-40: blue;
-  --clr-dark-shadow-10: green;
+  --clr-dark-shadow-70: rgba(0, 0, 0, 70%);
+  --clr-dark-shadow-40: rgba(0, 0, 0, 40%);
+  --clr-dark-shadow-10: rgba(0, 0, 0, 10%);
 }
 :root {
   --clr-dark-paper-0: #{gen-dark-paper(220, 0)};

@@ -108,28 +108,36 @@ dialog::backdrop {
   @include clrs-dark-shadow;
 }
 @mixin dark {
-  --clr-paper-0: var(--clr-dark-paper-0);
-  --clr-paper-10: var(--clr-dark-paper-10);
-  --clr-paper-20: var(--clr-dark-paper-20);
-  --clr-paper-30: var(--clr-dark-paper-30);
+  :root {
+    --clr-paper-0: var(--clr-dark-paper-0);
+    --clr-paper-10: var(--clr-dark-paper-10);
+    --clr-paper-20: var(--clr-dark-paper-20);
+    --clr-paper-30: var(--clr-dark-paper-30);
 
-  --clr-ink-100: var(--clr-dark-ink-100);
-  --clr-ink-90: var(--clr-dark-ink-90);
-  --clr-ink-80: var(--clr-dark-ink-80);
-  --clr-ink-70: var(--clr-dark-ink-70);
-  --clr-ink-60: var(--clr-dark-ink-60);
-  --clr-ink-50: var(--clr-dark-ink-50);
-  --clr-ink-40: var(--clr-dark-ink-40);
-  --clr-ink-30: var(--clr-dark-ink-30);
-  --clr-ink-20: var(--clr-dark-ink-20);
-  --clr-ink-10: var(--clr-dark-ink-10);
+    --clr-ink-100: var(--clr-dark-ink-100);
+    --clr-ink-90: var(--clr-dark-ink-90);
+    --clr-ink-80: var(--clr-dark-ink-80);
+    --clr-ink-70: var(--clr-dark-ink-70);
+    --clr-ink-60: var(--clr-dark-ink-60);
+    --clr-ink-50: var(--clr-dark-ink-50);
+    --clr-ink-40: var(--clr-dark-ink-40);
+    --clr-ink-30: var(--clr-dark-ink-30);
+    --clr-ink-20: var(--clr-dark-ink-20);
+    --clr-ink-10: var(--clr-dark-ink-10);
 
-  --clr-shadow-100: var(--clr-dark-shadow-100);
-  --clr-shadow-80: var(--clr-dark-shadow-80);
-  --clr-shadow-50: var(--clr-dark-shadow-50);
-  --clr-shadow-20: var(--clr-dark-shadow-20);
+    --clr-shadow-100: var(--clr-dark-shadow-100);
+    --clr-shadow-80: var(--clr-dark-shadow-80);
+    --clr-shadow-50: var(--clr-dark-shadow-50);
+    --clr-shadow-20: var(--clr-dark-shadow-20);
 
-  --clr-accent: var(--clr-dark-accent);
+    --clr-accent: var(--clr-dark-accent);
+  }
+  dialog::backdrop {
+    --clr-shadow-100: var(--clr-dark-shadow-100);
+    --clr-shadow-80: var(--clr-dark-shadow-80);
+    --clr-shadow-50: var(--clr-dark-shadow-50);
+    --clr-shadow-20: var(--clr-dark-shadow-20);
+  }
 }
 // == END DARK MODE COLORS ==
 

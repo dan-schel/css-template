@@ -32,19 +32,6 @@
   @return hsla(220, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
 }
 
-@mixin clrs-light-shadow {
-  --clr-light-shadow-100: black;
-  --clr-light-shadow-30: rgba(0, 0, 0, 70%);
-  --clr-light-shadow-20: rgba(0, 0, 0, 40%);
-  --clr-light-shadow-10: rgba(0, 0, 0, 10%);
-}
-@mixin clrs-dark-shadow {
-  --clr-dark-shadow-100: black;
-  --clr-dark-shadow-30: rgba(0, 0, 0, 80%);
-  --clr-dark-shadow-20: rgba(0, 0, 0, 60%);
-  --clr-dark-shadow-10: rgba(0, 0, 0, 20%);
-}
-
 :root {
   @include gen-paper-swatches("light", meta.get-function("gen-light-paper"));
   @include gen-ink-swatches("light", meta.get-function("gen-light-ink"));
@@ -56,17 +43,18 @@
 }
 :root,
 dialog::backdrop {
-  @include clrs-light-shadow;
-  @include clrs-dark-shadow;
+  --clr-light-shadow-100: black;
+  --clr-light-shadow-30: rgba(0, 0, 0, 70%);
+  --clr-light-shadow-20: rgba(0, 0, 0, 40%);
+  --clr-light-shadow-10: rgba(0, 0, 0, 10%);
+
+  --clr-dark-shadow-100: black;
+  --clr-dark-shadow-30: rgba(0, 0, 0, 80%);
+  --clr-dark-shadow-20: rgba(0, 0, 0, 60%);
+  --clr-dark-shadow-10: rgba(0, 0, 0, 20%);
 }
 
 @mixin gen-theme($theme) {
-  @mixin gen-theme-shadow() {
-    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
-    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
-    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
-    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
-  }
   :root {
     --clr-paper-0: var(--clr-#{$theme}-paper-0);
     --clr-paper-10: var(--clr-#{$theme}-paper-10);
@@ -88,7 +76,10 @@ dialog::backdrop {
   }
   :root,
   dialog::backdrop {
-    @include gen-theme-shadow;
+    --clr-shadow-100: var(--clr-#{$theme}-shadow-100);
+    --clr-shadow-30: var(--clr-#{$theme}-shadow-30);
+    --clr-shadow-20: var(--clr-#{$theme}-shadow-20);
+    --clr-shadow-10: var(--clr-#{$theme}-shadow-10);
   }
 }
 @mixin light {

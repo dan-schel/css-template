@@ -21,6 +21,11 @@
   --clr-light-ink-20: #{gen-light-ink(220, 20)};
   --clr-light-ink-10: #{gen-light-ink(220, 10)};
 
+  --clr-light-shadow-100: #{gen-light-ink(220, 100)};
+  --clr-light-shadow-80: #{gen-light-ink(220, 80)};
+  --clr-light-shadow-50: #{gen-light-ink(220, 50)};
+  --clr-light-shadow-20: #{gen-light-ink(220, 20)};
+
   --clr-light-accent: hsl(220, 70%, 50%);
 }
 @mixin light {
@@ -39,6 +44,11 @@
   --clr-ink-30: var(--clr-light-ink-30);
   --clr-ink-20: var(--clr-light-ink-20);
   --clr-ink-10: var(--clr-light-ink-10);
+
+  --clr-shadow-100: var(--clr-light-shadow-100);
+  --clr-shadow-80: var(--clr-light-shadow-80);
+  --clr-shadow-50: var(--clr-light-shadow-50);
+  --clr-shadow-20: var(--clr-light-shadow-20);
 
   --clr-accent: var(--clr-light-accent);
 }
@@ -66,6 +76,12 @@
   --clr-dark-ink-20: #{gen-dark-ink(220, 20)};
   --clr-dark-ink-10: #{gen-dark-ink(220, 10)};
 
+  // Use light theme ink colors (shadows should always be black!)
+  --clr-dark-shadow-100: #{gen-light-ink(220, 100)};
+  --clr-dark-shadow-80: #{gen-light-ink(220, 80)};
+  --clr-dark-shadow-50: #{gen-light-ink(220, 50)};
+  --clr-dark-shadow-20: #{gen-light-ink(220, 20)};
+
   --clr-dark-accent: hsl(220, 100%, 70%);
 }
 @mixin dark {
@@ -84,6 +100,11 @@
   --clr-ink-30: var(--clr-dark-ink-30);
   --clr-ink-20: var(--clr-dark-ink-20);
   --clr-ink-10: var(--clr-dark-ink-10);
+
+  --clr-shadow-100: var(--clr-dark-shadow-100);
+  --clr-shadow-80: var(--clr-dark-shadow-80);
+  --clr-shadow-50: var(--clr-dark-shadow-50);
+  --clr-shadow-20: var(--clr-dark-shadow-20);
 
   --clr-accent: var(--clr-dark-accent);
 }

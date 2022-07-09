@@ -18,7 +18,7 @@ Divs, and all div-like elements (`<a>`, `<dialog>`, `<main>`, `<section>`,
 `<button>`, etc.), use flex-box column layout. All elements will not flex shrink
 by default.
 
-### Color Themeing
+### Color Theming
 
 By default, everything will be in light theme (the `light-base` mixin is
 appended to the stylesheet). Including `dark-base` outside of any selector

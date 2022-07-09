@@ -27,7 +27,7 @@ by default.
 
 By default, everything will be in light theme (the `light-base` mixin is
 appended to the stylesheet). Including `dark-base` outside of any selector
-(applying it to the stylesheet) will apply dark theme for each element by
+(applying it to the stylesheet) will apply dark theme for the whole page by
 default.
 
 ```css
@@ -35,11 +35,11 @@ default.
 @include template.dark-base;
 ```
 
-### Background colors
+#### Background colors
 
-The background color of a div change be changed with `bg-paper-XX` (where XX is
-0, 10, 20, or 30). The body of the page has a background color of `bg-paper-10`
-by default.
+The background color of a div change be changed with `bg-paper-XX` (where `XX`
+is 0, 10, 20, or 30). The body of the page has a background color of
+`bg-paper-10` by default.
 
 ```css
 @use "css-template/import" as template;

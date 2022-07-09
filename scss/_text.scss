@@ -51,6 +51,7 @@ strong {
     white-space: nowrap;
     text-overflow: ellipsis;
     padding-bottom: 0.25em;
+    flex-shrink: 1;
   }
   &::after {
     content: "";

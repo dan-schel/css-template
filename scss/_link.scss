@@ -7,15 +7,14 @@ a {
 }
 
 @mixin link {
-  --link-clr: dodgerblue;
-
-  color: var(--link-clr);
+  display: inline;
+  color: var(--clr-accent);
   text-decoration: underline transparent;
   transition: text-decoration-color 0.1s;
   outline: none;
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline var(--link-clr);
+    text-decoration: underline var(--clr-accent);
   }
 }

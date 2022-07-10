@@ -1,0 +1,15 @@
+@use "button-styling-filled-neutral" as bsfn;
+
+@mixin btn-classic {
+  @include bsfn.btn-filled-neutral;
+
+  &::before {
+    border: var(--clr-ink-20) solid var(--btn-outline);
+  }
+}
+
+@mixin input-btn-classic {
+  @include bsfn.input-btn-filled-neutral;
+
+  border: var(--clr-ink-20) solid var(--btn-outline);
+}

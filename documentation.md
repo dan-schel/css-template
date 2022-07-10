@@ -320,6 +320,15 @@ will use `--col-accent` for the background and `--col-on-accent` for the
 content. To change the background color, you can override the `--col-accent` for
 that element.
 
+### 7.1. Input button styling
+
+Each of the styles mentioned above are available for input buttons, with the
+`input-btn-` prefix rather than `btn-`. However these styles may have
+inconsistant sizes due to borders. This issue was resolved with puesdo-elements
+for regular buttons but was impossible for input buttons as they do not support
+puesdo-elements or any form of inner element. The use of regular `<button>`s
+are preferred for this reason.
+
 ## 8. Generic content templates
 
 The `content-XX` mixins define generic layouts mainly designed for use with

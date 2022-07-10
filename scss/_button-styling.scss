@@ -1,3 +1,8 @@
+:root {
+  --btn-rounding: 0.25rem;
+  --btn-outline: 1px;
+}
+
 @mixin btn-base {
   --content-clr: var(--clr-ink-80);
   position: relative;
@@ -8,6 +13,8 @@
     z-index: 1;
   }
 
+  // Use puesdo-element for the button's styling so any border doesn't
+  // contribute to the final size.
   &::before {
     // Background should display underneath any other content.
     z-index: 0;
@@ -25,112 +32,16 @@
   &:disabled,
   &[disabled] {
     > * {
-      opacity: 0.5;
+      opacity: 50%;
     }
   }
 }
 
-@mixin btn-hover {
-  @include btn-base;
+@mixin input-btn-base {
+  // For inputs, we cannot use puesdo-elements. So borders may cause size
+  // to be 1px (or --btn-outline) larger than the content desired unfortunately.
+  border-radius: var(--btn-rounding);
 
-  &::before {
-    transition: background-color 0.05s;
-  }
-
-  &:hover,
-  &:focus-visible {
-    &::before {
-      background-color: var(--clr-ink-10);
-    }
-  }
-
-  &:active {
-    &::before {
-      background-color: var(--clr-ink-20);
-    }
-  }
-
-  &:disabled,
-  &[disabled] {
-    &::before {
-      background-color: transparent;
-    }
-  }
-}
-
-@mixin btn-filled {
-  @include btn-base;
-
-  --content-clr: var(--clr-on-accent);
-
-  &::before {
-    transition: opacity 0.05s;
-    background-color: var(--clr-accent);
-    opacity: 80%;
-  }
-
-  &:hover,
-  &:focus-visible {
-    &::before {
-      opacity: 100%;
-    }
-  }
-
-  &:active {
-    &::before {
-      opacity: 60%;
-    }
-  }
-
-  &:disabled,
-  &[disabled] {
-    // Set back to normal color. 50% opacity is also applied on top of this.
-    --content-clr: var(--clr-ink-80);
-
-    &::before {
-      // Prevent hover and active overriding this value.
-      opacity: 100%;
-
-      background-color: transparent;
-      border: var(--btn-outline) solid var(--clr-ink-10);
-    }
-  }
-}
-
-@mixin btn-filled-neutral {
-  @include btn-base;
-
-  &::before {
-    transition: background-color 0.05s;
-    background-color: var(--clr-ink-10);
-  }
-
-  &:hover,
-  &:focus-visible {
-    &::before {
-      background-color: var(--clr-ink-20);
-    }
-  }
-
-  &:active {
-    &::before {
-      background-color: var(--clr-ink-30);
-    }
-  }
-
-  &:disabled,
-  &[disabled] {
-    &::before {
-      background-color: transparent;
-      border: var(--btn-outline) solid var(--clr-ink-10);
-    }
-  }
-}
-
-@mixin btn-classic {
-  @include btn-filled-neutral;
-
-  &::before {
-    border: var(--clr-ink-20) solid var(--btn-outline);
-  }
+  // Do not set opacity to 50% when disabled here, because we can't target the
+  // input button's text alone.
 }

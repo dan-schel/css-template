@@ -1,0 +1,70 @@
+@use "button-styling" as button-styling;
+
+@mixin btn-filled {
+  @include button-styling.btn-base;
+
+  --content-clr: var(--clr-on-accent);
+
+  &::before {
+    transition: opacity 0.05s;
+    background-color: var(--clr-accent);
+    opacity: 80%;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 100%;
+    }
+  }
+
+  &:active {
+    &::before {
+      opacity: 60%;
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    // Set back to normal color. 50% opacity is also applied on top of this.
+    --content-clr: var(--clr-ink-80);
+
+    &::before {
+      // Prevent hover and active overriding this value.
+      opacity: 100%;
+
+      background-color: transparent;
+      border: var(--btn-outline) solid var(--clr-ink-10);
+    }
+  }
+}
+
+@mixin input-btn-filled {
+  @include button-styling.input-btn-base;
+
+  color: var(--clr-on-accent);
+
+  transition: opacity 0.05s;
+  background-color: var(--clr-accent);
+
+  // This opacity value affects the text too, unlike how the regular buttons
+  // behave, however the impact of this is minor.
+  opacity: 80%;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 100%;
+  }
+
+  &:active {
+    opacity: 60%;
+  }
+
+  &:disabled,
+  &[disabled] {
+    color: var(--clr-ink-80);
+    opacity: 50%;
+    background-color: transparent;
+    border: var(--btn-outline) solid var(--clr-ink-20);
+  }
+}

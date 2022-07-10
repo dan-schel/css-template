@@ -20,6 +20,7 @@
   - [5.1. Link styling](#51-link-styling)
 - [6. Button tags](#6-button-tags)
 - [7. Button styling](#7-button-styling)
+  - [7.1. Input button styling](#71-input-button-styling)
 - [8. Generic content templates](#8-generic-content-templates)
 
 ## 1. Layout

@@ -38,6 +38,6 @@ input[type="submit"] {
   @include utils.row;
   justify-content: center;
   > p {
-    color: var(--content-clr);
+    color: var(--clr-content);
   }
 }

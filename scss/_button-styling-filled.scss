@@ -3,7 +3,7 @@
 @mixin btn-filled {
   @include button-styling.btn-base;
 
-  --content-clr: var(--clr-on-accent);
+  --clr-content: var(--clr-on-accent);
 
   &::before {
     transition: opacity 0.05s;
@@ -27,7 +27,7 @@
   &:disabled,
   &[disabled] {
     // Set back to normal color. 50% opacity is also applied on top of this.
-    --content-clr: var(--clr-ink-80);
+    --clr-content: var(--clr-ink-80);
 
     &::before {
       // Prevent hover and active overriding this value.

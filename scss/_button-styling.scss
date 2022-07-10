@@ -4,7 +4,7 @@
 }
 
 @mixin btn-base {
-  --content-clr: var(--clr-ink-80);
+  --clr-content: var(--clr-ink-80);
   position: relative;
 
   & > * {

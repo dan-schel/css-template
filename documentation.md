@@ -20,7 +20,8 @@
   - [5.1. Link styling](#51-link-styling)
 - [6. Button tags](#6-button-tags)
 - [7. Button styling](#7-button-styling)
-  - [7.1. Input button styling](#71-input-button-styling)
+  - [7.1. Available stylings](#71-available-stylings)
+  - [7.2. Input button styling](#72-input-button-styling)
 - [8. Generic content templates](#8-generic-content-templates)
 
 ## 1. Layout
@@ -307,6 +308,8 @@ button {
 </button>
 ```
 
+### 7.1. Available stylings
+
 For a subtle button effect that is invisible until hovered/focussed, the
 `btn-hover` mixin is available. This button styling does **_not_** require
 the content to support `--clr-content`.
@@ -321,7 +324,7 @@ will use `--col-accent` for the background and `--col-on-accent` for the
 content. To change the background color, you can override the `--col-accent` for
 that element.
 
-### 7.1. Input button styling
+### 7.2. Input button styling
 
 Each of the styles mentioned above are available for input buttons, with the
 `input-btn-` prefix rather than `btn-`. However these styles may have

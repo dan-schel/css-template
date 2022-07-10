@@ -1,115 +1,87 @@
-// @use "utils";
+button {
+  // Remove all special appearance from <button> tags by default, so <div>, <a>,
+  // and <button> are interchangable.
+  -webkit-tap-highlight-color: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
 
-// :root {
-//   --btn-rounding: 4px;
-//   --btn-outline: 1px;
-// }
+  // Clickable elements should always use pointer cursor in my opinion...
+  cursor: pointer;
 
-// button {
-//   -webkit-tap-highlight-color: transparent;
-//   -moz-appearance: none;
-//   -webkit-appearance: none;
-//   font: inherit;
-//   cursor: pointer;
-//   background-color: transparent;
-//   border: none;
-//   outline: none;
-// }
-// @mixin btn-basic {
-//   --btn-col-comps: var(--col-on-surface-comps);
+  // ...except when disabled.
+  &[disabled],
+  &:disabled {
+    cursor: default;
+  }
+}
 
-//   --btn-col-bg: transparent;
-//   --btn-col-bg-hover: hsla(var(--btn-col-comps), 10%);
-//   --btn-col-bg-active: hsla(var(--btn-col-comps), 20%);
-//   --btn-col-outline: transparent;
-//   --btn-col-outline-hover: transparent;
-//   --btn-col-outline-active: transparent;
-//   --btn-col-content: var(--col-on-surface);
-//   --btn-col-content-hover: var(--col-on-surface);
-//   --btn-col-content-active: var(--col-on-surface);
+:root {
+  --btn-rounding: 4px;
+  --btn-outline: 1px;
+}
 
-//   position: relative;
-//   color: var(--btn-col-content);
+@mixin btn-base {
+  --content-clr: var(--clr-ink-80);
+  position: relative;
 
-//   & > * {
-//     z-index: 1;
-//   }
-//   &::before {
-//     content: "";
-//     z-index: 0;
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     right: 0;
-//     bottom: 0;
-//     background-color: var(--btn-col-bg);
-//     border-radius: var(--btn-rounding);
-//     transition: background-color 0.1s, border-color 0.1s, color 0.1s;
-//     border: var(--btn-outline) solid var(--btn-col-outline);
-//   }
+  & > * {
+    // Button content should display over ::before puesdo-element (used for
+    // background).
+    z-index: 1;
+  }
 
-//   &:hover,
-//   &:focus-visible {
-//     color: var(--btn-col-content-hover);
-//     &::before {
-//       background-color: var(--btn-col-bg-hover);
-//       border-color: var(--btn-col-outline-hover);
-//     }
-//   }
-//   &:active {
-//     color: var(--btn-col-content-active);
-//     &::before {
-//       background-color: var(--btn-col-bg-active);
-//       border-color: var(--btn-col-outline-active);
-//     }
-//   }
-// }
-// @mixin btn-subtle {
-//   @include btn-basic;
-//   --btn-col-bg: transparent;
-//   --btn-col-bg-hover: transparent;
-//   --btn-col-bg-active: transparent;
-//   --btn-col-content: var(--col-on-surface);
-//   --btn-col-content-hover: hsla(var(--col-on-surface-comps), 100%);
-//   --btn-col-content-active: hsla(var(--col-on-surface-comps), 70%);
-// }
-// @mixin btn-outline {
-//   @include btn-basic;
-//   --btn-col-outline: hsla(var(--btn-col-comps), 20%);
-//   --btn-col-outline-hover: hsla(var(--btn-col-comps), 20%);
-//   --btn-col-outline-active: hsla(var(--btn-col-comps), 20%);
-// }
-// @mixin btn-accent {
-//   @include btn-basic;
-// }
+  &::before {
+    // Background should display underneath any other content.
+    z-index: 0;
 
-// @mixin btn-content-icon {
-//   width: 32px;
-//   height: 32px;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   & > .iconify {
-//     color: inherit;
-//     font-size: 1.2rem;
-//   }
-// }
-// @mixin btn-content-icon-text {
-//   @include utils.row;
-//   height: 32px;
-//   display: grid;
-//   grid-template-columns: 32px auto;
-//   & > svg {
-//     grid-column: 1;
-//     color: inherit;
-//     font-size: 1.2rem;
-//     justify-self: center;
-//     align-self: center;
-//   }
-//   & > p {
-//     grid-column: 2;
-//     color: inherit;
-//     margin-right: 8px;
-//     justify-self: start;
-//   }
-// }
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: var(--btn-rounding);
+  }
+}
+
+@mixin btn-hover {
+  @include btn-base;
+
+  &::before {
+    transition: background-color 0.05s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      background-color: var(--clr-ink-10);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--clr-ink-20);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    > * {
+      opacity: 0.5;
+    }
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin content-text {
+  > p {
+    color: var(--content-clr);
+  }
+}

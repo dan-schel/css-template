@@ -17,3 +17,7 @@
   user-select: none;
   -webkit-user-select: none;
 }
+@mixin no-select-override {
+  user-select: auto;
+  -webkit-user-select: auto;
+}

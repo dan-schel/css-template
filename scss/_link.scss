@@ -1,16 +1,39 @@
-a {
-  color: inherit;
-  font: inherit;
-  text-decoration: none;
+@use "utils";
 
+a {
+  // Remove all special appearance from <a> tags by default, so they can behave
+  // like regular <div>s.
+  color: inherit;
+  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+
+  // Clickable elements should always use pointer cursor and have un-selectable
+  // innards in my opinion.
+  @include utils.no-select;
+  cursor: pointer;
+
+  // Prevent clicking when disabled. Note that the disabled property is not
+  // really a thing on anchor tags, so this might only work for some browsers.
+  // Whoever is using this should probably use a button!
+  &[disabled],
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
 @mixin link {
+  // <a> tags by default should act like <div>s (flex column layout), but link
+  // text should display inline, like a browser's default behaviour.
   display: inline;
+
+  // Text should be selectable for links, so undo what I just did for all anchor
+  // tags.
+  @include utils.no-select-override;
+
   color: var(--clr-accent);
   text-decoration: underline transparent;
-  transition: text-decoration-color 0.1s;
+  transition: text-decoration-color 0.05s;
   outline: none;
 
   &:hover,

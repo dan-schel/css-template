@@ -14,4 +14,4 @@ Clone this repo as a git submodule in the area with your sass files. Then use...
 
 ## Documentation
 
-See `documentation.md` for documentation.
+See [`documentation.md`](/documentation.md) for documentation.

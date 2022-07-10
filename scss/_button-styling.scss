@@ -1,0 +1,136 @@
+@mixin btn-base {
+  --content-clr: var(--clr-ink-80);
+  position: relative;
+
+  & > * {
+    // Button content should display over ::before puesdo-element (used for
+    // background).
+    z-index: 1;
+  }
+
+  &::before {
+    // Background should display underneath any other content.
+    z-index: 0;
+
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    border-radius: var(--btn-rounding);
+  }
+
+  &:disabled,
+  &[disabled] {
+    > * {
+      opacity: 0.5;
+    }
+  }
+}
+
+@mixin btn-hover {
+  @include btn-base;
+
+  &::before {
+    transition: background-color 0.05s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      background-color: var(--clr-ink-10);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--clr-ink-20);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+
+@mixin btn-filled {
+  @include btn-base;
+
+  --content-clr: var(--clr-on-accent);
+
+  &::before {
+    transition: opacity 0.05s;
+    background-color: var(--clr-accent);
+    opacity: 80%;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 100%;
+    }
+  }
+
+  &:active {
+    &::before {
+      opacity: 60%;
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    // Set back to normal color. 50% opacity is also applied on top of this.
+    --content-clr: var(--clr-ink-80);
+
+    &::before {
+      // Prevent hover and active overriding this value.
+      opacity: 100%;
+
+      background-color: transparent;
+      border: var(--btn-outline) solid var(--clr-ink-20);
+    }
+  }
+}
+
+@mixin btn-filled-neutral {
+  @include btn-base;
+
+  &::before {
+    transition: background-color 0.05s;
+    background-color: var(--clr-ink-10);
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      background-color: var(--clr-ink-20);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--clr-ink-30);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    &::before {
+      background-color: transparent;
+      border: var(--btn-outline) solid var(--clr-ink-20);
+    }
+  }
+}
+
+@mixin btn-classic {
+  @include btn-filled-neutral;
+
+  &::before {
+    border: var(--clr-ink-20) solid var(--btn-outline);
+  }
+}

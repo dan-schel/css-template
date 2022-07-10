@@ -3,23 +3,14 @@
 a {
   // Remove all special appearance from <a> tags by default, so they can behave
   // like regular <div>s.
-  color: inherit;
-  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  outline: none;
+  text-decoration: none;
 
   // Clickable elements should always use pointer cursor and have un-selectable
   // innards in my opinion.
   @include utils.no-select;
   cursor: pointer;
-
-  // Prevent clicking when disabled. Note that the disabled property is not
-  // really a thing on anchor tags, so this might only work for some browsers.
-  // Whoever is using this should probably use a button!
-  &[disabled],
-  &:disabled {
-    cursor: default;
-    pointer-events: none;
-  }
 }
 
 @mixin link {
@@ -38,6 +29,6 @@ a {
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline var(--clr-accent);
+    text-decoration: underline var(--clr-accent) 1px;
   }
 }

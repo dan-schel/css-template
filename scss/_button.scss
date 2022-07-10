@@ -4,17 +4,18 @@ button {
   // Remove all special appearance from <button> tags by default, so <div>, <a>,
   // and <button> are interchangable.
   -webkit-tap-highlight-color: transparent;
+  outline: none;
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
   border: none;
-  outline: none;
 
-  // Clickable elements should always use pointer cursor in my opinion...
+  // Clickable elements should always use pointer cursor and have un-selectable
+  // innards in my opinion.
+  @include utils.no-select;
   cursor: pointer;
 
-  // ...except when disabled.
   &[disabled],
   &:disabled {
     cursor: default;
@@ -24,100 +25,6 @@ button {
 :root {
   --btn-rounding: 0.25rem;
   --btn-outline: 1px;
-}
-
-@mixin btn-base {
-  --content-clr: var(--clr-ink-80);
-  position: relative;
-
-  & > * {
-    // Button content should display over ::before puesdo-element (used for
-    // background).
-    z-index: 1;
-  }
-
-  &::before {
-    // Background should display underneath any other content.
-    z-index: 0;
-
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-
-    border-radius: var(--btn-rounding);
-  }
-}
-
-@mixin btn-hover {
-  @include btn-base;
-
-  &::before {
-    transition: background-color 0.05s;
-  }
-
-  &:hover,
-  &:focus-visible {
-    &::before {
-      background-color: var(--clr-ink-10);
-    }
-  }
-
-  &:active {
-    &::before {
-      background-color: var(--clr-ink-20);
-    }
-  }
-
-  &:disabled,
-  &[disabled] {
-    > * {
-      opacity: 0.5;
-    }
-    &::before {
-      background-color: transparent;
-    }
-  }
-}
-
-@mixin btn-filled {
-  @include btn-base;
-
-  --content-clr: var(--clr-on-accent);
-
-  &::before {
-    transition: opacity 0.05s;
-    background-color: var(--clr-accent);
-    opacity: 80%;
-  }
-
-  &:hover,
-  &:focus-visible {
-    &::before {
-      opacity: 100%;
-    }
-  }
-
-  &:active {
-    &::before {
-      opacity: 60%;
-    }
-  }
-
-  &:disabled,
-  &[disabled] {
-    --content-clr: var(--clr-ink-80);
-    > * {
-      opacity: 50%;
-    }
-    &::before {
-      background-color: transparent;
-      opacity: 30%;
-      border: var(--btn-outline) solid var(--clr-ink-80);
-    }
-  }
 }
 
 @mixin content-text {

@@ -308,7 +308,12 @@ button {
 
 For a subtle button effect that is invisible until hovered/focussed, the
 `btn-hover` mixin is available. This button styling does **_not_** require
-`--content-clr` support.
+the content to support `--content-clr`.
+
+`btn-filled-neutral` is similar, but has a filled neutral background when idle.
+`btn-classic` is identical, but with a subtle outline to mimic a classic button
+design. **_Neither_** of these stylings require the content to support
+`--content-clr`.
 
 For a more emphasized button, use the `btn-filled` mixin. By default, the button
 will use `--col-accent` for the background and `--col-on-accent` for the

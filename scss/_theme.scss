@@ -36,10 +36,12 @@
   @include gen-paper-swatches("light", meta.get-function("gen-light-paper"));
   @include gen-ink-swatches("light", meta.get-function("gen-light-ink"));
   --clr-light-accent: hsl(210, 100%, 45%);
+  --clr-light-on-accent: #ffffff;
 
   @include gen-paper-swatches("dark", meta.get-function("gen-dark-paper"));
   @include gen-ink-swatches("dark", meta.get-function("gen-dark-ink"));
   --clr-dark-accent: hsl(210, 100%, 70%);
+  --clr-dark-on-accent: #000000;
 }
 :root,
 dialog::backdrop {
@@ -72,6 +74,7 @@ dialog::backdrop {
   --clr-ink-10: var(--clr-#{$theme}-ink-10);
 
   --clr-accent: var(--clr-#{$theme}-accent);
+  --clr-on-accent: var(--clr-#{$theme}-on-accent);
 }
 @mixin gen-theme-shadow($theme) {
   --clr-shadow-100: var(--clr-#{$theme}-shadow-100);

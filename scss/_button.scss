@@ -1,3 +1,5 @@
+@use "utils";
+
 button {
   // Remove all special appearance from <button> tags by default, so <div>, <a>,
   // and <button> are interchangable.
@@ -20,7 +22,7 @@ button {
 }
 
 :root {
-  --btn-rounding: 4px;
+  --btn-rounding: 0.25rem;
   --btn-outline: 1px;
 }
 
@@ -80,7 +82,47 @@ button {
   }
 }
 
+@mixin btn-filled {
+  @include btn-base;
+
+  --content-clr: var(--clr-on-accent);
+
+  &::before {
+    transition: opacity 0.05s;
+    background-color: var(--clr-accent);
+    opacity: 80%;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      opacity: 100%;
+    }
+  }
+
+  &:active {
+    &::before {
+      opacity: 60%;
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    --content-clr: var(--clr-ink-80);
+    > * {
+      opacity: 50%;
+    }
+    &::before {
+      background-color: transparent;
+      opacity: 30%;
+      border: var(--btn-outline) solid var(--clr-ink-80);
+    }
+  }
+}
+
 @mixin content-text {
+  @include utils.row;
+  justify-content: center;
   > p {
     color: var(--content-clr);
   }

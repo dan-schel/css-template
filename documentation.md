@@ -306,9 +306,14 @@ button {
 </button>
 ```
 
-For a subtle button effect this is invisible until hovered/focussed, the
+For a subtle button effect that is invisible until hovered/focussed, the
 `btn-hover` mixin is available. This button styling does **_not_** require
 `--content-clr` support.
+
+For a more emphasized button, use the `btn-filled` mixin. By default, the button
+will use `--col-accent` for the background and `--col-on-accent` for the
+content. To change the background color, you can override the `--col-accent` for
+that element.
 
 ## 8. Generic content templates
 

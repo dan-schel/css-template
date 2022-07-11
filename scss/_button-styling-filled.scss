@@ -8,6 +8,11 @@
   &::before {
     transition: opacity 0.05s;
     background-color: var(--clr-accent);
+
+    // Todo: in future when browsers support calculating colors dynamically,
+    // use 100% opacity on the accent color, and use a darker/lighter version
+    // of the color for the hover and active states. Sometimes the contrast
+    // isn't great at 80% for some accent colors.
     opacity: 80%;
   }
 

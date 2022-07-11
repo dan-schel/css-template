@@ -24,6 +24,7 @@
   - [7.2. Input button styling](#72-input-button-styling)
 - [8. Generic content templates](#8-generic-content-templates)
 - [9. Input styling](#9-input-styling)
+  - [9.1. Available stylings](#91-available-stylings)
 
 ## 1. Layout
 
@@ -328,8 +329,9 @@ that element.
 ### 7.2. Input button styling
 
 Each of the styles mentioned above are available for input buttons, with the
-`input-btn-` prefix rather than `btn-`. However the use of regular `<button>`s
-are preferred.
+`input-btn-` prefix rather than `btn-`. However, the use of regular `<button>`s
+are preferred, as button outlines have rounding issues (on firefox at least),
+while regular buttons solve this issue with the use of puesdo-elements.
 
 ## 8. Generic content templates
 
@@ -364,3 +366,8 @@ input[type="text"] {
 ```html
 <input type="text" placeholder="Enter text here..." />
 ```
+
+### 9.1. Available stylings
+
+For a input matching the look of a `btn-filled-neutral`, use
+`input-filled-neutral`.

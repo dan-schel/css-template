@@ -4,12 +4,13 @@
   @include bsfn.btn-filled-neutral;
 
   &::before {
-    border: var(--clr-ink-20) solid var(--btn-outline);
+    border: var(--btn-outline) solid var(--clr-ink-20);
   }
 }
 
 @mixin input-btn-classic {
   @include bsfn.input-btn-filled-neutral;
 
-  border: var(--clr-ink-20) solid var(--btn-outline);
+  outline: var(--btn-outline) solid var(--clr-ink-20);
+  outline-offset: calc(-1 * var(--btn-outline));
 }

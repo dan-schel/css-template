@@ -49,6 +49,7 @@
   &[disabled] {
     opacity: 50%;
     background-color: transparent;
-    border: var(--btn-outline) solid var(--clr-ink-20);
+    outline: var(--btn-outline) solid var(--clr-ink-20);
+    outline-offset: calc(-1 * var(--btn-outline));
   }
 }

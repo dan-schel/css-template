@@ -23,6 +23,7 @@
   - [7.1. Available stylings](#71-available-stylings)
   - [7.2. Input button styling](#72-input-button-styling)
 - [8. Generic content templates](#8-generic-content-templates)
+- [9. Input styling](#9-input-styling)
 
 ## 1. Layout
 
@@ -286,7 +287,7 @@ Many button styles will also use the properties defined in the `:root` element,
 which, being a css custom property, can be overriden for a certain button or
 a container that has buttons inside. These are:
 
-- `--btn-rounding` for how much border radius to use on the button's background
+- `--btn-rounding` for how much border radius to use on the button's boundary
 - `--btn-outline` for the thickness of the outline around the button (if applicable)
 
 Example usage of a button, using generic content:
@@ -327,11 +328,8 @@ that element.
 ### 7.2. Input button styling
 
 Each of the styles mentioned above are available for input buttons, with the
-`input-btn-` prefix rather than `btn-`. However these styles may have
-inconsistant sizes due to borders. This issue was resolved with puesdo-elements
-for regular buttons but was impossible for input buttons as they do not support
-puesdo-elements or any form of inner element. The use of regular `<button>`s
-are preferred for this reason.
+`input-btn-` prefix rather than `btn-`. However the use of regular `<button>`s
+are preferred.
 
 ## 8. Generic content templates
 
@@ -342,3 +340,27 @@ designed to be set in the parent element `--clr-content`.
 This allows for the case where the parent element is a button that may
 dramatically change color on hover, and therefore require its content to use
 inverted colors during hover.
+
+## 9. Input styling
+
+Inputs can be styled in a similar way to input buttons. Also similarly to
+buttons, the styles will also use the properties defined in the `:root` element,
+which, being a css custom property, can be overriden for a certain input or
+a container that has inputs inside. These are:
+
+- `--input-rounding` for how much border radius to use on the input's boundary
+- `--input-outline` for the thickness of the outline around the input
+- `--input-outline-disabled` for the thickness of the outline around the input (when disabled)
+
+Example usage of an input:
+
+```css
+@use "../import" as template;
+input[type="text"] {
+  @include template.input-filled-neutral;
+}
+```
+
+```html
+<input type="text" placeholder="Enter text here..." />
+```

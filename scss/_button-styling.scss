@@ -14,7 +14,9 @@
   }
 
   // Use puesdo-element for the button's styling so any border doesn't
-  // contribute to the final size.
+  // contribute to the final size. Todo: change this to use the outline with
+  // negative offset hack? (Should ensure it is widely supported and behaves
+  // consistantly.)
   &::before {
     // Background should display underneath any other content.
     z-index: 0;

@@ -376,8 +376,8 @@ For an input matching the look of a `btn-filled-neutral`, use
 
 ## 10. Select styling
 
-Selects can be styled to look like their input counterparts. However to style a
-select, the DOM must be structured as followed:
+Selects can be styled to look like their input counterparts. However, to style a
+select the DOM must be structured as followed:
 
 ```html
 <div class="select-wrapper">
@@ -394,9 +394,9 @@ select, the DOM must be structured as followed:
 ```
 
 Note that the outer `<div>` is not required to have a particular class, however
-`select-highlight` and `select-arrow` are required. These selectors are only
-targeted inside a div where a `select-XX` mixin is applied, so using these
-class names elsewhere for our own purposes should be safe enough.
+`select-highlight` and `select-arrow` are mandatory class names. These selectors
+are only targeted inside a div where a `select-XX` mixin is applied, so using \
+these class names elsewhere for your own purposes should be safe enough.
 
 Now the style can be applied as follows:
 
@@ -423,7 +423,7 @@ If desired, custom padding can be applied:
 ```
 
 Note that the `select-arrow` is not affected by padding applied to the select,
-and so must be handled separately, with margin.
+and so must be handled separately using margin.
 
 ### 10.1. Available stylings
 

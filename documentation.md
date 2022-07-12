@@ -25,6 +25,8 @@
 - [8. Generic content templates](#8-generic-content-templates)
 - [9. Input styling](#9-input-styling)
   - [9.1. Available stylings](#91-available-stylings)
+- [10. Select styling](#10-select-styling)
+  - [10.1. Available stylings](#101-available-stylings)
 
 ## 1. Layout
 
@@ -294,7 +296,7 @@ a container that has buttons inside. These are:
 Example usage of a button, using generic content:
 
 ```css
-@use "../import" as template;
+@use "css-template/import" as template;
 button {
   /* Button styling */
   @include template.btn-hover;
@@ -357,7 +359,7 @@ a container that has inputs inside. These are:
 Example usage of an input:
 
 ```css
-@use "../import" as template;
+@use "css-template/import" as template;
 input[type="text"] {
   @include template.input-filled-neutral;
 }
@@ -369,5 +371,61 @@ input[type="text"] {
 
 ### 9.1. Available stylings
 
-For a input matching the look of a `btn-filled-neutral`, use
+For an input matching the look of a `btn-filled-neutral`, use
 `input-filled-neutral`.
+
+## 10. Select styling
+
+Selects can be styled to look like their input counterparts. However to style a
+select, the DOM must be structured as followed:
+
+```html
+<div class="select-wrapper">
+  <select>
+    <option>Option A</option>
+    <option>Option B</option>
+    <option>Option C</option>
+    <option>Option D</option>
+  </select>
+  <div class="select-highlight">
+    <div class="select-arrow"></div>
+  </div>
+</div>
+```
+
+Note that the outer `<div>` is not required to have a particular class, however
+`select-highlight` and `select-arrow` are required. These selectors are only
+targeted inside a div where a `select-XX` mixin is applied, so using these
+class names elsewhere for our own purposes should be safe enough.
+
+Now the style can be applied as follows:
+
+```css
+@use "css-template/import" as template;
+.select-wrapper {
+  @include template.select-filled-neutral;
+}
+```
+
+If desired, custom padding can be applied:
+
+```css
+@use "css-template/import" as template;
+.select-wrapper {
+  @include template.select-filled-neutral;
+  select {
+    padding: 0.5rem 0.75rem;
+  }
+  .select-arrow {
+    margin-right: 0.25rem;
+  }
+}
+```
+
+Note that the `select-arrow` is not affected by padding applied to the select,
+and so must be handled separately, with margin.
+
+### 10.1. Available stylings
+
+For a select matching the look of an `input-filled-neutral`, use
+`select-filled-neutral`.

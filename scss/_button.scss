@@ -9,13 +9,13 @@ input[type="reset"] {
   // custom content (they can only have text), so they're not compatible with
   // any of the button stylings (because no puesdo-elements) or generic content.
   // However, the same reset rules apply, and we'll do our best.
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
+  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: none;
   background-color: transparent;
   border: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 
   // Clickable elements should always use pointer cursor and have un-selectable
   // innards in my opinion.

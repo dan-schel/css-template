@@ -1,0 +1,48 @@
+@mixin select-base {
+  position: relative;
+
+  select {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+
+    &[disabled],
+    &:disabled {
+      cursor: default;
+    }
+  }
+  option {
+    color: black;
+  }
+
+  // Fixes incorrect padding in Firefox.
+  @-moz-document url-prefix() {
+    select {
+      text-indent: -0.13rem;
+    }
+  }
+
+  .select-highlight {
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: var(--input-rounding);
+  }
+  .select-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    pointer-events: none;
+    background-color: var(--clr-ink-80);
+  }
+}

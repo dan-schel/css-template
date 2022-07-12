@@ -1,0 +1,40 @@
+@use "select-styling" as select-styling;
+
+@mixin select-filled-neutral {
+  @include select-styling.select-base;
+
+  .select-highlight {
+    transition: background-color 0.05s;
+    background-color: var(--clr-ink-10);
+  }
+  .select-arrow {
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  select:is(:hover, :focus-visible) + .select-highlight {
+    background-color: var(--clr-ink-20);
+  }
+
+  select:is(:focus) + .select-highlight {
+    outline: var(--input-outline) solid var(--clr-accent);
+    outline-offset: calc(-1 * var(--input-outline));
+  }
+
+  select:disabled,
+  select[disabled] {
+    opacity: 50%;
+  }
+  select:is(:disabled) + .select-highlight {
+    opacity: 50%;
+    background-color: transparent;
+    outline: var(--input-outline-disabled) solid var(--clr-ink-20);
+    outline-offset: calc(-1 * var(--input-outline-disabled));
+
+    .select-arrow {
+      opacity: 50%;
+    }
+  }
+}

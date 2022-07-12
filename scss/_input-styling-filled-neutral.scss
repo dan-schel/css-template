@@ -1,0 +1,26 @@
+@use "input-styling" as input-styling;
+
+@mixin input-filled-neutral {
+  @include input-styling.input-base;
+
+  transition: background-color 0.05s;
+  background-color: var(--clr-ink-10);
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--clr-ink-20);
+  }
+
+  &:focus {
+    outline: var(--input-outline) solid var(--clr-accent);
+    outline-offset: calc(-1 * var(--input-outline));
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 50%;
+    background-color: transparent;
+    outline: var(--input-outline-disabled) solid var(--clr-ink-20);
+    outline-offset: calc(-1 * var(--input-outline-disabled));
+  }
+}

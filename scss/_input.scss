@@ -10,46 +10,11 @@ input[type="text"],
 input[type="time"],
 input[type="url"],
 input[type="week"] {
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
+  appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: none;
   background-color: transparent;
   border: none;
-}
-
-:root {
-  --input-rounding: 0.25rem;
-  --input-outline: 2px;
-  --input-outline-disabled: var(--input-outline);
-}
-
-@mixin input-base {
-  border-radius: var(--input-rounding);
-}
-
-@mixin input-filled-neutral {
-  @include input-base;
-
-  transition: background-color 0.05s;
-  background-color: var(--clr-ink-10);
-
-  &:hover,
-  &:focus-visible {
-    background-color: var(--clr-ink-20);
-  }
-
-  &:focus {
-    outline: var(--input-outline) solid var(--clr-accent);
-    outline-offset: calc(-1 * var(--input-outline));
-  }
-
-  &:disabled,
-  &[disabled] {
-    opacity: 50%;
-    background-color: transparent;
-    outline: var(--input-outline-disabled) solid var(--clr-ink-20);
-    outline-offset: calc(-1 * var(--input-outline-disabled));
-  }
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }

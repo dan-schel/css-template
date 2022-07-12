@@ -19,6 +19,7 @@
   }
 
   select:is(:focus) + .select-highlight {
+    // Use of outline to avoid impacting position of select-arrow
     outline: var(--input-outline) solid var(--clr-accent);
     outline-offset: calc(-1 * var(--input-outline));
   }

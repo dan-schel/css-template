@@ -377,7 +377,7 @@ For an input matching the look of a `btn-filled-neutral`, use
 ## 10. Select styling
 
 Selects can be styled to look like their input counterparts. However, to style a
-select the DOM must be structured as followed:
+select the HTML must be structured as follows:
 
 ```html
 <div class="select-wrapper">

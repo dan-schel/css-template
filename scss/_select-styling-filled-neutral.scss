@@ -30,6 +30,8 @@
   select:is(:disabled) + .select-highlight {
     opacity: 50%;
     background-color: transparent;
+
+    // Use of outline to avoid impacting position of select-arrow
     outline: var(--input-outline-disabled) solid var(--clr-ink-20);
     outline-offset: calc(-1 * var(--input-outline-disabled));
 

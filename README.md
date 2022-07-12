@@ -21,4 +21,4 @@ See [`documentation.md`](/documentation.md) for documentation.
 - Input/select outlines are not curved on Safari.
 - Cursor doesn't become pointer on safari
 - Hover doesn't work on Safari for input buttons or input fields, but does for select?
-- Date/time text on Safari is blue?
+- Date/time input text on Safari is blue?

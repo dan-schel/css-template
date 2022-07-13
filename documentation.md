@@ -4,9 +4,8 @@
 
 - [1. Layout](#1-layout)
 - [2. Color theming](#2-color-theming)
-  - [2.1. Background colors](#21-background-colors)
-  - [2.2. Per-element styling](#22-per-element-styling)
-  - [2.3. Additional themes](#23-additional-themes)
+  - [2.1. Per-element styling](#21-per-element-styling)
+  - [2.2. Additional themes](#22-additional-themes)
 - [3. Utilities](#3-utilities)
   - [3.1. Gone](#31-gone)
   - [3.2. Row](#32-row)
@@ -50,23 +49,7 @@ default.
 @include template.dark-base;
 ```
 
-### 2.1. Background colors
-
-The background color of a div change be changed with `bg-paper-XX` (where `XX`
-is 0, 10, 20, or 30). The body of the page has a background color of
-`bg-paper-10` by default.
-
-```css
-@use "css-template/import" as template;
-#header {
-  @include template.bg-paper-30;
-}
-.notice-box {
-  @include template.bg-paper-20;
-}
-```
-
-### 2.2. Per-element styling
+### 2.1. Per-element styling
 
 Regardless of the default theme, the theme inside each container can be changed
 by including `light-div`/`dark-div` inside its selector. This leverages
@@ -78,11 +61,11 @@ _its_ children.
 @use "css-template/import" as template;
 #foo {
   @include template.dark-div;
-  @include template.bg-paper-20;
+  background-color: var(--clr-paper-20);
 }
 #bar {
   @include template.light-div;
-  @include template.bg-paper-20;
+  background-color: var(--clr-paper-20);
 }
 ```
 
@@ -102,7 +85,7 @@ _its_ children.
 </div>
 ```
 
-### 2.3. Additional themes
+### 2.2. Additional themes
 
 More than 2 themes are possible by creating a new set of swatches (e.g
 `--clr-amoled-paper-100`, `--clr-amoled-ink-10`, etc.) for the new theme, see

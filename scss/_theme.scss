@@ -112,21 +112,8 @@ dialog::backdrop {
   color-scheme: dark;
 }
 
-@mixin bg-paper-0 {
-  background-color: var(--clr-paper-0);
-}
-@mixin bg-paper-10 {
-  background-color: var(--clr-paper-10);
-}
-@mixin bg-paper-20 {
-  background-color: var(--clr-paper-20);
-}
-@mixin bg-paper-30 {
-  background-color: var(--clr-paper-30);
-}
-
 // Set default theme to light.
 @include light-base;
 body {
-  @include bg-paper-10;
+  background-color: var(--clr-paper-10);
 }

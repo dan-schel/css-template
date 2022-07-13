@@ -27,6 +27,7 @@
   - [9.1. Available stylings](#91-available-stylings)
 - [10. Select styling](#10-select-styling)
   - [10.1. Available stylings](#101-available-stylings)
+- [11. Dialogs](#11-dialogs)
 
 ## 1. Layout
 
@@ -429,3 +430,25 @@ and so must be handled separately using margin.
 
 For a select matching the look of an `input-filled-neutral`, use
 `select-filled-neutral`.
+
+## 11. Dialogs
+
+By default, this template doesn't affect dialogs in any way. However, to show a
+dialog in the middle of the screen, with a pleasant shadow and backdrop color,
+the `dialog` mixin is available.
+
+```css
+dialog {
+  @include template.dialog;
+}
+```
+
+```html
+<dialog id="dialog">
+  <h1>Dialog content</h1>
+</dialog>
+```
+
+```js
+document.getElementById("dialog").showModal();
+```

@@ -40,9 +40,9 @@ by default.
 ## 2. Color theming
 
 By default, everything will be in light theme (the `light-base` mixin is
-appended to the stylesheet). Including `dark-base` outside of any selector
-(applying it to the stylesheet) will apply dark theme for the whole page by
-default.
+appended to the stylesheet) unless the browsers `prefer-color-scheme` is set to
+`dark`. Including `light-base`/`dark-base` outside of any selector (applying it
+to the stylesheet) will apply light/dark theme for the whole page by default.
 
 ```css
 @use "css-template/import" as template;

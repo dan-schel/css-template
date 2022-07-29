@@ -112,8 +112,12 @@ dialog::backdrop {
   color-scheme: dark;
 }
 
-// Set default theme to light.
+// Set default theme to light unless the user prefers dark.
 @include light-base;
+@media (prefers-color-scheme: dark) {
+  @include dark-base;
+}
+
 body {
   background-color: var(--clr-paper-10);
 }

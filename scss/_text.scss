@@ -2,6 +2,7 @@
 
 :root {
   --font-default: sans-serif;
+  --font-size-default: 1rem;
   --line-spacing: 0.5em;
 }
 
@@ -15,7 +16,7 @@ p,
 input,
 select {
   font-family: var(--font-default);
-  font-size: 1rem;
+  font-size: var(--font-size-default);
   font-weight: normal;
   color: var(--clr-ink-80);
 }

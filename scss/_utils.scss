@@ -8,7 +8,6 @@
 }
 @mixin flex-grow {
   flex-grow: 1;
-  flex-direction: inherit;
 }
 @mixin flip-180 {
   transform: rotate(180deg);
@@ -35,7 +34,6 @@ body {
   align-items: center;
 
   & > .page-centered {
-    flex-grow: 1;
     width: 100%;
     max-width: var(--page-width);
   }

@@ -43,3 +43,13 @@ input[type="reset"] {
     color: var(--clr-content);
   }
 }
+@mixin content-text-icon {
+  @include utils.row;
+  justify-content: center;
+  > p {
+    color: var(--clr-content);
+  }
+  > .iconify {
+    color: var(--clr-content);
+  }
+}

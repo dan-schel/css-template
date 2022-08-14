@@ -1,3 +1,14 @@
+@mixin init-utils {
+  :root {
+    --min-page-width: 20rem;
+    --page-width: 64rem;
+  }
+
+  body {
+    min-width: var(--min-page-width);
+  }
+}
+
 @mixin gone {
   display: none !important;
 }
@@ -19,15 +30,6 @@
 @mixin no-select-override {
   user-select: auto;
   -webkit-user-select: auto;
-}
-
-:root {
-  --min-page-width: 20rem;
-  --page-width: 64rem;
-}
-
-body {
-  min-width: var(--min-page-width);
 }
 
 @mixin page-centerer {

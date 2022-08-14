@@ -1,0 +1,19 @@
+@use "button" as button;
+@use "button-styling" as button-styling;
+@use "input" as input;
+@use "input-styling" as input-styling;
+@use "link" as link;
+@use "text" as text;
+@use "theme" as theme;
+@use "utils" as utils;
+
+@mixin init {
+  @include button.init-button;
+  @include button-styling.init-button-styling;
+  @include input.init-input;
+  @include input-styling.init-input-styling;
+  @include link.init-link;
+  @include text.init-text;
+  @include theme.init-theme;
+  @include utils.init-utils;
+}

@@ -1,16 +1,18 @@
 @use "utils";
 
-a {
-  // Remove all special appearance from <a> tags by default, so they can behave
-  // like regular <div>s.
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-  text-decoration: none;
+@mixin init-link {
+  a {
+    // Remove all special appearance from <a> tags by default, so they can behave
+    // like regular <div>s.
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    text-decoration: none;
 
-  // Clickable elements should always use pointer cursor and have un-selectable
-  // innards in my opinion.
-  @include utils.no-select;
-  cursor: pointer;
+    // Clickable elements should always use pointer cursor and have un-selectable
+    // innards in my opinion.
+    @include utils.no-select;
+    cursor: pointer;
+  }
 }
 
 @mixin link {

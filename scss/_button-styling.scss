@@ -1,6 +1,8 @@
-:root {
-  --btn-rounding: 0.25rem;
-  --btn-outline: 1px;
+@mixin init-button-styling {
+  :root {
+    --btn-rounding: 0.25rem;
+    --btn-outline: 1px;
+  }
 }
 
 @mixin btn-base {

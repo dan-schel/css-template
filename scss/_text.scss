@@ -1,72 +1,74 @@
 @use "theme";
 
-:root {
-  --font-default: sans-serif;
-  --font-size-default: 1rem;
-  --line-spacing: 0.5em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-input,
-select {
-  font-family: var(--font-default);
-  font-size: var(--font-size-default);
-  font-weight: normal;
-  color: var(--clr-ink-80);
-}
-input::placeholder {
-  opacity: 100%;
-  color: var(--clr-ink-50);
-}
-
-.iconify {
-  color: var(--clr-ink-80);
-  width: 1em;
-  height: 1em;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  line-height: calc(1em + var(--line-spacing));
-  text-align: left;
-
-  &::before,
-  &::after {
-    content: "";
-    margin-top: calc(var(--line-spacing) / -2);
-    height: 0;
-    display: block;
+@mixin init-text {
+  :root {
+    --font-default: sans-serif;
+    --font-size-default: 1rem;
+    --line-spacing: 0.5em;
   }
-}
 
-a,
-i,
-em,
-b,
-strong,
-span {
-  font: inherit;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  input,
+  select {
+    font-family: var(--font-default);
+    font-size: var(--font-size-default);
+    font-weight: normal;
+    color: var(--clr-ink-80);
+  }
+  input::placeholder {
+    opacity: 100%;
+    color: var(--clr-ink-50);
+  }
 
-i,
-em {
-  font-style: italic;
-}
+  .iconify {
+    color: var(--clr-ink-80);
+    width: 1em;
+    height: 1em;
+  }
 
-b,
-strong {
-  font-weight: bold;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: calc(1em + var(--line-spacing));
+    text-align: left;
+
+    &::before,
+    &::after {
+      content: "";
+      margin-top: calc(var(--line-spacing) / -2);
+      height: 0;
+      display: block;
+    }
+  }
+
+  a,
+  i,
+  em,
+  b,
+  strong,
+  span {
+    font: inherit;
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
 }
 
 @mixin one-line {

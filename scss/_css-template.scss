@@ -1,3 +1,5 @@
+@forward "init";
+
 @forward "button";
 @forward "button-styling-classic";
 @forward "button-styling-filled-neutral";
@@ -13,6 +15,7 @@
 @forward "select-styling-filled-neutral";
 @forward "text";
 @forward "theme";
+@forward "theme-gen";
 @forward "utils";
 
 *,

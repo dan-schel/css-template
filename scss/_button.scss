@@ -1,39 +1,41 @@
 @use "utils";
 
-button,
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  // Remove all special appearance from <button> tags by default, so <div>, <a>,
-  // and <button> are interchangable. As for input buttons, they don't support
-  // custom content (they can only have text), so they're not compatible with
-  // any of the button stylings (because no puesdo-elements) or generic content.
-  // However, the same reset rules apply, and we'll do our best.
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
+@mixin init-button {
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    // Remove all special appearance from <button> tags by default, so <div>, <a>,
+    // and <button> are interchangable. As for input buttons, they don't support
+    // custom content (they can only have text), so they're not compatible with
+    // any of the button stylings (because no puesdo-elements) or generic content.
+    // However, the same reset rules apply, and we'll do our best.
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
 
-  // Clickable elements should always use pointer cursor and have un-selectable
-  // innards in my opinion.
-  @include utils.no-select;
-  cursor: pointer;
+    // Clickable elements should always use pointer cursor and have un-selectable
+    // innards in my opinion.
+    @include utils.no-select;
+    cursor: pointer;
 
-  &[disabled],
-  &:disabled {
-    cursor: default;
+    &[disabled],
+    &:disabled {
+      cursor: default;
+    }
   }
-}
 
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-  // This will ruin multi-line text on input buttons, but without it they're too
-  // big, even before borders are added!
-  line-height: 1em;
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    // This will ruin multi-line text on input buttons, but without it they're too
+    // big, even before borders are added!
+    line-height: 1em;
+  }
 }
 
 @mixin content-text {

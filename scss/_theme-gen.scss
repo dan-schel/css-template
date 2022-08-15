@@ -1,4 +1,9 @@
 @use "sass:meta";
+@import "../../override.scss";
+
+$clr-custom-names: () !default;
+$clr-custom-light: () !default;
+$clr-custom-dark: () !default;
 
 @mixin gen-paper-swatches($theme, $paper-function) {
   --clr-#{$theme}-paper-0: #{meta.call($paper-function, 0)};
@@ -38,6 +43,10 @@
 
   --clr-accent: var(--clr-#{$theme}-accent);
   --clr-on-accent: var(--clr-#{$theme}-on-accent);
+
+  @each $name in $clr-custom-names {
+    --clr-#{$name}: var(--clr-#{$theme}-#{$name});
+  }
 }
 @mixin gen-theme-shadow($theme) {
   --clr-shadow-100: var(--clr-#{$theme}-shadow-100);

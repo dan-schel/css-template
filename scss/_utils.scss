@@ -32,10 +32,10 @@
   -webkit-user-select: auto;
 }
 
-@mixin page-centerer {
+@mixin page-centerer($centered-class: "page-centered") {
   align-items: center;
 
-  & > .page-centered {
+  & > .#{$centered-class} {
     width: 100%;
     max-width: var(--page-width);
   }

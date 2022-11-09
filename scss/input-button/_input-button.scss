@@ -1,0 +1,26 @@
+@use "../utils";
+@use "../button/button" as button;
+
+@forward "classic";
+@forward "filled-neutral";
+@forward "filled";
+@forward "hover";
+@forward "styling-base";
+
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
+  // --button-rounding and --button-outline are defined in button/_button.scss.
+
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"] {
+    @include button.reset;
+
+    // This will ruin multi-line text on input buttons, but without it they're
+    // too big, even before borders are added!
+    line-height: 1em;
+  }
+}

@@ -1,0 +1,69 @@
+@forward "theme/theme" as theme-*;
+@use "theme/theme" as theme;
+
+@forward "button/button" as button-*;
+@use "button/button" as button;
+
+@forward "input-button/input-button" as input-button-*;
+@use "input-button/input-button" as input-button;
+
+@forward "input/input" as input-*;
+@use "input/input" as input;
+
+@forward "select/select" as select-*;
+
+@forward "anchor" as anchor-*;
+@use "anchor" as anchor;
+
+@forward "content" as content-*;
+
+@forward "dialog" as dialog-*;
+
+@forward "utils" as utils-*;
+@use "utils" as utils;
+
+@forward "text" as text-*;
+@use "text" as text;
+
+@forward "strip-namespace";
+
+@mixin init($themes: null, $custom-colors: null) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  div,
+  a,
+  dialog,
+  main,
+  nav,
+  section,
+  header,
+  footer,
+  aside,
+  form,
+  button,
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  dialog:not([open]) {
+    display: none;
+  }
+
+  @include theme.init($themes: $themes, $custom-colors: $custom-colors);
+  @include button.init();
+  @include input-button.init();
+  @include input.init();
+  @include anchor.init();
+  @include utils.init();
+  @include text.init();
+}

@@ -1,0 +1,40 @@
+@use "utils";
+
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
+  a {
+    // Remove all special appearance from <a> tags by default, so they can behave
+    // like regular <div>s.
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    text-decoration: none;
+
+    // Clickable elements should always use pointer cursor and have un-selectable
+    // innards in my opinion.
+    @include utils.no-select;
+    cursor: pointer;
+  }
+}
+
+@mixin link {
+  // <a> tags by default should act like <div>s (flex column layout), but link
+  // text should display inline, like a browser's default behaviour.
+  display: inline;
+
+  // Text should be selectable for links, so undo what I just did for all anchor
+  // tags.
+  @include utils.no-select-override;
+
+  color: var(--color-accent);
+  text-decoration: underline transparent;
+  transition: text-decoration-color 0.05s;
+  outline: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline var(--color-accent) 1px;
+  }
+}

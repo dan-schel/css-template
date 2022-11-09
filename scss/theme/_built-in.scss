@@ -1,0 +1,47 @@
+@use "define";
+@use "sass:meta";
+
+@function light-paper-shade-function($shade) {
+  @return hsl(220, calc(25% + $shade * 0.5%), calc(90% + $shade * 0.35%));
+}
+@function light-ink-shade-function($shade) {
+  @return hsla(220, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
+}
+
+@function light-definition() {
+  @return define.define(
+    $paper-shade-function: meta.get-function("light-paper-shade-function"),
+    $ink-shade-function: meta.get-function("light-ink-shade-function"),
+    $color-accent: hsl(210, 100%, 45%),
+    $color-on-accent: #ffffff,
+    $color-shadow-100: black,
+    $color-shadow-30: rgba(0, 0, 0, 70%),
+    $color-shadow-20: rgba(0, 0, 0, 40%),
+    $color-shadow-10: rgba(0, 0, 0, 10%)
+  );
+}
+
+@function dark-paper-shade-function($shade) {
+  @return hsl(220, calc(15% + $shade * 0.1%), calc(2% + $shade * 0.5%));
+}
+
+@function dark-ink-shade-function($shade) {
+  @return hsla(220, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
+}
+
+@function dark-definition() {
+  @return define.define(
+    $paper-shade-function: meta.get-function("dark-paper-shade-function"),
+    $ink-shade-function: meta.get-function("dark-ink-shade-function"),
+    $color-accent: hsl(210, 100%, 70%),
+    $color-on-accent: #000000,
+    $color-shadow-100: black,
+    $color-shadow-30: rgba(0, 0, 0, 80%),
+    $color-shadow-20: rgba(0, 0, 0, 60%),
+    $color-shadow-10: rgba(0, 0, 0, 20%)
+  );
+}
+
+@function generate() {
+  @return ("light": light-theme-definition(), "dark": dark-theme-definition());
+}

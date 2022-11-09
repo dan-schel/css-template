@@ -1,0 +1,51 @@
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
+  :root {
+    --min-page-width: 20rem;
+    --page-width: 64rem;
+  }
+
+  body {
+    min-width: var(--min-page-width);
+  }
+}
+
+@mixin gone {
+  display: none !important;
+}
+
+@mixin row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin flex-grow {
+  flex-grow: 1;
+}
+
+@mixin flip-180 {
+  transform: rotate(180deg);
+}
+
+@mixin no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@mixin no-select-override {
+  user-select: auto;
+  -webkit-user-select: auto;
+}
+
+@mixin page-centerer($centered-class: "page-centered") {
+  align-items: center;
+
+  & > .#{$centered-class} {
+    width: 100%;
+    max-width: var(--page-width);
+  }
+}

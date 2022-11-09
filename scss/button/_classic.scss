@@ -1,0 +1,9 @@
+@use "filled-neutral";
+
+@mixin classic {
+  @include filled-neutral.filled-neutral;
+
+  &::before {
+    border: var(--button-outline) solid var(--color-ink-20);
+  }
+}

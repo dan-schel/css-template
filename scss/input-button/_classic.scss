@@ -1,0 +1,8 @@
+@use "filled-neutral";
+
+@mixin classic {
+  @include filled-neutral.filled-neutral;
+
+  outline: var(--button-outline) solid var(--color-ink-20);
+  outline-offset: calc(-1 * var(--button-outline));
+}

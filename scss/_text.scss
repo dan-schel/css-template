@@ -1,0 +1,91 @@
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
+  :root {
+    --font-default: sans-serif;
+    --font-size-default: 1rem;
+    --line-spacing: 0.5em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li,
+  input,
+  select {
+    font-family: var(--font-default);
+    font-size: var(--font-size-default);
+    font-weight: normal;
+    color: var(--color-ink-80);
+  }
+  input::placeholder {
+    opacity: 100%;
+    color: var(--color-ink-50);
+  }
+
+  .iconify {
+    color: var(--color-ink-80);
+    width: 1em;
+    height: 1em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    line-height: calc(1em + var(--line-spacing));
+    text-align: left;
+
+    &::before,
+    &::after {
+      content: "";
+      margin-top: calc(var(--line-spacing) / -2);
+      height: 0;
+      display: block;
+    }
+  }
+
+  a,
+  i,
+  em,
+  b,
+  strong,
+  span {
+    font: inherit;
+  }
+
+  i,
+  em {
+    font-style: italic;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
+}
+
+@mixin one-line {
+  & > :is(h1, h2, h3, h4, h5, h6, p) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-bottom: 0.25em;
+    flex-shrink: 1;
+  }
+  &::after {
+    content: "";
+    margin-bottom: -0.25em;
+    height: 0;
+    display: block;
+  }
+}

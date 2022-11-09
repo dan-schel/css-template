@@ -1,0 +1,47 @@
+// Drop the namespace for these, because the names they have are good on their
+// own!
+
+@use "utils" as utils;
+@use "dialog" as dialog;
+@use "anchor" as anchor;
+@use "text" as text;
+
+@mixin link {
+  @include anchor.link;
+}
+
+@mixin dialog {
+  @include dialog.dialog;
+}
+
+@mixin gone {
+  @include utils.gone;
+}
+
+@mixin row {
+  @include utils.row;
+}
+
+@mixin flex-grow {
+  @include utils.flex-grow;
+}
+
+@mixin flip-180 {
+  @include utils.flip-180;
+}
+
+@mixin no-select {
+  @include utils.no-select;
+}
+
+@mixin no-select-override {
+  @include utils.no-select-override;
+}
+
+@mixin page-centerer($centered-class: "page-centered") {
+  @include utils.page-centerer($centered-class: $centered-class);
+}
+
+@mixin one-line {
+  @include text.one-line;
+}

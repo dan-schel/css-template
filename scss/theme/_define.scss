@@ -1,0 +1,21 @@
+@function define(
+  $paper-shade-function,
+  $ink-shade-function,
+  $color-accent,
+  $color-on-accent,
+  $color-shadow-100,
+  $color-shadow-30,
+  $color-shadow-20,
+  $color-shadow-10
+) {
+  @return (
+    "paper-shade-function": $paper-shade-function,
+    "ink-shade-function": $ink-shade-function,
+    "color-accent": $color-accent,
+    "color-on-accent": $color-on-accent,
+    "color-shadow-100": $color-shadow-100,
+    "color-shadow-30": $color-shadow-30,
+    "color-shadow-20": $color-shadow-20,
+    "color-shadow-10": $color-shadow-10
+  );
+}

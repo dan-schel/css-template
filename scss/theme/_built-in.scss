@@ -43,5 +43,5 @@
 }
 
 @function generate() {
-  @return ("light": light-theme-definition(), "dark": dark-theme-definition());
+  @return ("light": light-definition(), "dark": dark-definition());
 }

@@ -1,0 +1,43 @@
+@mixin odometer($in-class: "odometer-in", $out-class: "odometer-out") {
+  position: relative;
+  & > .#{$in-class} {
+    animation: odometer-in 0.3s ease-out forwards;
+  }
+  & > .#{$out-class} {
+    animation: odometer-out 0.1s ease-out forwards;
+
+    // Layout should be determined by the new content, not the old content,
+    // so use position absolute.
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    // However, the new content might be smaller, and we still want to show the
+    // old content animating out without getting clipped.
+    overflow: visible;
+  }
+}
+
+@keyframes odometer-in {
+  from {
+    opacity: 0%;
+    transform: translate(0, -0.5rem);
+  }
+  to {
+    opacity: 100%;
+    transform: translate(0, 0rem);
+  }
+}
+
+@keyframes odometer-out {
+  from {
+    opacity: 100%;
+    transform: translate(0, 0rem);
+  }
+  to {
+    opacity: 0%;
+    transform: translate(0, 0.25rem);
+  }
+}

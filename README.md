@@ -32,6 +32,8 @@ My standard template for CSS styling written in SASS.
   - [Available stylings](#available-stylings-2)
   - [Applying padding](#applying-padding)
 - [Dialogs](#dialogs)
+- [Odometers](#odometers)
+  - [Changing the odometer's content](#changing-the-odometers-content)
 - [Known issues/inconsistencies](#known-issuesinconsistencies)
 
 ## Usage
@@ -552,9 +554,68 @@ dialog {
 document.getElementById("dialog").showModal();
 ```
 
+## Odometers
+
+Odometers are elements that upon changing content, animate the old content out
+and the new content in, usually with a slide up animation like a classic car
+odometer (hence the name). The atonomy of a odometer is as follows:
+
+```html
+<div class="odometer">
+  <div class="odometer-in">
+    <p>I'm the current value, animating in!</p>
+  </div>
+  <div class="odometer-out">
+    <p>I'm the old value, animating out!</p>
+  </div>
+</div>
+```
+
+And the CSS:
+
+```css
+.odometer {
+  @include template.odometer(
+    $in-class: "odometer-in",
+    $out-class: "odometer-out"
+  );
+}
+```
+
+Note that if no "in" animation is desired (as might be the case sometimes for the initial value), a child of the odometer without any class is treated as the current content. The "in" class merely adds the slide in animation.
+
+### Changing the odometer's content
+
+Javascript is required to actually swap out the DOM content. which is available in the `schel-d-utils-browser` package on npm.
+
+```js
+import { OdometerController } from "schel-d-utils-browser";
+
+// Function to determine whether two values are equivalent. No need to change
+// the value or run the animation if so.
+const equals = (a, b) => a == b;
+
+// Function to translate a value (of any type) into DOM to display on the page.
+const builder = (x) => {
+  const element = document.createElement("p");
+  element.textContent = x;
+  return element;
+};
+
+// Create the odometer, initially it will display "Initial value".
+const odometer = new OdometerController("Initial value", equals, builder);
+
+// At some point later... change the value
+odometer.update("New value");
+```
+
 ## Known issues/inconsistencies
 
 - Input/select outlines are not curved on Safari.
 - Cursor doesn't become pointer on safari
 - Hover doesn't work on Safari for input buttons or input fields, but does for select?
 - Date/time input text on Safari is blue?
+
+```
+
+```

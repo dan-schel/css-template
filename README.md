@@ -45,7 +45,7 @@ My standard template for CSS styling written in SASS.
 
 ## Usage
 
-Clone this repo as a git submodule in the area with your sass files, e.g. `src/scss/css-template`:
+Clone this repo as a Git submodule in the area with your SASS files, e.g. `src/scss/css-template`:
 
 ```shell
 $ git submodule add https://github.com/schel-d/css-template.git src/scss/css-template
@@ -57,6 +57,8 @@ Then, in your sass code, use the below to initialize the template:
 @use "css-template/import" as template;
 @include template.init;
 ```
+
+Note that this template requires SASS to work (mixins are used everywhere!) and all references to "CSS" in the below documentation _really_ mean the SASS flavour of CSS (SCSS).
 
 ## TLDR
 
@@ -131,7 +133,7 @@ The mixins available in this template:
 
 ## Layout
 
-The template enables and requires `border-box` box sizing mode. All element have their default margin and padding is removed, and all `<div>` and `<div>`-like elements (e.g. `<a>`, `<dialog>`, `<main>`, `<section>`, and `<button>`) use flex-box column layout. Flex shrink is disabled for all elements, so the developer can choose more easily which elements shrink.
+The template enables and requires `border-box` box sizing mode. All elements have their default margin and padding removed, and all `<div>` and `<div>`-like elements (e.g. `<a>`, `<dialog>`, `<main>`, `<section>`, and `<button>`) use flex-box column layout. Flex shrink is disabled for all elements, so the developer can choose more easily which elements shrink.
 
 ### Centering the page
 
@@ -417,7 +419,7 @@ Link styling will make the text and underline match the accent color by default.
 
 Many button styles assume the button's content will be able to react to `--content-color` changes, so the content for a button-styled element should almost always be a [generic content](#generic-content-templates) container.
 
-Many button styles will also use the properties defined in the `:root` element, which, being a css custom property, can be overriden for a certain button or a container that has buttons inside. These are:
+Many button styles will also use the properties defined in the `:root` element, which, being a CSS custom property, can be overriden for a certain button or a container that has buttons inside. These are:
 
 - `--button-rounding` for how much border radius to use on the button's boundary
 - `--button-outline` for the thickness of the outline around the button (if applicable)
@@ -469,7 +471,7 @@ The available types are
 
 ## Input styling
 
-Inputs can be styled in a similar way to input buttons. Also similarly to buttons, the styles will also use the properties defined in the `:root` element, which, being a css custom property, can be overriden for a certain input or a container that has inputs inside. These are:
+Inputs can be styled in a similar way to input buttons. Also similarly to buttons, the styles will also use the properties defined in the `:root` element, which, being a CSS custom property, can be overriden for a certain input or a container that has inputs inside. These are:
 
 - `--input-rounding` for how much border radius to use on the input's boundary
 - `--input-outline` for the thickness of the outline around the input
@@ -712,6 +714,6 @@ Then the styling can be achieve with this CSS:
 ## Known issues/inconsistencies
 
 - Input/select outlines are not curved on Safari.
-- Cursor doesn't become pointer on safari
+- Cursor doesn't become pointer on Safari
 - Hover doesn't work on Safari for input buttons or input fields, but does for select?
 - Date/time input text on Safari is blue?

@@ -1,0 +1,30 @@
+@use "styling-base";
+@use "../utils";
+
+@mixin pills($content-class: "picker-content") {
+  @include styling-base.base($content-class: $content-class);
+  @include utils.row;
+  flex-wrap: wrap;
+
+  > label {
+    > input[type="radio"] + .#{$content-class} {
+      align-items: center;
+      justify-content: center;
+
+      background-color: var(--color-ink-10);
+      transition: background-color 0.1s;
+      border-radius: var(--button-rounding);
+    }
+    > input[type="radio"]:hover + .#{$content-class},
+    > input[type="radio"]:focus-visible + .#{$content-class} {
+      background-color: var(--color-ink-20);
+    }
+    > input[type="radio"]:active + .#{$content-class} {
+      background-color: var(--color-ink-30);
+    }
+    > input[type="radio"]:checked + .#{$content-class} {
+      background-color: var(--color-accent);
+      --content-color: var(--color-on-accent);
+    }
+  }
+}

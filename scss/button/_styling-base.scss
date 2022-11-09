@@ -1,5 +1,4 @@
 @mixin base {
-  --color-content: var(--color-ink-80);
   position: relative;
 
   & > * {

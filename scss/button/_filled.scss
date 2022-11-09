@@ -3,7 +3,7 @@
 @mixin filled {
   @include styling-base.base;
 
-  --color-content: var(--color-on-accent);
+  --content-color: var(--color-on-accent);
 
   &::before {
     transition: opacity 0.05s;
@@ -32,7 +32,7 @@
   &:disabled,
   &[disabled] {
     // Set back to normal color. 50% opacity is also applied on top of this.
-    --color-content: var(--color-ink-80);
+    --content-color: var(--color-ink-80);
 
     &::before {
       // Prevent hover and active overriding this value.

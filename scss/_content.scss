@@ -1,18 +1,26 @@
+@use "utils";
+
 @mixin text {
   @include utils.row;
+  --content-color: var(--color-ink-80);
+  --content-color-transition: 0.1s;
   justify-content: center;
+
   > p {
-    color: var(--color-content);
+    color: var(--content-color);
+    transition: color var(--content-color-transition);
   }
 }
 
 @mixin text-icon {
   @include utils.row;
+  --content-color: var(--color-ink-80);
+  --content-color-transition: 0.1s;
   justify-content: center;
-  > p {
-    color: var(--color-content);
-  }
+
+  > p,
   > .iconify {
-    color: var(--color-content);
+    color: var(--content-color);
+    transition: color var(--content-color-transition);
   }
 }

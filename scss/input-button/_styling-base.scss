@@ -1,7 +1,7 @@
 @mixin base {
   // For inputs, we cannot use puesdo-elements. So borders may cause size
-  // to be 1px (or --btn-outline) larger than the content desired unfortunately.
-  border-radius: var(--btn-rounding);
+  // to be 1px (or --button-outline) larger than the content desired unfortunately.
+  border-radius: var(--button-rounding);
 
   // Do not set opacity to 50% when disabled here, because we can't target the
   // input button's text alone.

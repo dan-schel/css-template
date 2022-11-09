@@ -25,8 +25,8 @@ The custom properties used in this template (excluding many color swatches):
 
 | Property                   | Description                                                  |
 | -------------------------- | ------------------------------------------------------------ |
-| `--btn-rounding`           | The border radius applied to buttons.                        |
-| `--btn-outline`            | The outline applied to buttons with applicable stylings.     |
+| `--button-rounding`        | The border radius applied to buttons.                        |
+| `--button-outline`         | The outline applied to buttons with applicable stylings.     |
 | `--input-rounding`         | The border radius applied to text inputs.                    |
 | `--input-outline`          | The outline applied to text inputs with applicable stylings. |
 | `--input-outline-disabled` | As above, but for disabled text inputs.                      |
@@ -368,8 +368,8 @@ Many button styles assume the button's content will be able to react to `--color
 
 Many button styles will also use the properties defined in the `:root` element, which, being a css custom property, can be overriden for a certain button or a container that has buttons inside. These are:
 
-- `--btn-rounding` for how much border radius to use on the button's boundary
-- `--btn-outline` for the thickness of the outline around the button (if applicable)
+- `--button-rounding` for how much border radius to use on the button's boundary
+- `--button-outline` for the thickness of the outline around the button (if applicable)
 
 Example usage of a button, using generic content:
 

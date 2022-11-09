@@ -25,7 +25,7 @@
   &[disabled] {
     &::before {
       background-color: transparent;
-      border: var(--btn-outline) solid var(--color-ink-10);
+      border: var(--button-outline) solid var(--color-ink-10);
     }
   }
 }

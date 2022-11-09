@@ -39,6 +39,8 @@ My standard template for CSS styling written in SASS.
   - [Changing the odometer's content](#changing-the-odometers-content)
 - [Pickers](#pickers)
   - [Available stylings](#available-stylings-3)
+- [Checkbox styling](#checkbox-styling)
+  - [Available stylings](#available-stylings-4)
 - [Known issues/inconsistencies](#known-issuesinconsistencies)
 
 ## Usage

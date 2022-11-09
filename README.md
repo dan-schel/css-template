@@ -2,6 +2,40 @@
 
 My standard template for CSS styling written in SASS.
 
+## Table of contents
+
+- [CSS Template](#css-template)
+  - [Table of contents](#table-of-contents)
+  - [Usage](#usage)
+  - [TLDR](#tldr)
+    - [Custom properties](#custom-properties)
+    - [Mixins](#mixins)
+  - [Layout](#layout)
+    - [Centering the page](#centering-the-page)
+    - [Minimum page width](#minimum-page-width)
+  - [Color theming](#color-theming)
+    - [Color swatches](#color-swatches)
+    - [Adding custom color swatches](#adding-custom-color-swatches)
+    - [Overriding the default theme (for the whole page)](#overriding-the-default-theme-for-the-whole-page)
+    - [Overriding the default theme (for a particular element)](#overriding-the-default-theme-for-a-particular-element)
+    - [Additional themes](#additional-themes)
+  - [Utilities](#utilities)
+  - [Text](#text)
+    - [Preventing text wrapping](#preventing-text-wrapping)
+  - [Anchor tags and links](#anchor-tags-and-links)
+    - [Link styling](#link-styling)
+  - [Buttons and button styles](#buttons-and-button-styles)
+    - [Available stylings](#available-stylings)
+    - [Input button styling](#input-button-styling)
+  - [Generic content templates](#generic-content-templates)
+  - [Input styling](#input-styling)
+    - [Available stylings](#available-stylings-1)
+  - [Select styling](#select-styling)
+    - [Available stylings](#available-stylings-2)
+    - [Applying padding](#applying-padding)
+  - [Dialogs](#dialogs)
+  - [Known issues/inconsistencies](#known-issuesinconsistencies)
+
 ## Usage
 
 Clone this repo as a git submodule in the area with your sass files, e.g. `src/scss/css-template`:
@@ -80,7 +114,7 @@ The mixins available in this template:
 
 ## Layout
 
-The template enables and requires `border-box` box sizing mode. All element have their default margin and padding is removed, and all `<div>` and `<div>`-like elements (e.g. `<a>`, `<dialog>`, `<main>`, `<section>`, and `<button>`) use flex-box column layout. Flex shrink is disabled for all element, so the developer can choose more easily which elements shrink.
+The template enables and requires `border-box` box sizing mode. All element have their default margin and padding is removed, and all `<div>` and `<div>`-like elements (e.g. `<a>`, `<dialog>`, `<main>`, `<section>`, and `<button>`) use flex-box column layout. Flex shrink is disabled for all elements, so the developer can choose more easily which elements shrink.
 
 ### Centering the page
 
@@ -218,7 +252,7 @@ Regardless of the page theme, the theme inside each element can be changed by in
 
 ### Additional themes
 
-If the two built-in themes, "light" and "dark, are not enough, additional themes can be added when initializing the template, by providing the `$themes` parameter. Let's create an "amoled" theme, which is like "dark" but has darker background colors. First we will create functions which generate the colors for the `--color-paper-X` and `--color-ink-X` swatches. The `$shade` parameter these functions take are the values of `X` (10, 20, 30, etc.).
+If the two built-in themes ("light" and "dark") are not enough, additional themes can be added when initializing the template by providing the `$themes` parameter. Let's create an "amoled" theme, which is like "dark" but has darker background colors. First, we will create functions which generate the colors for the `--color-paper-X` and `--color-ink-X` swatches. The `$shade` parameter these functions take are the values of `X` (10, 20, 30, etc.).
 
 ```css
 @function amoled-paper($shade) {
@@ -230,7 +264,7 @@ If the two built-in themes, "light" and "dark, are not enough, additional themes
 }
 ```
 
-Next, using the `template.theme-define` function, we create the theme definition. Note that `sass:meta` must be imported so we can use `meta.get-function`. We also provide some other swatches, such as the accent color here.
+Next, using the `template.theme-define` function, we create the theme definition. Note that `sass:meta` must be imported so we can use `meta.get-function`. We also provide some other swatches (all of which are mandatory), such as the accent color here.
 
 ```css
 @use "sass:meta";
@@ -292,11 +326,11 @@ All done! Now, when it comes time to _actually use_ the theme, note that named m
 }
 ```
 
-Of course, these could be used to create your own `theme-amoled`/`theme-amoled-base` mixins if you prefer. You might also decide to replace an existing theme, for example "dark", rather than giving yours a unique name. In that case, the `theme-dark`/`theme-dark-base` mixins will apply your custom theme.
+Of course, these can be used to create your own `theme-amoled`/`theme-amoled-base` mixins if you prefer. You might also decide to replace an existing theme, for example "dark", rather than giving your's a unique name. In that case, the `theme-dark`/`theme-dark-base` mixins will apply your custom theme.
 
 ## Utilities
 
-The template provides a number of utility mixins, that can be optionally assigned to classes for use inside the html.
+The template provides a few utility mixins that can be optionally assigned to classes for use inside the HTML.
 
 | Mixin name  | Description                                             |
 | ----------- | ------------------------------------------------------- |
@@ -364,7 +398,7 @@ Link styling will make the text and underline match the accent color by default.
 
 `<button>` tags by default act as `<div>`s (without special styling), and all the following styles support `<a>`, `<button>`, or `<div>` tags. This makes `<div>`, `<a>`, and `<button>` essentially interchangable, so you can use whatever's best for accessibility.
 
-Many button styles assume the button's content will be able to react to `--color-content` changes, so the content for a button-styled element should almost always be a [generic content](#generic-content) container.
+Many button styles assume the button's content will be able to react to `--color-content` changes, so the content for a button-styled element should almost always be a [generic content](#generic-content-templates) container.
 
 Many button styles will also use the properties defined in the `:root` element, which, being a css custom property, can be overriden for a certain button or a container that has buttons inside. These are:
 
@@ -427,7 +461,6 @@ Inputs can be styled in a similar way to input buttons. Also similarly to button
 Example usage of an input:
 
 ```css
-@use "css-template/import" as template;
 input[type="text"] {
   @include template.input-filled-neutral;
 }
@@ -460,7 +493,7 @@ select the HTML must be structured as follows:
 </div>
 ```
 
-Now the style can be applied as follows:
+Now the style can be applied, like so:
 
 ```css
 .select-wrapper {
@@ -471,7 +504,7 @@ Now the style can be applied as follows:
 }
 ```
 
-If not provided, the `$highlight-class` parameter will be `"select-highligh"` by default, and likewise with `$arrow-class` and `"select-arrow"`, so the above code could be simplified to just:
+If not provided, the `$highlight-class` parameter will be `"select-highlight"` by default, and likewise with `$arrow-class` and `"select-arrow"`, so the above code could be simplified to just:
 
 ```css
 .select-wrapper {
@@ -488,7 +521,6 @@ If not provided, the `$highlight-class` parameter will be `"select-highligh"` by
 If desired, custom padding can be applied to a styled select. Note that the `select-arrow` is not affected by padding applied to the select, and so must be handled separately using margin.
 
 ```css
-@use "css-template/import" as template;
 .select-wrapper {
   @include template.select-filled-neutral;
   select {

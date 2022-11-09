@@ -21,7 +21,7 @@ Then, in your sass code, use the below to initialize the template:
 
 ### Custom properties
 
-The custom properties used in this template (not including color swatches):
+The custom properties used in this template (excluding many color swatches):
 
 | Property                   | Description                                                  |
 | -------------------------- | ------------------------------------------------------------ |
@@ -37,6 +37,46 @@ The custom properties used in this template (not including color swatches):
 | `--line-spacing`           | The default line spacing to apply.                           |
 | `--min-page-width`         | The minimum width of the `<body>`.                           |
 | `--page-width`             | The maximum width used when using the `page-centerer` mixin. |
+
+### Mixins
+
+The mixins available in this template:
+
+| Mixin                         | Description                                                |
+| ----------------------------- | ---------------------------------------------------------- |
+| `button-base`                 | Base mixin for all button stylings.                        |
+| `button-classic`              | Grey filled button with subtle outline.                    |
+| `button-filled`               | Accent-color filled button.                                |
+| `button-filled-neutral`       | Grey filled button.                                        |
+| `button-hover`                | Button with transparent highlight until hovered.           |
+| `content-text`                | Text inside conforms to `--color-content`.                 |
+| `content-text-icon`           | Text and icons inside conform to `--color-content`.        |
+| `dialog`                      | Centers `<dialog>` and adds nice shadow.                   |
+| `flex-grow`                   | Applies `flex-grow: 1;`.                                   |
+| `flip-180`                    | Applies an upside-down rotate transform.                   |
+| `gone`                        | Applies `display: none;`.                                  |
+| `init`                        | Initialises the template (required).                       |
+| `input-base`                  | Base mixin for all text input stylings.                    |
+| `input-button-base`           | Base mixin for all input button stylings.                  |
+| `input-button-classic`        | Grey filled button with subtle outline.                    |
+| `input-button-filled`         | Accent-color filled button.                                |
+| `input-button-filled-neutral` | Grey filled button.                                        |
+| `input-button-hover`          | Button with transparent highlight until hovered.           |
+| `input-filled-neutral`        | Grey filled text input.                                    |
+| `link`                        | Inline accent colored text with underline on hover.        |
+| `no-select`                   | Makes text inside element unselectable.                    |
+| `no-select-override`          | Undoes `no-select` (to fight specificity).                 |
+| `one-line`                    | Forces child text to a single line with elipsis if needed. |
+| `page-centerer`               | Centers child element when `--page-width` reached.         |
+| `row`                         | Changes flex direction to row.                             |
+| `select-base`                 | Base mixin for select stylings.                            |
+| `select-filled-neutral`       | Grey filled select button.                                 |
+| `theme-apply`                 | Applies the given theme to an element.                     |
+| `theme-apply-base`            | Applies the given theme to the page.                       |
+| `theme-dark`                  | Applies the dark theme to an element.                      |
+| `theme-dark-base`             | Applies the dark theme to the page.                        |
+| `theme-light`                 | Applies the light theme to an element.                     |
+| `theme-light-base`            | Applies the light theme to a page.                         |
 
 ## Layout
 

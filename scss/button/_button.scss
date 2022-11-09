@@ -4,6 +4,7 @@
 @forward "filled-neutral";
 @forward "filled";
 @forward "hover";
+@forward "styling-base";
 
 @mixin init {
   @include default-styles;

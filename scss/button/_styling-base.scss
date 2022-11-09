@@ -1,5 +1,6 @@
 @mixin base {
   position: relative;
+  --content-color: var(--color-ink-80);
 
   & > * {
     // Button content should display over ::before puesdo-element (used for

@@ -9,6 +9,9 @@
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
 
+    --content-color: var(--color-ink-80);
+    --content-color-transition: 0.1s;
+
     cursor: pointer;
 
     & > input[type="radio"] {

@@ -5,6 +5,7 @@
 @use "dialog" as dialog;
 @use "anchor" as anchor;
 @use "text" as text;
+@use "odometer" as odometer;
 
 @mixin link {
   @include anchor.link;
@@ -44,4 +45,8 @@
 
 @mixin one-line {
   @include text.one-line;
+}
+
+@mixin odometer {
+  @include odometer.odometer;
 }

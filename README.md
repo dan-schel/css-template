@@ -32,6 +32,10 @@ My standard template for CSS styling written in SASS.
   - [Available stylings](#available-stylings-2)
   - [Applying padding](#applying-padding)
 - [Dialogs](#dialogs)
+- [Odometers](#odometers)
+  - [Changing the odometer's content](#changing-the-odometers-content)
+- [Pickers](#pickers)
+  - [Available stylings](#available-stylings-3)
 - [Known issues/inconsistencies](#known-issuesinconsistencies)
 
 ## Usage
@@ -55,20 +59,21 @@ Then, in your sass code, use the below to initialize the template:
 
 The custom properties used in this template (excluding many color swatches):
 
-| Property                   | Description                                                  |
-| -------------------------- | ------------------------------------------------------------ |
-| `--button-rounding`        | The border radius applied to buttons.                        |
-| `--button-outline`         | The outline applied to buttons with applicable stylings.     |
-| `--input-rounding`         | The border radius applied to text inputs.                    |
-| `--input-outline`          | The outline applied to text inputs with applicable stylings. |
-| `--input-outline-disabled` | As above, but for disabled text inputs.                      |
-| `--color-accent`           | The accent color used on buttons, links, etc.                |
-| `--color-content`          | The dynamic color the content uses (e.g. in buttons).        |
-| `--font-default`           | The font family to use by default.                           |
-| `--font-size-default`      | The font size to use by default.                             |
-| `--line-spacing`           | The default line spacing to apply.                           |
-| `--min-page-width`         | The minimum width of the `<body>`.                           |
-| `--page-width`             | The maximum width used when using the `page-centerer` mixin. |
+| Property                     | Description                                                  |
+| ---------------------------- | ------------------------------------------------------------ |
+| `--button-rounding`          | The border radius applied to buttons.                        |
+| `--button-outline`           | The outline applied to buttons with applicable stylings.     |
+| `--input-rounding`           | The border radius applied to text inputs.                    |
+| `--input-outline`            | The outline applied to text inputs with applicable stylings. |
+| `--input-outline-disabled`   | As above, but for disabled text inputs.                      |
+| `--color-accent`             | The accent color used on buttons, links, etc.                |
+| `--content-color`            | The dynamic color the content uses (e.g. in buttons).        |
+| `--content-color-transition` | Duration of transition for elements using `--content-color`. |
+| `--font-default`             | The font family to use by default.                           |
+| `--font-size-default`        | The font size to use by default.                             |
+| `--line-spacing`             | The default line spacing to apply.                           |
+| `--min-page-width`           | The minimum width of the `<body>`.                           |
+| `--page-width`               | The maximum width used when using the `page-centerer` mixin. |
 
 ### Mixins
 
@@ -81,8 +86,8 @@ The mixins available in this template:
 | `button-filled`               | Accent-color filled button.                                |
 | `button-filled-neutral`       | Grey filled button.                                        |
 | `button-hover`                | Button with transparent highlight until hovered.           |
-| `content-text`                | Text inside conforms to `--color-content`.                 |
-| `content-text-icon`           | Text and icons inside conform to `--color-content`.        |
+| `content-text`                | Text inside conforms to `--content-color`.                 |
+| `content-text-icon`           | Text and icons inside conform to `--content-color`.        |
 | `dialog`                      | Centers `<dialog>` and adds nice shadow.                   |
 | `flex-grow`                   | Applies `flex-grow: 1;`.                                   |
 | `flip-180`                    | Applies an upside-down rotate transform.                   |
@@ -396,7 +401,7 @@ Link styling will make the text and underline match the accent color by default.
 
 `<button>` tags by default act as `<div>`s (without special styling), and all the following styles support `<a>`, `<button>`, or `<div>` tags. This makes `<div>`, `<a>`, and `<button>` essentially interchangable, so you can use whatever's best for accessibility.
 
-Many button styles assume the button's content will be able to react to `--color-content` changes, so the content for a button-styled element should almost always be a [generic content](#generic-content-templates) container.
+Many button styles assume the button's content will be able to react to `--content-color` changes, so the content for a button-styled element should almost always be a [generic content](#generic-content-templates) container.
 
 Many button styles will also use the properties defined in the `:root` element, which, being a css custom property, can be overriden for a certain button or a container that has buttons inside. These are:
 
@@ -423,13 +428,13 @@ button {
 
 ### Available stylings
 
-The following stylings do **_not_** require the content to support `--color-content`.
+The following stylings do **_not_** require the content to support `--content-color`.
 
 - `button-hover` buttons are invisible until hovered/focused.
-- `button-filled-neutral` is similar, but has a filled neutral background when idle. This button styling does **_not_** require the content to support `--color-content`.
-- `button-classic` is identical to `button-filled-neutral`, but with a subtle outline to mimic a classic button design. This button styling does **_not_** require the content to support `--color-content`.
+- `button-filled-neutral` is similar, but has a filled neutral background when idle. This button styling does **_not_** require the content to support `--content-color`.
+- `button-classic` is identical to `button-filled-neutral`, but with a subtle outline to mimic a classic button design. This button styling does **_not_** require the content to support `--content-color`.
 
-The following stylings **_do_** require the content to support `--color-content`.
+The following stylings **_do_** require the content to support `--content-color`.
 
 - `button-filled` use `--color-accent` for the background and `--color-on-accent` for the content. To change the color, you can override the `--color-accent` for that element.
 
@@ -439,14 +444,14 @@ Each of the styles mentioned above are available for input buttons (e.g. `<input
 
 ## Generic content templates
 
-The `content-XXX` mixins define generic layouts mainly designed for use with buttons. The elements inside them color themselves according to a property designed to be set in the parent element `--color-content`.
+The `content-XXX` mixins define generic layouts mainly designed for use with buttons. The elements inside them color themselves according to a property designed to be set in the parent element `--content-color`.
 
 This allows for the case where the parent element is a button that may dramatically change color on hover, and therefore require its content to use inverted colors during hover.
 
 The available types are
 
-- `content-text` which sets all immediate descendant `<p>` tags to use `--color-content` for their color
-- `content-text-icon` which sets all immediate descendant `<p>` tags and all immediate descendant tags with the `iconify` class to use `--color-content` for their color
+- `content-text` which sets all immediate descendant `<p>` tags to use `--content-color` for their color
+- `content-text-icon` which sets all immediate descendant `<p>` tags and all immediate descendant tags with the `iconify` class to use `--content-color` for their color
 
 ## Input styling
 
@@ -551,6 +556,108 @@ dialog {
 ```js
 document.getElementById("dialog").showModal();
 ```
+
+## Odometers
+
+Odometers are elements that upon changing content, animate the old content out and the new content in, usually with a slide up animation like a classic car odometer (hence the name). The atonomy of a odometer is as follows:
+
+```html
+<div class="odometer">
+  <div class="odometer-in">
+    <p>I'm the current value, animating in!</p>
+  </div>
+  <div class="odometer-out">
+    <p>I'm the old value, animating out!</p>
+  </div>
+</div>
+```
+
+And the CSS:
+
+```css
+.odometer {
+  @include template.odometer(
+    $in-class: "odometer-in",
+    $out-class: "odometer-out"
+  );
+}
+```
+
+Note that if no "in" animation is desired (as might be the case sometimes for the initial value), a child of the odometer without any class is treated as the current content. The "in" class merely adds the slide in animation.
+
+### Changing the odometer's content
+
+Javascript is required to actually swap out the DOM content. which is available in the `schel-d-utils-browser` package on npm.
+
+```js
+import { OdometerController } from "schel-d-utils-browser";
+
+// Function to determine whether two values are equivalent. No need to change
+// the value or run the animation if so.
+const equals = (a, b) => a == b;
+
+// Function to translate a value (of any type) into DOM to display on the page.
+const builder = (x) => {
+  const element = document.createElement("p");
+  element.textContent = x;
+  return element;
+};
+
+// Create the odometer, initially it will display "Initial value".
+const odometer = new OdometerController("Initial value", equals, builder);
+
+// At some point later... change the value
+odometer.update("New value");
+```
+
+## Pickers
+
+Pickers are styled radio buttons at heart, but generally do not not share much in common with the appearance of a radio button. The atonomy of a group of pickers is as follows:
+
+```html
+<div class="picker-group">
+  <label>
+    <input id="picker-a" type="radio" name="picker-name" autocomplete="off" />
+    <div class="picker-content">
+      <p>Option A</p>
+    </div>
+  </label>
+  <label>
+    <input id="picker-b" type="radio" name="picker-name" autocomplete="off" />
+    <div class="picker-content">
+      <p>Option B</p>
+    </div>
+  </label>
+  <label>
+    <input id="picker-c" type="radio" name="picker-name" autocomplete="off" />
+    <div class="picker-content">
+      <p>Option C</p>
+    </div>
+  </label>
+</div>
+```
+
+Note that just like regular radio buttons, for these to act correctly as a group they must all have the same name (e.g. `"picker-name"` here) which must be unique from any other set of radio buttons (or other pickers) on the page.
+
+The use of labels and radio button here allows us to avoid requiring any Javascript (except to read the chosen value, as with any regular radio button), and maintain (hopefully) fairly good support for keyboard input and screenreaders. The CSS looks something like this:
+
+```css
+.picker-group {
+  @include template.picker-cupertino($content-class: "picker-content");
+
+  .picker-content {
+    @include template.content-text;
+  }
+}
+```
+
+Note the use of `content-text`, since the picker may desire to change the content's color in some states. The default value of `$content-class` is also `"picker-content"` so in this case, that parameter could be omitted.
+
+### Available stylings
+
+- `picker-cupertino` is an iOS-style picker.
+- `picker-cupertino-vertical` is identical to `picker-cupertino`, but stacked vertically rather than horizontal.
+- `picker-pills` a group of distinct buttons, which support wrapping if there are too many for one line, unlike the `cupertino` variants.
 
 ## Known issues/inconsistencies
 

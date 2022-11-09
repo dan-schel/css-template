@@ -1,0 +1,20 @@
+@use "../utils";
+
+@mixin base($content-class: "picker-content") {
+  @include utils.no-select;
+
+  > label {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+
+    cursor: pointer;
+
+    & > input[type="radio"] {
+      position: fixed;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}

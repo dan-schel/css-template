@@ -25,6 +25,10 @@
 @forward "text" as text-*;
 @use "text" as text;
 
+@forward "odometer" as odometer-*;
+
+@forward "picker/picker" as picker-*;
+
 @forward "strip-namespace";
 
 @mixin init($themes: null, $custom-colors: null) {

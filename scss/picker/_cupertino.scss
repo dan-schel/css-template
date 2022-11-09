@@ -1,0 +1,68 @@
+@use "styling-base";
+@use "../utils";
+
+@mixin cupertino-base($content-class: "picker-content") {
+  @include styling-base.base($content-class: $content-class);
+
+  > label {
+    flex-grow: 1;
+
+    > input[type="radio"] + .#{$content-class} {
+      align-items: center;
+      justify-content: center;
+
+      border: 2px solid var(--color-accent);
+      transition: background-color 0.1s;
+    }
+    > input[type="radio"]:hover + .#{$content-class},
+    > input[type="radio"]:focus-visible + .#{$content-class} {
+      background-color: var(--color-ink-10);
+    }
+    > input[type="radio"]:active + .#{$content-class} {
+      background-color: var(--color-ink-20);
+    }
+    > input[type="radio"]:checked + .#{$content-class} {
+      background-color: var(--color-accent);
+      --content-color: var(--color-on-accent);
+    }
+  }
+}
+
+@mixin cupertino($content-class: "picker-content") {
+  @include cupertino-base($content-class: $content-class);
+  @include utils.row;
+
+  // Curve buttons on each edge.
+  & > label:first-child > input[type="radio"] + .#{$content-class} {
+    border-top-left-radius: var(--button-rounding);
+    border-bottom-left-radius: var(--button-rounding);
+  }
+  & > label:last-child > input[type="radio"] + .#{$content-class} {
+    border-top-right-radius: var(--button-rounding);
+    border-bottom-right-radius: var(--button-rounding);
+  }
+
+  // Between two buttons, only use one button's border.
+  & > label:not(:last-child) > input[type="radio"] + .#{$content-class} {
+    border-right: none;
+  }
+}
+
+@mixin cupertino-vertical($content-class: "picker-content") {
+  @include cupertino-base($content-class: $content-class);
+
+  // Curve buttons on each edge.
+  & > label:first-child > input[type="radio"] + .#{$content-class} {
+    border-top-left-radius: var(--button-rounding);
+    border-top-right-radius: var(--button-rounding);
+  }
+  & > label:last-child > input[type="radio"] + .#{$content-class} {
+    border-bottom-left-radius: var(--button-rounding);
+    border-bottom-right-radius: var(--button-rounding);
+  }
+
+  // Between two buttons, only use one button's border.
+  & > label:not(:last-child) > input[type="radio"] + .#{$content-class} {
+    border-bottom: none;
+  }
+}

@@ -2,8 +2,6 @@
 
 @mixin text {
   @include utils.row;
-  --content-color: var(--color-ink-80);
-  --content-color-transition: 0.1s;
   justify-content: center;
 
   > p {
@@ -14,8 +12,6 @@
 
 @mixin text-icon {
   @include utils.row;
-  --content-color: var(--color-ink-80);
-  --content-color-transition: 0.1s;
   justify-content: center;
 
   > p,

@@ -1,0 +1,29 @@
+@use "styling-base";
+
+@mixin subtle($content-class: "picker-content") {
+  @include styling-base.base($content-class: $content-class);
+
+  & > label {
+    flex-grow: 1;
+
+    input[type="radio"] + .#{$content-class} {
+      align-items: center;
+      justify-content: center;
+
+      --content-color: var(--color-ink-50);
+    }
+    input[type="radio"]:hover + .#{$content-class},
+    input[type="radio"]:focus-visible + .#{$content-class} {
+      --content-color: var(--color-ink-80);
+    }
+    input[type="radio"]:active + .#{$content-class} {
+      --content-color: var(--color-ink-100);
+    }
+    input[type="radio"]:checked + .#{$content-class} {
+      --content-color: var(--color-accent);
+      > p {
+        font-weight: bold;
+      }
+    }
+  }
+}

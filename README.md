@@ -2,6 +2,9 @@
 
 My standard template for CSS styling written in SASS.
 
+<!-- Table of contents created using "Markdown All in One" VSCode extension. -->
+<!-- Command palette: "> Markdown All in One: Update Table of Contents" -->
+
 ## Table of contents <!-- omit in toc -->
 
 - [Usage](#usage)
@@ -86,6 +89,8 @@ The mixins available in this template:
 | `button-filled`               | Accent-color filled button.                                |
 | `button-filled-neutral`       | Grey filled button.                                        |
 | `button-hover`                | Button with transparent highlight until hovered.           |
+| `checkbox-base`               | Base mixin for all checkbox stylings.                      |
+| `checkbox-switch`             | A "Windows 10" style switch.                               |
 | `content-text`                | Text inside conforms to `--content-color`.                 |
 | `content-text-icon`           | Text and icons inside conform to `--content-color`.        |
 | `dialog`                      | Centers `<dialog>` and adds nice shadow.                   |
@@ -103,8 +108,15 @@ The mixins available in this template:
 | `link`                        | Inline accent colored text with underline on hover.        |
 | `no-select`                   | Makes text inside element unselectable.                    |
 | `no-select-override`          | Undoes `no-select` (to fight specificity).                 |
+| `odometer`                    | Content with a slide-up animation when it updates.         |
 | `one-line`                    | Forces child text to a single line with elipsis if needed. |
 | `page-centerer`               | Centers child element when `--page-width` reached.         |
+| `picker-base`                 | Base mixin for all picker stylings.                        |
+| `picker-cupertino`            | iOS-style horizontal picker.                               |
+| `picker-cupertino-base`       | Base mixin for iOS-style pickers.                          |
+| `picker-cupertino-vertical`   | Like `picker-cupertino`, but stacked vertically.           |
+| `picker-pills`                | Picker with distinct buttons that can wrap.                |
+| `picker-subtle`               | Shapeless/borderless picker that highlights the text.      |
 | `row`                         | Changes flex direction to row.                             |
 | `select-base`                 | Base mixin for select stylings.                            |
 | `select-filled-neutral`       | Grey filled select button.                                 |
@@ -656,8 +668,44 @@ Note the use of `content-text`, since the picker may desire to change the conten
 ### Available stylings
 
 - `picker-cupertino` is an iOS-style picker.
-- `picker-cupertino-vertical` is identical to `picker-cupertino`, but stacked vertically rather than horizontal.
-- `picker-pills` a group of distinct buttons, which support wrapping if there are too many for one line, unlike the `cupertino` variants.
+- `picker-cupertino-vertical` is identical to `picker-cupertino`, but stacked vertically rather than horizontally.
+- `picker-pills` are a group of distinct buttons, which support wrapping if there are too many for one line, unlike the `cupertino` variants.
+- `picker-subtle` have no outline whatsoever, and just display the content itself. The selected option takes on the accent color and is made bold. These can be layed-out horizontally or vertically if desired.
+
+## Checkbox styling
+
+Checkbox styling in this template is achieved using a checkbox under the hood for the state management, but it is made invisible and other elements are used so the appearance can be fully customizable. The checkbox stylings supported by this library require the following HTML structure:
+
+```html
+<label class="switch">
+  <input id="switch" type="checkbox" autocomplete="off" />
+  <div>
+    <div class="switch-graphic"></div>
+    <div class="switch-content">
+      <p>My switch</p>
+    </div>
+  </div>
+</label>
+```
+
+Then the styling can be achieve with this CSS:
+
+```css
+.switch {
+  @include template.checkbox-switch(
+    $graphic-class: "switch-graphic",
+    $content-class: "switch-content"
+  );
+
+  .switch-content {
+    @include template.content-text;
+  }
+}
+```
+
+### Available stylings
+
+- `checkbox-switch` puts a vertically centered "Windows 10" style switch on the left-side on the content.
 
 ## Known issues/inconsistencies
 

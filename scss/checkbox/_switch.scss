@@ -1,0 +1,84 @@
+@use "styling-base";
+@use "../utils";
+
+@mixin switch(
+  $graphic-class: "switch-graphic",
+  $content-class: "switch-content"
+) {
+  @include styling-base.base(
+    $graphic-class: $graphic-class,
+    $content-class: $content-class
+  );
+
+  input[type="checkbox"] + div {
+    @include utils.row;
+
+    // Not checked
+    > .#{$graphic-class} {
+      position: relative;
+      width: 2rem;
+      height: 1.2rem;
+      border-radius: 1rem;
+      border: 0.1rem solid var(--color-ink-50);
+      transition: border-color 0.1s, background-color 0.1s;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0.6rem;
+        height: 0.6rem;
+        top: 0.2rem;
+        left: 0.2rem;
+        background-color: var(--color-ink-50);
+        border-radius: 1rem;
+        transition: transform 0.2s, background-color 0.1s, opacity 0.1s;
+      }
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    // Checked
+    + div > .#{$graphic-class} {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+
+      &::before {
+        transform: translate(0.75rem, 0rem);
+        background-color: var(--color-on-accent);
+      }
+    }
+
+    // Checked and hovered
+    &:hover,
+    &:focus-visible {
+      + div > .#{$graphic-class}::before {
+        transform: translate(0.75rem, 0rem) scale(133%, 133%);
+      }
+    }
+
+    // Checked and pressed
+    &:active {
+      + div > .#{$graphic-class}::before {
+        opacity: 80%;
+      }
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) {
+    // Not checked, but hovered
+    &:hover,
+    &:focus-visible {
+      + div > .#{$graphic-class}::before {
+        transform: scale(133%, 133%);
+      }
+    }
+
+    // Not checked, but pressed
+    &:active {
+      + div > .#{$graphic-class} {
+        background-color: var(--color-ink-10);
+      }
+    }
+  }
+}

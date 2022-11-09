@@ -29,6 +29,8 @@
 
 @forward "picker/picker" as picker-*;
 
+@forward "checkbox/checkbox" as checkbox-*;
+
 @forward "strip-namespace";
 
 @mixin init($themes: null, $custom-colors: null) {

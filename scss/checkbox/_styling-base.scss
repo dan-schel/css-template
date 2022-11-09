@@ -1,0 +1,24 @@
+@use "../utils";
+
+@mixin base($graphic-class, $content-class) {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+
+  cursor: pointer;
+
+  > input[type="checkbox"] {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+  }
+  input[type="checkbox"] + div {
+    @include utils.no-select;
+
+    > .#{$content-class} {
+      --content-color: var(--color-ink-80);
+      --content-color-transition: 0.1s;
+    }
+  }
+}

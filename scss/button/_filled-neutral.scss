@@ -1,0 +1,31 @@
+@use "styling-base";
+
+@mixin filled-neutral {
+  @include styling-base.base;
+
+  &::before {
+    transition: background-color 0.05s;
+    background-color: var(--color-ink-10);
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      background-color: var(--color-ink-20);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--color-ink-30);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    &::before {
+      background-color: transparent;
+      border: var(--btn-outline) solid var(--color-ink-10);
+    }
+  }
+}

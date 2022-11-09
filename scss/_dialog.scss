@@ -1,14 +1,14 @@
 @mixin dialog {
   border: none;
-  background-color: var(--clr-paper-30);
+  background-color: var(--color-paper-30);
 
   position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 
-  box-shadow: 0 0.5rem 3rem var(--clr-shadow-20);
+  box-shadow: 0 0.5rem 3rem var(--color-shadow-20);
   &::backdrop {
-    background-color: var(--clr-shadow-20);
+    background-color: var(--color-shadow-20);
   }
 }

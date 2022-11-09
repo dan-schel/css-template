@@ -1,50 +1,69 @@
-@forward "init";
+@forward "theme/theme" as theme-*;
+@use "theme/theme" as theme;
 
-@forward "button";
-@forward "button-styling-classic";
-@forward "button-styling-filled-neutral";
-@forward "button-styling-filled";
-@forward "button-styling-hover";
-@forward "button-styling";
-@forward "dialog";
-@forward "input";
-@forward "input-styling";
-@forward "input-styling-filled-neutral";
-@forward "link";
-@forward "select-styling";
-@forward "select-styling-filled-neutral";
-@forward "text";
-@forward "theme";
-@forward "theme-gen";
-@forward "utils";
+@forward "button/button" as button-*;
+@use "button/button" as button;
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@forward "input-button/input-button" as input-button-*;
+@use "input-button/input-button" as input-button;
 
-* {
-  margin: 0;
-  padding: 0;
-  flex-shrink: 0;
-}
+@forward "input/input" as input-*;
+@use "input/input" as input;
 
-div,
-a,
-dialog,
-main,
-nav,
-section,
-header,
-footer,
-aside,
-form,
-button,
-body {
-  display: flex;
-  flex-direction: column;
-}
-dialog:not([open]) {
-  display: none;
+@forward "select/select" as select-*;
+
+@forward "anchor" as anchor-*;
+@use "anchor" as anchor;
+
+@forward "content" as content-*;
+
+@forward "dialog" as dialog-*;
+
+@forward "utils" as utils-*;
+@use "utils" as utils;
+
+@forward "text" as text-*;
+@use "text" as text;
+
+@forward "strip-namespace";
+
+@mixin init($themes: null, $custom-colors: null) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  div,
+  a,
+  dialog,
+  main,
+  nav,
+  section,
+  header,
+  footer,
+  aside,
+  form,
+  button,
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  dialog:not([open]) {
+    display: none;
+  }
+
+  @include theme.init($themes: $themes, $custom-colors: $custom-colors);
+  @include button.init();
+  @include input-button.init();
+  @include input.init();
+  @include anchor.init();
+  @include utils.init();
+  @include text.init();
 }

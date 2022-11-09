@@ -1,12 +1,5 @@
-@mixin init-button-styling {
-  :root {
-    --btn-rounding: 0.25rem;
-    --btn-outline: 1px;
-  }
-}
-
-@mixin btn-base {
-  --clr-content: var(--clr-ink-80);
+@mixin base {
+  --color-content: var(--color-ink-80);
   position: relative;
 
   & > * {
@@ -41,13 +34,4 @@
       opacity: 50%;
     }
   }
-}
-
-@mixin input-btn-base {
-  // For inputs, we cannot use puesdo-elements. So borders may cause size
-  // to be 1px (or --btn-outline) larger than the content desired unfortunately.
-  border-radius: var(--btn-rounding);
-
-  // Do not set opacity to 50% when disabled here, because we can't target the
-  // input button's text alone.
 }

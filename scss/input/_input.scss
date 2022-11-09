@@ -1,4 +1,16 @@
-@mixin init-input {
+@forward "filled-neutral";
+
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
+  :root {
+    --input-rounding: 0.25rem;
+    --input-outline: 2px;
+    --input-outline-disabled: var(--input-outline);
+  }
+
   input[type="date"],
   input[type="datetime-local"],
   input[type="email"],

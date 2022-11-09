@@ -1,4 +1,7 @@
-@mixin select-base {
+@mixin base(
+  $highlight-class: "select-highlight",
+  $arrow-class: "select-arrow"
+) {
   position: relative;
 
   select {
@@ -29,7 +32,7 @@
     }
   }
 
-  .select-highlight {
+  .#{$highlight-class} {
     pointer-events: none;
     position: absolute;
     left: 0;
@@ -38,13 +41,13 @@
     bottom: 0;
     border-radius: var(--input-rounding);
   }
-  .select-arrow {
+  .#{$arrow-class} {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
 
     pointer-events: none;
-    background-color: var(--clr-ink-80);
+    background-color: var(--color-ink-80);
   }
 }

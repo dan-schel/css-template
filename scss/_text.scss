@@ -1,6 +1,8 @@
-@use "theme";
+@mixin init {
+  @include default-styles;
+}
 
-@mixin init-text {
+@mixin default-styles {
   :root {
     --font-default: sans-serif;
     --font-size-default: 1rem;
@@ -20,15 +22,15 @@
     font-family: var(--font-default);
     font-size: var(--font-size-default);
     font-weight: normal;
-    color: var(--clr-ink-80);
+    color: var(--color-ink-80);
   }
   input::placeholder {
     opacity: 100%;
-    color: var(--clr-ink-50);
+    color: var(--color-ink-50);
   }
 
   .iconify {
-    color: var(--clr-ink-80);
+    color: var(--color-ink-80);
     width: 1em;
     height: 1em;
   }

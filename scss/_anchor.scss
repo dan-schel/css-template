@@ -1,6 +1,10 @@
 @use "utils";
 
-@mixin init-link {
+@mixin init {
+  @include default-styles;
+}
+
+@mixin default-styles {
   a {
     // Remove all special appearance from <a> tags by default, so they can behave
     // like regular <div>s.
@@ -24,13 +28,13 @@
   // tags.
   @include utils.no-select-override;
 
-  color: var(--clr-accent);
+  color: var(--color-accent);
   text-decoration: underline transparent;
   transition: text-decoration-color 0.05s;
   outline: none;
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline var(--clr-accent) 1px;
+    text-decoration: underline var(--color-accent) 1px;
   }
 }

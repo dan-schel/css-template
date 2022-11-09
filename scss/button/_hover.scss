@@ -1,0 +1,29 @@
+@use "styling-base";
+
+@mixin hover {
+  @include styling-base.base;
+
+  &::before {
+    transition: background-color 0.05s;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      background-color: var(--color-ink-10);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--color-ink-20);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    &::before {
+      background-color: transparent;
+    }
+  }
+}

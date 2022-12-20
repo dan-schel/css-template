@@ -467,7 +467,7 @@ This allows for the case where the parent element is a button that may dramatica
 The available types are
 
 - `content-text` which sets all immediate descendant `<p>` tags to use `--content-color` for their color
-- `content-text-icon` which sets all immediate descendant `<p>` tags and all immediate descendant tags with the `iconify` class to use `--content-color` for their color
+- `content-text-icon` which sets all immediate descendant `<p>` tags and all immediate descendant tags with the `icon` class to use `--content-color` for their color
 
 ## Input styling
 
@@ -601,9 +601,17 @@ And the CSS:
 
 Note that if no "in" animation is desired (as might be the case sometimes for the initial value), a child of the odometer without any class is treated as the current content. The "in" class merely adds the slide in animation.
 
+If not provided, the $in-class parameter will be "odometer-in" by default, and likewise with $out-class and "odometer-out", so the above code could be simplified to just:
+
+```css
+.odometer {
+  @include template.odometer;
+}
+```
+
 ### Changing the odometer's content
 
-Javascript is required to actually swap out the DOM content. which is available in the `schel-d-utils-browser` package on npm.
+Javascript is required to actually swap out the DOM content. which is available in the [`schel-d-utils-browser`](https://www.npmjs.com/package/schel-d-utils-browser) package on npm.
 
 ```js
 import { OdometerController } from "schel-d-utils-browser";

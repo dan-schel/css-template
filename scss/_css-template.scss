@@ -51,7 +51,6 @@
 
   div,
   a,
-  dialog,
   main,
   nav,
   section,
@@ -62,6 +61,10 @@
   button,
   label,
   body {
+    display: flex;
+    flex-direction: column;
+  }
+  dialog {
     display: flex;
     flex-direction: column;
   }

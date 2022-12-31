@@ -11,7 +11,12 @@
   max-height: 100%;
 
   box-shadow: 0 0.5rem 3rem var(--color-shadow-20);
+
+  // Separated to support old Safari?
   &::backdrop {
+    background-color: var(--color-shadow-20);
+  }
+  dialog + .backdrop {
     background-color: var(--color-shadow-20);
   }
 }

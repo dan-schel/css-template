@@ -553,9 +553,7 @@ If desired, custom padding can be applied to a styled select. Note that the `sel
 
 ## Dialogs
 
-By default, this template doesn't affect dialogs in any way. However, to show a
-dialog in the middle of the screen, with a pleasant shadow and backdrop color,
-the `dialog` mixin is available.
+By default, this template doesn't affect dialogs in any way, except to add the [Dialog Polyfill](https://github.com/GoogleChrome/dialog-polyfill) to support older browsers (requires the JS provided in the project to work). However, to show a dialog in the middle of the screen, with a pleasant shadow and backdrop color, the `dialog` mixin is available.
 
 ```css
 dialog {

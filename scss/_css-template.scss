@@ -31,6 +31,9 @@
 
 @forward "checkbox/checkbox" as checkbox-*;
 
+@forward "dialog-polyfill" as dialog-polyfill-*;
+@use "dialog-polyfill" as dialog-polyfill;
+
 @forward "strip-namespace";
 
 @mixin init($themes: null, $custom-colors: null) {
@@ -62,15 +65,13 @@
     display: flex;
     flex-direction: column;
   }
-  dialog:not([open]) {
-    display: none;
-  }
 
   @include theme.init($themes: $themes, $custom-colors: $custom-colors);
-  @include button.init();
-  @include input-button.init();
-  @include input.init();
-  @include anchor.init();
-  @include utils.init();
-  @include text.init();
+  @include button.init;
+  @include input-button.init;
+  @include input.init;
+  @include anchor.init;
+  @include utils.init;
+  @include text.init;
+  @include dialog-polyfill.init;
 }

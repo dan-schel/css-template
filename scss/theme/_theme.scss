@@ -27,49 +27,12 @@ $-custom-colors: () !default;
 }
 
 @mixin default-styles {
-  :root,
+  // Separated to support old Safari?
+  :root {
+    @include all-swatches;
+  }
   dialog::backdrop {
-    // For each theme...
-    @each $name, $theme in $-themes {
-      // Get the paper shade function and create css custom properties for each
-      // paper swatch.
-      $paper-shade-function: map.get($theme, "paper-shade-function");
-      --color-#{$name}-paper-0: #{meta.call($paper-shade-function, 0)};
-      --color-#{$name}-paper-10: #{meta.call($paper-shade-function, 10)};
-      --color-#{$name}-paper-20: #{meta.call($paper-shade-function, 20)};
-      --color-#{$name}-paper-30: #{meta.call($paper-shade-function, 30)};
-
-      // Get the ink shade function and create css custom properties for each
-      // ink swatch.
-      $ink-shade-function: map.get($theme, "ink-shade-function");
-      --color-#{$name}-ink-100: #{meta.call($ink-shade-function, 100)};
-      --color-#{$name}-ink-90: #{meta.call($ink-shade-function, 90)};
-      --color-#{$name}-ink-80: #{meta.call($ink-shade-function, 80)};
-      --color-#{$name}-ink-70: #{meta.call($ink-shade-function, 70)};
-      --color-#{$name}-ink-60: #{meta.call($ink-shade-function, 60)};
-      --color-#{$name}-ink-50: #{meta.call($ink-shade-function, 50)};
-      --color-#{$name}-ink-40: #{meta.call($ink-shade-function, 40)};
-      --color-#{$name}-ink-30: #{meta.call($ink-shade-function, 30)};
-      --color-#{$name}-ink-20: #{meta.call($ink-shade-function, 20)};
-      --color-#{$name}-ink-10: #{meta.call($ink-shade-function, 10)};
-
-      // Add the accent/on-accent/shadow colors.
-      --color-#{$name}-accent: #{map.get($theme, "color-accent")};
-      --color-#{$name}-on-accent: #{map.get($theme, "color-on-accent")};
-      --color-#{$name}-shadow-100: #{map.get($theme, "color-shadow-100")};
-      --color-#{$name}-shadow-30: #{map.get($theme, "color-shadow-30")};
-      --color-#{$name}-shadow-20: #{map.get($theme, "color-shadow-20")};
-      --color-#{$name}-shadow-10: #{map.get($theme, "color-shadow-10")};
-    }
-
-    // For each custom color...
-    @each $color-name, $themes in $-custom-colors {
-      // For each theme this custom color has a value for..
-      @each $theme-name, $color in $themes {
-        // Create a css custom property for this color in this theme.
-        --color-#{$theme-name}-#{$color-name}: #{$color};
-      }
-    }
+    @include all-swatches;
   }
 
   body {
@@ -80,5 +43,49 @@ $-custom-colors: () !default;
   @include apply.light-base;
   @media (prefers-color-scheme: dark) {
     @include apply.dark-base;
+  }
+}
+
+@mixin all-swatches {
+  // For each theme...
+  @each $name, $theme in $-themes {
+    // Get the paper shade function and create css custom properties for each
+    // paper swatch.
+    $paper-shade-function: map.get($theme, "paper-shade-function");
+    --color-#{$name}-paper-0: #{meta.call($paper-shade-function, 0)};
+    --color-#{$name}-paper-10: #{meta.call($paper-shade-function, 10)};
+    --color-#{$name}-paper-20: #{meta.call($paper-shade-function, 20)};
+    --color-#{$name}-paper-30: #{meta.call($paper-shade-function, 30)};
+
+    // Get the ink shade function and create css custom properties for each
+    // ink swatch.
+    $ink-shade-function: map.get($theme, "ink-shade-function");
+    --color-#{$name}-ink-100: #{meta.call($ink-shade-function, 100)};
+    --color-#{$name}-ink-90: #{meta.call($ink-shade-function, 90)};
+    --color-#{$name}-ink-80: #{meta.call($ink-shade-function, 80)};
+    --color-#{$name}-ink-70: #{meta.call($ink-shade-function, 70)};
+    --color-#{$name}-ink-60: #{meta.call($ink-shade-function, 60)};
+    --color-#{$name}-ink-50: #{meta.call($ink-shade-function, 50)};
+    --color-#{$name}-ink-40: #{meta.call($ink-shade-function, 40)};
+    --color-#{$name}-ink-30: #{meta.call($ink-shade-function, 30)};
+    --color-#{$name}-ink-20: #{meta.call($ink-shade-function, 20)};
+    --color-#{$name}-ink-10: #{meta.call($ink-shade-function, 10)};
+
+    // Add the accent/on-accent/shadow colors.
+    --color-#{$name}-accent: #{map.get($theme, "color-accent")};
+    --color-#{$name}-on-accent: #{map.get($theme, "color-on-accent")};
+    --color-#{$name}-shadow-100: #{map.get($theme, "color-shadow-100")};
+    --color-#{$name}-shadow-30: #{map.get($theme, "color-shadow-30")};
+    --color-#{$name}-shadow-20: #{map.get($theme, "color-shadow-20")};
+    --color-#{$name}-shadow-10: #{map.get($theme, "color-shadow-10")};
+  }
+
+  // For each custom color...
+  @each $color-name, $themes in $-custom-colors {
+    // For each theme this custom color has a value for..
+    @each $theme-name, $color in $themes {
+      // Create a css custom property for this color in this theme.
+      --color-#{$theme-name}-#{$color-name}: #{$color};
+    }
   }
 }

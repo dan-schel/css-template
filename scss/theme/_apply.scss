@@ -41,7 +41,10 @@ $-custom-colors: () !default;
 }
 
 @mixin apply-base($theme) {
-  :root,
+  // Separated to support old Safari?
+  :root {
+    @include apply($theme);
+  }
   dialog::backdrop {
     @include apply($theme);
   }
@@ -58,7 +61,10 @@ $-custom-colors: () !default;
 // called in the root of a css file (not inside a selector) to work correctly.
 @mixin dark-base {
   @include apply-base("dark");
-  :root,
+  // Separated to support old Safari?
+  :root {
+    color-scheme: dark;
+  }
   dialog::backdrop {
     color-scheme: dark;
   }

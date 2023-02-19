@@ -43,6 +43,9 @@
   @include utils.no-select;
   cursor: pointer;
 
+  // Prevent double-tap to zoom (e.g. on iOS) when it occurs on buttons.
+  touch-action: manipulation;
+
   &[disabled],
   &:disabled {
     cursor: default;

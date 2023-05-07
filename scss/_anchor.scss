@@ -29,7 +29,7 @@
   @include utils.no-select-override;
 
   color: var(--color-accent);
-  text-decoration: underline transparent;
+  text-decoration: underline transparent 1px;
   transition: text-decoration-color 0.05s;
   outline: none;
 

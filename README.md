@@ -76,7 +76,6 @@ The custom properties used in this template (excluding many color swatches):
 | `--color-accent`             | The accent color used on buttons, links, etc.                |
 | `--content-color`            | The dynamic color the content uses (e.g. in buttons).        |
 | `--content-color-transition` | Duration of transition for elements using `--content-color`. |
-| `--font-default`             | The font family to use by default.                           |
 | `--font-size-default`        | The font size to use by default.                             |
 | `--line-spacing`             | The default line spacing to apply.                           |
 | `--min-page-width`           | The minimum width of the `<body>`.                           |
@@ -363,7 +362,7 @@ The `no-select-override` mixin is also available to undo the effects of `no-sele
 
 ## Text
 
-Text will use color `--color-ink-80` by default, and the font defined by `--font-default` with the font size of `--font-size-default`. All text elements (including headers) will use this default font and color, and will have their font weight reset to regular.
+Text will use color `--color-ink-80` by default with the font size of `--font-size-default`. All text elements (including headers) will use this default color, and inherit the font of their parent, meaning settings the `font-family`/`font-weight` on the body should apply it to the whole page.
 
 Some fonts appear too tight or loose in a block paragraph, so `--line-spacing` can be adjusted to make text elements (`<p>`, `<h1>`, etc.) display it with more space without ruining the bottom margin.
 

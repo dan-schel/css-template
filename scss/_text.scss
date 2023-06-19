@@ -4,7 +4,6 @@
 
 @mixin default-styles {
   :root {
-    --font-default: sans-serif;
     --font-size-default: 1rem;
     --line-spacing: 0.5em;
   }
@@ -19,9 +18,9 @@
   li,
   input,
   select {
-    font-family: var(--font-default);
+    font-family: inherit;
+    font-weight: inherit;
     font-size: var(--font-size-default);
-    font-weight: normal;
     color: var(--color-ink-80);
   }
   input::placeholder {

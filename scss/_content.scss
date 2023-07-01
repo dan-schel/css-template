@@ -19,4 +19,12 @@
     color: var(--content-color);
     transition: color var(--content-color-transition);
   }
+
+  // Support CSS modules. Do not combine with above selector, as that seems to
+  // cause browsers to ignore the entire rule, not just the selector it doesn't
+  // understand.
+  > :global(.icon) {
+    color: var(--content-color);
+    transition: color var(--content-color-transition);
+  }
 }

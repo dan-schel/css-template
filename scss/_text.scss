@@ -34,6 +34,15 @@
     height: 1em;
   }
 
+  // Support CSS modules. Do not combine with above selector, as that seems to
+  // cause browsers to ignore the entire rule, not just the selector it doesn't
+  // understand.
+  :global(.icon) {
+    color: var(--color-ink-80);
+    width: 1em;
+    height: 1em;
+  }
+
   h1,
   h2,
   h3,

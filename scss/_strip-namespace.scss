@@ -39,8 +39,8 @@
   @include utils.no-select-override;
 }
 
-@mixin page-centerer($centered-class: "page-centered") {
-  @include utils.page-centerer($centered-class: $centered-class);
+@mixin page-centerer {
+  @include utils.page-centerer;
 }
 
 @mixin one-line {

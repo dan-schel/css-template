@@ -139,12 +139,12 @@ The template enables and requires `border-box` box sizing mode. All elements hav
 Centering the page once it reaches a certain width can be achieved with the following:
 
 ```css
-/* Center the .page-centered div inside main once it becomes wider than 64rem. */
+/* Center all elements which are direct children of main once it becomes wider than 64rem. */
 :root {
   --page-width: 64rem;
 }
 main {
-  @include template.page-centerer($centered-class: "page-centered");
+  @include template.page-centerer;
 }
 ```
 
@@ -153,22 +153,14 @@ main {
   <h1>This is not centered</h1>
 </header>
 <main>
-  <div class="page-centered">
+  <!-- The div below is the element that is centered. -->
+  <div>
     <p>This content can be 60rem at most, after which it is centered.</p>
   </div>
 </main>
 <footer>
   <p>This is also not centered</p>
 </footer>
-```
-
-Note that `--page-width` has a default value of `64rem`, and if not provided, the `$centered-class` parameter will be `"page-centered"` by default, so the above code could be simplified to just:
-
-```css
-/* Center the .page-centered div inside main once it becomes wider than 64rem. */
-main {
-  @include template.page-centerer;
-}
 ```
 
 ### Minimum page width

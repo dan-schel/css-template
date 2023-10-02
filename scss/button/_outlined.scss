@@ -1,0 +1,9 @@
+@use "hover";
+
+@mixin outlined {
+  @include hover.hover;
+
+  &::before {
+    border: var(--button-outline) solid var(--color-ink-20);
+  }
+}

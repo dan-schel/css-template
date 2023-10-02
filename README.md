@@ -92,6 +92,7 @@ The mixins available in this template:
 | `button-filled`               | Accent-color filled button.                                |
 | `button-filled-neutral`       | Grey filled button.                                        |
 | `button-hover`                | Button with transparent highlight until hovered.           |
+| `button-outlined`             | Button with outline only until hovered.                    |
 | `checkbox-base`               | Base mixin for all checkbox stylings.                      |
 | `checkbox-switch`             | A "Windows 10" style switch.                               |
 | `content-text`                | Text inside conforms to `--content-color`.                 |
@@ -104,6 +105,7 @@ The mixins available in this template:
 | `input-base`                  | Base mixin for all text input stylings.                    |
 | `input-button-base`           | Base mixin for all input button stylings.                  |
 | `input-button-classic`        | Grey filled button with subtle outline.                    |
+| `input-button-outlined`       | Button with outline only until hovered.                    |
 | `input-button-filled`         | Accent-color filled button.                                |
 | `input-button-filled-neutral` | Grey filled button.                                        |
 | `input-button-hover`          | Button with transparent highlight until hovered.           |
@@ -440,6 +442,7 @@ The following stylings do **_not_** require the content to support `--content-co
 - `button-hover` buttons are invisible until hovered/focused.
 - `button-filled-neutral` is similar, but has a filled neutral background when idle. This button styling does **_not_** require the content to support `--content-color`.
 - `button-classic` is identical to `button-filled-neutral`, but with a subtle outline to mimic a classic button design. This button styling does **_not_** require the content to support `--content-color`.
+- `button-outlined` is identical to `button-hover`, but with a subtle outline. This button styling does **_not_** require the content to support `--content-color`.
 
 The following stylings **_do_** require the content to support `--content-color`.
 

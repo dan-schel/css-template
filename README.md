@@ -601,7 +601,7 @@ If not provided, the $in-class parameter will be "odometer-in" by default, and l
 }
 ```
 
-Note that Javascript is required to actually swap out the DOM content. 
+Also note that Javascript is required to actually swap out the DOM content. 
 
 ## Pickers
 

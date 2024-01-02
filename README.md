@@ -601,30 +601,7 @@ If not provided, the $in-class parameter will be "odometer-in" by default, and l
 }
 ```
 
-### Changing the odometer's content
-
-Javascript is required to actually swap out the DOM content. which is available in the [`schel-d-utils-browser`](https://www.npmjs.com/package/schel-d-utils-browser) package on npm.
-
-```js
-import { OdometerController } from "schel-d-utils-browser";
-
-// Function to determine whether two values are equivalent. No need to change
-// the value or run the animation if so.
-const equals = (a, b) => a == b;
-
-// Function to translate a value (of any type) into DOM to display on the page.
-const builder = (x) => {
-  const element = document.createElement("p");
-  element.textContent = x;
-  return element;
-};
-
-// Create the odometer, initially it will display "Initial value".
-const odometer = new OdometerController("Initial value", equals, builder);
-
-// At some point later... change the value
-odometer.update("New value");
-```
+Note that Javascript is required to actually swap out the DOM content. 
 
 ## Pickers
 

@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/schel-d/css-template.git"
+    "url": "git+https://github.com/dan-schel/css-template.git"
   },
-  "author": "schel-d",
+  "author": "dan-schel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/schel-d/css-template/issues"
+    "url": "https://github.com/dan-schel/css-template/issues"
   },
-  "homepage": "https://github.com/schel-d/css-template#readme",
+  "homepage": "https://github.com/dan-schel/css-template#readme",
   "dependencies": {
     "sass": "^1.51.0"
   },

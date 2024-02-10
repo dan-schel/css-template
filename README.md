@@ -48,7 +48,7 @@ My standard template for CSS styling written in SASS.
 Clone this repo as a Git submodule in the area with your SASS files, e.g. `src/scss/css-template`:
 
 ```shell
-$ git submodule add https://github.com/schel-d/css-template.git src/scss/css-template
+$ git submodule add https://github.com/dan-schel/css-template.git src/scss/css-template
 ```
 
 Then, in your sass code, use the below to initialize the template:

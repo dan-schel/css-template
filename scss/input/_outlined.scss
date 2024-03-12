@@ -1,0 +1,23 @@
+@use "styling-base";
+
+@mixin outlined {
+  @include styling-base.base;
+
+  transition: background-color 0.05s;
+  border: 1px solid var(--color-ink-40);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-ink-60);
+  }
+
+  &:focus {
+    outline: var(--input-outline) solid var(--color-accent);
+    outline-offset: calc(-1 * var(--input-outline));
+  }
+
+  &:disabled,
+  &[disabled] {
+    opacity: 50%;
+  }
+}

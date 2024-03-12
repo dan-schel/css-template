@@ -110,6 +110,7 @@ The mixins available in this template:
 | `input-button-filled-neutral` | Grey filled button.                                        |
 | `input-button-hover`          | Button with transparent highlight until hovered.           |
 | `input-filled-neutral`        | Grey filled text input.                                    |
+| `input-outlined`              | Outlined text input.                                       |
 | `link`                        | Inline accent colored text with underline on hover.        |
 | `no-select`                   | Makes text inside element unselectable.                    |
 | `no-select-override`          | Undoes `no-select` (to fight specificity).                 |

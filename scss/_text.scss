@@ -16,6 +16,7 @@
   h5,
   h6,
   p,
+  pre,
   li,
   input,
   select,
@@ -42,7 +43,8 @@
   h4,
   h5,
   h6,
-  p {
+  p,
+  pre {
     line-height: calc(1em + var(--line-spacing));
     text-align: left;
 
@@ -76,7 +78,7 @@
 }
 
 @mixin one-line {
-  & > :is(h1, h2, h3, h4, h5, h6, p) {
+  & > :is(h1, h2, h3, h4, h5, h6, p, pre) {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

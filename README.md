@@ -462,7 +462,7 @@ This allows for the case where the parent element is a button that may dramatica
 The available types are
 
 - `content-text` which sets all immediate descendant `<p>` tags to use `--content-color` for their color
-- `content-text-icon` which sets all immediate descendant `<p>` tags and all immediate descendant tags with the `icon` class to use `--content-color` for their color
+- `content-text-icon` which sets all immediate descendant `<p>` tags and `<svg>` tags to use `--content-color` for their color
 
 ## Input styling
 

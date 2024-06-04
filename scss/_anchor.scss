@@ -29,12 +29,17 @@
   @include utils.no-select-override;
 
   color: var(--color-accent);
-  text-decoration: underline transparent 1px;
+
+  // One-liner "text-decoration" shorthand doesn't work in Safari for this case.
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+
   transition: text-decoration-color 0.05s;
   outline: none;
 
   &:hover,
   &:focus-visible {
-    text-decoration: underline var(--color-accent) 1px;
+    text-decoration-color: var(--color-accent);
   }
 }

@@ -9,7 +9,7 @@
 
 @mixin text-icon {
   > p,
-  > .icon {
+  > svg {
     color: var(--content-color);
     transition: color var(--content-color-transition);
   }

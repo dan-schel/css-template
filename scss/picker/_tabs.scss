@@ -1,0 +1,31 @@
+@use "styling-base";
+@use "../utils";
+
+@mixin tabs($content-class: "picker-content", $gap: 1rem) {
+  @include styling-base.base($content-class: $content-class);
+  @include utils.row;
+  gap: $gap;
+
+  & > label {
+    flex-grow: 1;
+
+    input[type="radio"] + .#{$content-class} {
+      align-items: center;
+      justify-content: center;
+      border-bottom: 2px solid transparent;
+      transition: border-color var(--content-color-transition);
+
+      --content-color: var(--color-ink-80);
+    }
+    input[type="radio"]:hover + .#{$content-class},
+    input[type="radio"]:focus-visible + .#{$content-class} {
+      border-color: var(--color-accent);
+    }
+    input[type="radio"]:checked + .#{$content-class} {
+      border-color: var(--color-accent);
+      > p {
+        font-weight: bold;
+      }
+    }
+  }
+}

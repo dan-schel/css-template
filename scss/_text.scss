@@ -7,6 +7,8 @@
     --font-size-default: 1rem;
     --line-spacing: 0.5em;
     font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;  
   }
 
   h1,

@@ -1,0 +1,27 @@
+@use "../../import" as template;
+
+section.buttons {
+  .button {
+    @include template.content-text;
+    padding: 0 1rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-filled {
+    @include template.button-filled;
+  }
+  .button-filled-neutral {
+    @include template.button-filled-neutral;
+  }
+  .button-classic {
+    @include template.button-classic;
+  }
+  .button-outlined {
+    @include template.button-outlined;
+  }
+  .button-hover {
+    @include template.button-hover;
+  }
+}

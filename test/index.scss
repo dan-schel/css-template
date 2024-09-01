@@ -1,0 +1,53 @@
+@use "../import" as template;
+@use "sections/buttons";
+
+@include template.init;
+
+@font-face {
+  font-family: "Mona Sans";
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-display: swap;
+  src: url(/mona-sans.woff2) format("woff2");
+}
+
+:root {
+  font-family: "Mona Sans", sans-serif;
+}
+
+main {
+  @include template.page-centerer;
+  > div {
+    padding: 2rem 1rem;
+  }
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-ink-100);
+  border-bottom: 1px solid var(--color-ink-20);
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-ink-100);
+  border-bottom: 1px solid var(--color-ink-20);
+  padding-bottom: 0.5rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background-color: var(--color-paper-20);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.row {
+  @include template.row;
+  gap: 1rem;
+}

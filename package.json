@@ -8,7 +8,8 @@
     "build": "sass test/index.scss test/css/index.css",
     "start": "serve test",
     "dev": "concurrently \"npm run watch\" \"npm run start\"",
-    "watch": "npm run build && onchange \"**/*.scss\" -- sass test/index.scss test/css/index.css"
+    "watch": "npm run build && onchange \"**/*.scss\" -- sass test/index.scss test/css/index.css",
+    "format": "prettier --write ."
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,12 @@
   },
   "homepage": "https://github.com/dan-schel/css-template#readme",
   "dependencies": {
-    "sass": "^1.51.0"
+    "sass": "^1.77.8"
   },
   "devDependencies": {
-    "concurrently": "^7.5.0",
+    "concurrently": "^8.2.2",
     "onchange": "^7.1.0",
-    "prettier": "2.6.2",
-    "rimraf": "^3.0.2"
+    "prettier": "^3.3.3",
+    "rimraf": "^6.0.1"
   }
 }

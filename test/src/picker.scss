@@ -1,0 +1,39 @@
+@use "../../import" as template;
+
+section.picker {
+  .picker-group {
+    align-self: flex-start;
+    .picker-content {
+      @include template.content-text;
+    }
+  }
+
+  .picker-cupertino {
+    @include template.picker-cupertino($content-class: "picker-content");
+    .picker-content {
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .picker-pills {
+    @include template.picker-pills($content-class: "picker-content");
+    gap: 0.5rem;
+    .picker-content {
+      padding: 0.5rem 1rem;
+      --button-rounding: 99rem;
+    }
+  }
+
+  .picker-subtle {
+    @include template.picker-subtle($content-class: "picker-content");
+    @include template.row;
+    gap: 1rem;
+  }
+
+  .picker-tabs {
+    @include template.picker-tabs($content-class: "picker-content");
+    .picker-content {
+      padding-bottom: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@use "../../import" as template;
+
+section.select {
+  .select-wrapper {
+    @include template.select-filled-neutral(
+      $highlight-class: "select-highlight",
+      $arrow-class: "select-arrow"
+    );
+    select {
+      padding: 0.5rem 1rem;
+    }
+    .select-arrow {
+      margin-right: 0.5rem;
+    }
+  }
+}

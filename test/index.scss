@@ -18,7 +18,9 @@
 main {
   @include template.page-centerer;
   > div {
-    padding: 2rem 1rem;
+    padding: 1rem;
+    padding-top: 3rem;
+    padding-bottom: 6rem;
   }
 }
 
@@ -50,4 +52,5 @@ h2 {
 .row {
   @include template.row;
   gap: 1rem;
+  flex-wrap: wrap;
 }

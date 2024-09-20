@@ -1,0 +1,26 @@
+@use "../../import" as template;
+
+section.color {
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+    gap: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  .color {
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .color p {
+    font-size: 0.6rem;
+    text-align: center;
+  }
+  .swatch {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 99rem;
+    border: 2px solid var(--color-on-accent);
+    outline: 2px solid var(--color-ink-100);
+  }
+}

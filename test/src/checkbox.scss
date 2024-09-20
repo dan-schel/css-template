@@ -1,0 +1,15 @@
+@use "../../import" as template;
+
+section.checkbox {
+  .switch {
+    @include template.checkbox-switch(
+      $graphic-class: "switch-graphic",
+      $content-class: "switch-content"
+    );
+
+    .switch-content {
+      @include template.content-text;
+      margin-left: 1rem;
+    }
+  }
+}

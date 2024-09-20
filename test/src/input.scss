@@ -1,0 +1,14 @@
+@use "../../import" as template;
+
+section.input {
+  input[type="text"] {
+    padding: 0.5rem 1rem;
+  }
+
+  .input-filled-neutral {
+    @include template.input-filled-neutral;
+  }
+  .input-outlined {
+    @include template.input-outlined;
+  }
+}

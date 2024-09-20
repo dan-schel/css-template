@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "description": "My standard template for CSS styling with SASS.",
   "scripts": {
-    "clean": "rimraf test/css/*",
-    "prebuild": "npm run clean",
-    "build": "tsx build-test.ts && sass test/index.scss test/css/index.css",
-    "start": "serve test",
-    "dev": "npm run build && concurrently \"npm run watch\" \"npm run watch\" \"npm run start\"",
-    "watch-css": "onchange \"**/*.scss\" -- sass test/index.scss test/css/index.css",
-    "watch-html": "onchange \"**/*.scss\" -- tsx build-test.ts",
+    "clean": "rimraf test/dist/",
+    "build": "tsx build-test.ts",
+    "start": "serve test/dist",
+    "dev": "npm run build && concurrently \"npm run watch\" \"npm run start\"",
+    "watch": "onchange \"**/*.html\" \"**/*.scss\" -- tsx build-test.ts",
     "format": "prettier --write ."
   },
   "repository": {

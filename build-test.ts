@@ -1,9 +1,14 @@
 import fs from "fs";
 import fsp from "fs/promises";
+import { promisify } from "util";
+import { exec as execCallback } from "child_process";
+
+const exec = promisify(execCallback);
 
 const sourceDir = "test/src";
-const destDir = "test/html";
+const destDir = "test/dist";
 const indexFile = "test/index.html";
+const indexCssFile = "test/index.scss";
 const keyword = "        {{SECTIONS_GO_HERE}}";
 
 async function main() {
@@ -34,6 +39,8 @@ async function main() {
   const outHtml = indexHtml.replace(keyword, formattedHtml);
 
   await fsp.writeFile(`${destDir}/index.html`, outHtml);
+
+  await exec(`sass ${indexCssFile} ${destDir}/index.css`);
 }
 
 main();

@@ -7,7 +7,7 @@
     "build": "tsx build-test.ts",
     "start": "serve test/dist",
     "dev": "npm run build && concurrently \"npm run watch\" \"npm run start\"",
-    "watch": "onchange \"**/*.html\" \"**/*.scss\" -- tsx build-test.ts",
+    "watch": "onchange \"scss/**/*.scss\" \"test/src/**/*.html\" \"test/src/**/*.scss\" -- tsx build-test.ts",
     "format": "prettier --write ."
   },
   "repository": {

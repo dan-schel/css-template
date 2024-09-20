@@ -1,5 +1,5 @@
-@use "../import" as template;
-@use "src/buttons";
+@use "../../import" as template;
+// {{INSERT_HERE}}
 
 @include template.init;
 

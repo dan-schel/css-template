@@ -1,5 +1,5 @@
 @use "../import" as template;
-@use "sections/buttons";
+@use "src/buttons";
 
 @include template.init;
 

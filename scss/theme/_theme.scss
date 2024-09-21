@@ -7,8 +7,7 @@
 @forward "built-in";
 @use "built-in";
 
-@forward "define";
-@use "define";
+@use "color-list";
 
 $-themes: built-in.generate() !default;
 $-custom-colors: () !default;
@@ -24,7 +23,7 @@ $-custom-colors: () !default;
   }
 
   @each $name, $theme in $-themes {
-    @each $color-name in define.$template-colors {
+    @each $color-name in color-list.$color-list {
       @if not map.has-key($theme, $color-name) {
         @error "Theme '#{$name}' is missing color '#{$color-name}'.";
       }
@@ -81,7 +80,7 @@ $-custom-colors: () !default;
     --color-#{$name}-ink-10: #{meta.call($ink-shade-function, 10)};
 
     // Add the accent/on-accent/shadow colors.
-    @each $color-name in define.$template-colors {
+    @each $color-name in color-list.$color-list {
       --color-#{$name}-#{$color-name}: #{map.get($theme, $color-name)};
     }
   }

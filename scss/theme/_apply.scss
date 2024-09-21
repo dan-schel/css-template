@@ -1,4 +1,4 @@
-@use "define";
+@use "color-list";
 
 $-custom-colors: () !default;
 
@@ -28,7 +28,7 @@ $-custom-colors: () !default;
   --color-ink-10: var(--color-#{$theme}-ink-10);
 
   // Set --color-accent to --color-{$theme}-accent, etc.
-  @each $color-name in define.$template-colors {
+  @each $color-name in color-list.$color-list {
     --color-#{$color-name}: var(--color-#{$theme}-#{$color-name});
   }
 

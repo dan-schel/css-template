@@ -10,7 +10,7 @@
   );
 
   .#{$highlight-class} {
-    background-color: var(--color-ink-10);
+    background-color: var(--color-soft);
   }
   .#{$arrow-class} {
     -webkit-mask-image: url('data:image/svg+xml;utf8,<svg fill="black" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
@@ -20,7 +20,7 @@
   }
 
   select:is(:hover, :focus-visible) + .#{$highlight-class} {
-    background-color: var(--color-ink-20);
+    background-color: var(--color-soft-hover);
   }
 
   select:is(:focus) + .#{$highlight-class} {

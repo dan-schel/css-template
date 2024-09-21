@@ -20,10 +20,7 @@
     "soft-active": light-ink-shade-function(16),
     "soft-border": light-ink-shade-function(20),
     "soft-border-disabled": light-ink-shade-function(12),
-    "shadow-100": black,
-    "shadow-30": rgba(0, 0, 0, 70%),
-    "shadow-20": rgba(0, 0, 0, 40%),
-    "shadow-10": rgba(0, 0, 0, 10%)
+    "dialog-shadow": rgba(0, 0, 0, 40%)
   );
 }
 
@@ -48,10 +45,7 @@
     "soft-active": dark-ink-shade-function(8),
     "soft-border": dark-ink-shade-function(20),
     "soft-border-disabled": dark-ink-shade-function(12),
-    "shadow-100": black,
-    "shadow-30": rgba(0, 0, 0, 80%),
-    "shadow-20": rgba(0, 0, 0, 60%),
-    "shadow-10": rgba(0, 0, 0, 20%)
+    "dialog-shadow": rgba(0, 0, 0, 60%)
   );
 }
 

@@ -3,20 +3,15 @@
 @mixin filled {
   @include styling-base.base;
   color: var(--color-on-accent);
-  transition: opacity 0.05s;
   background-color: var(--color-accent);
-
-  // This opacity value affects the text too, unlike how the regular buttons
-  // behave, however the impact of this is minor.
-  opacity: 80%;
 
   &:hover,
   &:focus-visible {
-    opacity: 100%;
+    background-color: var(--color-accent-hover);
   }
 
   &:active {
-    opacity: 60%;
+    background-color: var(--color-accent-active);
   }
 
   &:disabled,

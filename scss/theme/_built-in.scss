@@ -1,60 +1,56 @@
 @use "sass:meta";
 
-@function light-paper-shade-function($shade) {
+@function light-paper($shade) {
   @return hsl(220, calc(25% + $shade * 0.5%), calc(90% + $shade * 0.35%));
 }
-@function light-ink-shade-function($shade) {
+@function light-ink($shade) {
   @return hsla(220, 100%, calc(20% - $shade * 0.2%), calc($shade * 1%));
 }
 
-@function light-definition() {
-  @return (
-    "body-background": light-paper-shade-function(10),
-    "text": light-ink-shade-function(80),
-    "text-weak": light-ink-shade-function(50),
-    "accent": hsl(210, 100%, 45%),
-    "accent-hover": hsl(210, 100%, 50%),
-    "accent-active": hsl(210, 100%, 40%),
-    "on-accent": #ffffff,
-    "soft": light-ink-shade-function(12),
-    "soft-hover": light-ink-shade-function(8),
-    "soft-active": light-ink-shade-function(16),
-    "soft-border": light-ink-shade-function(20),
-    "soft-border-disabled": light-ink-shade-function(12),
-    "dialog-background": light-paper-shade-function(30),
-    "dialog-shadow": rgba(0, 0, 0, 40%),
-    "field-border": light-ink-shade-function(50)
-  );
-}
+$light-definition: (
+  "body-background": light-paper(10),
+  "text": light-ink(80),
+  "text-weak": light-ink(50),
+  "accent": hsl(210, 100%, 45%),
+  "accent-hover": hsl(210, 100%, 50%),
+  "accent-active": hsl(210, 100%, 40%),
+  "on-accent": #ffffff,
+  "soft": light-ink(12),
+  "soft-hover": light-ink(8),
+  "soft-active": light-ink(16),
+  "soft-border": light-ink(20),
+  "soft-border-disabled": light-ink(12),
+  "dialog-background": light-paper(30),
+  "dialog-shadow": rgba(0, 0, 0, 40%),
+  "field-border": light-ink(50),
+);
 
-@function dark-paper-shade-function($shade) {
+@function dark-paper($shade) {
   @return hsl(220, calc(15% + $shade * 0.1%), calc(2% + $shade * 0.5%));
 }
 
-@function dark-ink-shade-function($shade) {
+@function dark-ink($shade) {
   @return hsla(220, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
 }
 
-@function dark-definition() {
-  @return (
-    "body-background": dark-paper-shade-function(10),
-    "text": dark-ink-shade-function(80),
-    "text-weak": dark-ink-shade-function(50),
-    "accent": hsl(210, 100%, 65%),
-    "accent-hover": hsl(210, 100%, 70%),
-    "accent-active": hsl(210, 100%, 60%),
-    "on-accent": #000000,
-    "soft": dark-ink-shade-function(12),
-    "soft-hover": dark-ink-shade-function(16),
-    "soft-active": dark-ink-shade-function(8),
-    "soft-border": dark-ink-shade-function(20),
-    "soft-border-disabled": dark-ink-shade-function(12),
-    "dialog-background": dark-paper-shade-function(30),
-    "dialog-shadow": rgba(0, 0, 0, 60%),
-    "field-border": dark-ink-shade-function(50)
-  );
-}
+$dark-definition: (
+  "body-background": dark-paper(10),
+  "text": dark-ink(80),
+  "text-weak": dark-ink(50),
+  "accent": hsl(210, 100%, 65%),
+  "accent-hover": hsl(210, 100%, 70%),
+  "accent-active": hsl(210, 100%, 60%),
+  "on-accent": #000000,
+  "soft": dark-ink(12),
+  "soft-hover": dark-ink(16),
+  "soft-active": dark-ink(8),
+  "soft-border": dark-ink(20),
+  "soft-border-disabled": dark-ink(12),
+  "dialog-background": dark-paper(30),
+  "dialog-shadow": rgba(0, 0, 0, 60%),
+  "field-border": dark-ink(50),
+);
 
 @function generate() {
-  @return ("light": light-definition(), "dark": dark-definition());
+  @return ("light": $light-definition, "dark": $dark-definition);
 }

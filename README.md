@@ -53,7 +53,7 @@ $ git submodule add https://github.com/dan-schel/css-template.git src/scss/css-t
 
 Then, in your sass code, use the below to initialize the template:
 
-```css
+```scss
 @use "css-template/import" as template;
 @include template.init;
 ```
@@ -141,7 +141,7 @@ The template enables and requires `border-box` box sizing mode. All elements hav
 
 Centering the page once it reaches a certain width can be achieved with the following:
 
-```css
+```scss
 /* Center all elements which are direct children of main once it becomes wider than 64rem. */
 :root {
   --page-width: 64rem;
@@ -170,7 +170,7 @@ main {
 
 By default, a minimum width of `20rem` will be applied to the `<body>`, however this can be customized by adjusting the `--min-page-width` property on the `:root`.
 
-```css
+```scss
 :root {
   --min-page-width: 20rem;
 }
@@ -183,30 +183,27 @@ By default, light theme is applied unless the browser's `prefers-color-scheme` i
 ### Color swatches
 
 Each theme contains the following color swatches:
-
-- `--color-paper-X`
-  - Where `X` is 0, 10, 20, or 30
-  - For use on the background color of surfaces
-  - 0 is the lowest-level (darkest), 30 is the highest-level (brightest)
-- `--color-ink-X`,
-  - Where `X` is 10, 20, 30, ..., 80, 90, 100
-  - For use on text, icons, etc.
-  - 10 is the most subtle (transparent), 100 is the most bold (opaque)
-- `--color-accent`
-  - A bright color for use on high emphasis elements
-- `--color-on-accent`
-  - A contrasting color to `--color-accent`, suitable for text or icons on accent color surfaces
-- `--color-shadow-X`
-  - Where `X` is 10, 20, 30, or 100
-  - For use underneath elevated surfaces
-  - Always a dark color, even in dark theme
-  - 10 is the most subtle (transparent), 100 is completely opaque
+- `body-background`
+- `text`
+- `text-weak`
+- `accent`
+- `accent-hover`
+- `accent-active`
+- `on-accent`
+- `soft`
+- `soft-hover`
+- `soft-active`
+- `soft-border`
+- `soft-border-disabled`
+- `dialog-background`
+- `dialog-shadow`
+- `field-border`
 
 ### Adding custom color swatches
 
 Custom color swatches can be added when initializing the template, by providing the `$custom-colors` parameter:
 
-```css
+```scss
 /* Before */
 @include template.init;
 
@@ -227,7 +224,7 @@ Now our custom color is available with `--color-bacon`, and will be red in light
 
 To override the value of `prefers-color-scheme`, the `theme-light-base`/`theme-dark-base` mixins can be used. They should be used outside of any selector (apply it to the stylesheet, not an element).
 
-```css
+```scss
 /* Make the page always dark. */
 @include template.theme-dark-base;
 ```
@@ -236,14 +233,14 @@ To override the value of `prefers-color-scheme`, the `theme-light-base`/`theme-d
 
 Regardless of the page theme, the theme inside each element can be changed by including `theme-light`/`theme-dark` inside its selector. This leverages cascading in CSS, and so will apply to all child elements unless one of them also explicitly uses different theme, which is then consequentially apply to _its_ children.
 
-```css
+```scss
 #foo {
   @include template.theme-dark;
-  background-color: var(--color-paper-20);
+  background-color: var(--color-body-background);
 }
 #bar {
   @include template.theme-light;
-  background-color: var(--color-paper-20);
+  background-color: var(--color-body-background);
 }
 ```
 
@@ -265,57 +262,50 @@ Regardless of the page theme, the theme inside each element can be changed by in
 
 ### Additional themes
 
-If the two built-in themes ("light" and "dark") are not enough, additional themes can be added when initializing the template by providing the `$themes` parameter. Let's create an "amoled" theme, which is like "dark" but has darker background colors. First, we will create functions which generate the colors for the `--color-paper-X` and `--color-ink-X` swatches. The `$shade` parameter these functions take are the values of `X` (10, 20, 30, etc.).
+If the two built-in themes ("light" and "dark") are not enough, additional themes can be added when initializing the template by providing the `$themes` parameter. Let's create an "amoled" theme, which is like "dark" but has darker background colors. First, we create a map of all the colors listed above, and their values under this theme.
 
-```css
-@function amoled-paper($shade) {
-  @return hsl(220, calc(15% + $shade * 0.1%), calc(($shade - 10) * 0.5%));
-}
-
-@function amoled-ink($shade) {
-  @return hsla(220, 100%, calc(80% + $shade * 0.2%), calc($shade * 1%));
-}
+```scss
+$theme-amoled-definition: (
+  "body-background": black,
+  "text": template.theme-dark-ink(80),
+  "text-weak": template.theme-dark-ink(50),
+  "accent": hsl(210, 100%, 65%),
+  "accent-hover": hsl(210, 100%, 70%),
+  "accent-active": hsl(210, 100%, 60%),
+  "on-accent": #000000,
+  "soft": template.theme-dark-ink(12),
+  "soft-hover": template.theme-dark-ink(16),
+  "soft-active": template.theme-dark-ink(8),
+  "soft-border": template.theme-dark-ink(20),
+  "soft-border-disabled": template.theme-dark-ink(12),
+  "dialog-background": template.theme-dark-paper(30),
+  "dialog-shadow": rgba(0, 0, 0, 60%),
+  "field-border": template.theme-dark-ink(50)
+)
 ```
 
-Next, using the `template.theme-define` function, we create the theme definition. Note that `sass:meta` must be imported so we can use `meta.get-function`. We also provide some other swatches (all of which are mandatory), such as the accent color here.
+Note the use of `template.theme-dark-ink` and `template.theme-dark-paper`. These are helper functions for generating colors, and are used behind the scenes for the built-in themes. Use them if you wish. Equivalent `template.theme-light-ink` and `template.theme-light-paper` functions also exist.
 
-```css
-@use "sass:meta";
+Now, when initializing the template, we provide our theme. Assuming we also still want the light and dark themes as options, we have to add these too. They can be found at `template.$theme-light-definition` and `template.$theme-dark-definition`.
 
-@function theme-amoled-definition() {
-  @return template.theme-define(
-    $paper-shade-function: meta.get-function("amoled-paper"),
-    $ink-shade-function: meta.get-function("amoled-ink"),
-    $color-accent: hsl(210, 100%, 70%),
-    $color-on-accent: #000000,
-    $color-shadow-100: black,
-    $color-shadow-30: rgba(0, 0, 0, 80%),
-    $color-shadow-20: rgba(0, 0, 0, 60%),
-    $color-shadow-10: rgba(0, 0, 0, 20%)
-  );
-}
-```
-
-Now, when initializing the template, we provide our theme. Assuming we also still want the light and dark themes as options, we have to add these too. They can be found at `template.theme-light-definition()` and `template.theme-dark-definition()`.
-
-```css
+```scss
 @include template.init(
   $themes: (
-    "light": template.theme-light-definition(),
-    "dark": template.theme-dark-definition(),
-    "amoled": theme-amoled-definition()
+    "light": template.$theme-light-definition,
+    "dark": template.$theme-dark-definition,
+    "amoled": $theme-amoled-definition
   )
 );
 ```
 
 Note that if we want to define any custom color swatches, we'll need to do it for our new theme too.
 
-```css
+```scss
 @include template.init(
   $themes: (
-    "light": template.theme-light-definition(),
-    "dark": template.theme-dark-definition(),
-    "amoled": theme-amoled-definition()
+    "light": template.$theme-light-definition,
+    "dark": template.$theme-dark-definition,
+    "amoled": $theme-amoled-definition
   ),
   $custom-colors: (
     "bacon": (
@@ -329,7 +319,7 @@ Note that if we want to define any custom color swatches, we'll need to do it fo
 
 All done! Now, when it comes time to _actually use_ the theme, note that named mixins like `theme-amoled`/`theme-amoled-base` are not automatically generated. Instead, you should do:
 
-```css
+```scss
 /* To apply it to the whole page */
 @include template.theme-apply-base("amoled");
 
@@ -365,7 +355,7 @@ Some fonts appear too tight or loose in a block paragraph, so `--line-spacing` c
 
 To constrain text to one line, and to enable ellipsis when text is too long, wrap the text element (`<p>`, `<h1>`, etc.) in a div where the `one-line` is applied.
 
-```css
+```scss
 #foo {
   @include template.one-line;
 }
@@ -386,7 +376,7 @@ To constrain text to one line, and to enable ellipsis when text is too long, wra
 
 For text link styling, anchor tags must be placed inside paragraph tags, and will display themselves inline again, rather than as a flexbox div.
 
-```css
+```scss
 .link {
   @include template.link;
 }
@@ -400,7 +390,7 @@ For text link styling, anchor tags must be placed inside paragraph tags, and wil
 
 Link styling will make the text and underline match the accent color by default. To override the color, override the `--color-accent` property for this element.
 
-```css
+```scss
 #foo {
   @include template.link;
   --color-accent: red;
@@ -420,7 +410,7 @@ Many button styles will also use the properties defined in the `:root` element, 
 
 Example usage of a button, using generic content:
 
-```css
+```scss
 button {
   /* Button styling */
   @include template.button-hover;
@@ -474,7 +464,7 @@ Inputs can be styled in a similar way to input buttons. Also similarly to button
 
 Example usage of an input:
 
-```css
+```scss
 input[type="text"] {
   @include template.input-filled-neutral;
 }
@@ -509,7 +499,7 @@ select the HTML must be structured as follows:
 
 Now the style can be applied, like so:
 
-```css
+```scss
 .select-wrapper {
   @include template.select-filled-neutral(
     $highlight-class: "select-highlight",
@@ -520,7 +510,7 @@ Now the style can be applied, like so:
 
 If not provided, the `$highlight-class` parameter will be `"select-highlight"` by default, and likewise with `$arrow-class` and `"select-arrow"`, so the above code could be simplified to just:
 
-```css
+```scss
 .select-wrapper {
   @include template.select-filled-neutral;
 }
@@ -534,7 +524,7 @@ If not provided, the `$highlight-class` parameter will be `"select-highlight"` b
 
 If desired, custom padding can be applied to a styled select. Note that the `select-arrow` is not affected by padding applied to the select, and so must be handled separately using margin.
 
-```css
+```scss
 .select-wrapper {
   @include template.select-filled-neutral;
   select {
@@ -550,7 +540,7 @@ If desired, custom padding can be applied to a styled select. Note that the `sel
 
 By default, this template doesn't affect dialogs in any way, except to add the [Dialog Polyfill](https://github.com/GoogleChrome/dialog-polyfill) to support older browsers (requires the JS provided in the project to work). However, to show a dialog in the middle of the screen, with a pleasant shadow and backdrop color, the `dialog` mixin is available.
 
-```css
+```scss
 dialog {
   @include template.dialog;
 }
@@ -583,7 +573,7 @@ Odometers are elements that upon changing content, animate the old content out a
 
 And the CSS:
 
-```css
+```scss
 .odometer {
   @include template.odometer(
     $in-class: "odometer-in",
@@ -596,7 +586,7 @@ Note that if no "in" animation is desired (as might be the case sometimes for th
 
 If not provided, the $in-class parameter will be "odometer-in" by default, and likewise with $out-class and "odometer-out", so the above code could be simplified to just:
 
-```css
+```scss
 .odometer {
   @include template.odometer;
 }
@@ -635,7 +625,7 @@ Note that just like regular radio buttons, for these to act correctly as a group
 
 The use of labels and radio button here allows us to avoid requiring any Javascript (except to read the chosen value, as with any regular radio button), and maintain (hopefully) fairly good support for keyboard input and screenreaders. The CSS looks something like this:
 
-```css
+```scss
 .picker-group {
   @include template.picker-cupertino($content-class: "picker-content");
 
@@ -672,7 +662,7 @@ Checkbox styling in this template is achieved using a checkbox under the hood fo
 
 Then the styling can be achieve with this CSS:
 
-```css
+```scss
 .switch {
   @include template.checkbox-switch(
     $graphic-class: "switch-graphic",

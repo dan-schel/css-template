@@ -4,12 +4,12 @@
 @include template.init(
   $custom-colors: (
     "text-strong": (
-      "light": template.theme-light-ink-shade-function(100),
-      "dark": template.theme-dark-ink-shade-function(100),
+      "light": template.theme-light-ink(100),
+      "dark": template.theme-dark-ink(100),
     ),
     "card-background": (
-      "light": template.theme-light-paper-shade-function(20),
-      "dark": template.theme-dark-paper-shade-function(20),
+      "light": template.theme-light-paper(20),
+      "dark": template.theme-dark-paper(20),
     ),
   )
 );

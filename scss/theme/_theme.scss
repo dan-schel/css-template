@@ -22,16 +22,21 @@ $-custom-colors: () !default;
     $-custom-colors: $custom-colors !global;
   }
 
-  // Check that all themes have all the colors.
-  @each $name, $theme in $-themes {
+  @each $theme-name, $theme in $-themes {
+    // Check that all themes have all the colors.
     @each $color-name in color-list.$color-list {
       @if not map.has-key($theme, $color-name) {
         @error "Theme '#{$name}' is missing color '#{$color-name}'.";
       }
     }
-  }
 
-  // TODO: Check that all custom colors have a value for each theme?
+    // Check that all custom colors define a color for all themes.
+    @each $color-name, $colors in $-custom-colors {
+      @if not map.has-key($colors, $theme-name) {
+        @error "Custom color '#{$color-name}' is missing a value for theme '#{$theme-name}'.";
+      }
+    }
+  }
 
   @include apply.init($custom-colors: $custom-colors);
   @include default-styles;

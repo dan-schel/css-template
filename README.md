@@ -197,7 +197,7 @@ Each theme contains the following color swatches:
 - `soft-border`
 - `soft-border-disabled`
 - `field-border`
-- `shadow-dialog`
+- `shadow`
 
 ### Adding custom color swatches
 
@@ -280,7 +280,7 @@ $theme-amoled-definition: (
   "soft-border": template.theme-dark-ink(20),
   "soft-border-disabled": template.theme-dark-ink(12),
   "field-border": template.theme-dark-ink(50),
-  "shadow-dialog": rgba(0, 0, 0, 60%)
+  "shadow": rgba(0, 0, 0, 60%)
 )
 ```
 

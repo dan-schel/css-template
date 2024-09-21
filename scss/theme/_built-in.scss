@@ -22,7 +22,7 @@ $light-definition: (
   "soft-border": light-ink(20),
   "soft-border-disabled": light-ink(12),
   "field-border": light-ink(50),
-  "shadow-dialog": rgba(0, 0, 0, 40%),
+  "shadow": rgba(0, 0, 0, 40%),
 );
 
 @function dark-paper($shade) {
@@ -48,7 +48,7 @@ $dark-definition: (
   "soft-border": dark-ink(20),
   "soft-border-disabled": dark-ink(12),
   "field-border": dark-ink(50),
-  "shadow-dialog": rgba(0, 0, 0, 60%),
+  "shadow": rgba(0, 0, 0, 60%),
 );
 
 @function generate() {

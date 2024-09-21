@@ -19,7 +19,7 @@
   &[disabled] {
     opacity: 50%;
     background-color: transparent;
-    outline: var(--input-outline-disabled) solid var(--color-ink-20);
+    outline: var(--input-outline-disabled) solid var(--color-field-border);
     outline-offset: calc(-1 * var(--input-outline-disabled));
   }
 }

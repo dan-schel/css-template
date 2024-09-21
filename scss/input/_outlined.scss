@@ -3,11 +3,11 @@
 @mixin outlined {
   @include styling-base.base;
 
-  border: 1px solid var(--color-ink-40);
+  border: 1px solid var(--color-field-border);
 
   &:hover,
   &:focus-visible {
-    border-color: var(--color-ink-60);
+    border-color: var(--color-accent-hover);
   }
 
   &:focus {
@@ -17,6 +17,7 @@
 
   &:disabled,
   &[disabled] {
+    border-color: var(--color-field-border);
     opacity: 50%;
   }
 }

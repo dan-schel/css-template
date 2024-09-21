@@ -24,7 +24,8 @@
     "soft-border": light-ink-shade-function(20),
     "soft-border-disabled": light-ink-shade-function(12),
     "dialog-background": light-paper-shade-function(10),
-    "dialog-shadow": rgba(0, 0, 0, 40%)
+    "dialog-shadow": rgba(0, 0, 0, 40%),
+    "field-border": light-ink-shade-function(50)
   );
 }
 
@@ -53,7 +54,8 @@
     "soft-border": dark-ink-shade-function(20),
     "soft-border-disabled": dark-ink-shade-function(12),
     "dialog-background": dark-paper-shade-function(30),
-    "dialog-shadow": rgba(0, 0, 0, 60%)
+    "dialog-shadow": rgba(0, 0, 0, 60%),
+    "field-border": dark-ink-shade-function(50)
   );
 }
 

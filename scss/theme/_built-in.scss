@@ -11,6 +11,7 @@
   @return (
     "paper-shade-function": meta.get-function("light-paper-shade-function"),
     "ink-shade-function": meta.get-function("light-ink-shade-function"),
+    "body-background": light-paper-shade-function(10),
     "accent": hsl(210, 100%, 45%),
     "accent-hover": hsl(210, 100%, 50%),
     "accent-active": hsl(210, 100%, 40%),
@@ -20,6 +21,7 @@
     "soft-active": light-ink-shade-function(16),
     "soft-border": light-ink-shade-function(20),
     "soft-border-disabled": light-ink-shade-function(12),
+    "dialog-background": light-paper-shade-function(10),
     "dialog-shadow": rgba(0, 0, 0, 40%)
   );
 }
@@ -36,6 +38,7 @@
   @return (
     "paper-shade-function": meta.get-function("dark-paper-shade-function"),
     "ink-shade-function": meta.get-function("dark-ink-shade-function"),
+    "body-background": dark-paper-shade-function(10),
     "accent": hsl(210, 100%, 65%),
     "accent-hover": hsl(210, 100%, 70%),
     "accent-active": hsl(210, 100%, 60%),
@@ -45,6 +48,7 @@
     "soft-active": dark-ink-shade-function(8),
     "soft-border": dark-ink-shade-function(20),
     "soft-border-disabled": dark-ink-shade-function(12),
+    "dialog-background": dark-paper-shade-function(30),
     "dialog-shadow": rgba(0, 0, 0, 60%)
   );
 }

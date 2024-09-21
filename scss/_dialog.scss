@@ -1,6 +1,6 @@
 @mixin dialog {
   border: none;
-  background-color: var(--color-paper-30);
+  background-color: var(--color-dialog-background);
 
   // Doesn't seem to be necessary when using the dialog polyfill?
   // position: fixed;

@@ -47,7 +47,7 @@ $-custom-colors: () !default;
   }
 
   body {
-    background-color: var(--color-paper-10);
+    background-color: var(--color-body-background);
   }
 
   // Set default theme to light unless the user prefers dark.

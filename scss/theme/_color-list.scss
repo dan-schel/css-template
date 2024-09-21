@@ -1,4 +1,6 @@
 $color-list: (
+  "body-background",
+  // "text",
   "accent",
   "accent-hover",
   "accent-active",
@@ -8,5 +10,8 @@ $color-list: (
   "soft-active",
   "soft-border",
   "soft-border-disabled",
-  "dialog-shadow"
+  "dialog-background",
+  "dialog-shadow",
+  // "field-border",
+  // "field-border-disabled",
 );

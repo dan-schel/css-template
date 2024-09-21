@@ -26,6 +26,8 @@ $-custom-colors: () !default;
   --color-ink-10: var(--color-#{$theme}-ink-10);
 
   --color-accent: var(--color-#{$theme}-accent);
+  --color-accent-hover: var(--color-#{$theme}-accent-hover);
+  --color-accent-active: var(--color-#{$theme}-accent-active);
   --color-on-accent: var(--color-#{$theme}-on-accent);
   --color-shadow-100: var(--color-#{$theme}-shadow-100);
   --color-shadow-30: var(--color-#{$theme}-shadow-30);

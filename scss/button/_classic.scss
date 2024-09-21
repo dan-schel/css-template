@@ -4,6 +4,6 @@
   @include filled-neutral.filled-neutral;
 
   &::before {
-    border: var(--button-outline) solid var(--color-ink-20);
+    border: var(--button-outline) solid var(--color-soft-border);
   }
 }

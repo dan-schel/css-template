@@ -3,6 +3,6 @@
 @mixin outlined {
   @include hover.hover;
 
-  outline: var(--button-outline) solid var(--color-ink-20);
+  outline: var(--button-outline) solid var(--color-soft-border);
   outline-offset: calc(-1 * var(--button-outline));
 }

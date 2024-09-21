@@ -1,0 +1,7 @@
+@use "../../import" as template;
+
+section.link {
+  a {
+    @include template.link;
+  }
+}

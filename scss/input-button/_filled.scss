@@ -19,7 +19,9 @@
     color: var(--color-ink-80);
     opacity: 50%;
     background-color: transparent;
-    outline: var(--button-outline) solid var(--color-ink-20);
+
+    // We don't use --color-soft-border-disabled because of the opacity: 50%.
+    outline: var(--button-outline) solid var(--color-soft-border);
     outline-offset: calc(-1 * var(--button-outline));
   }
 }

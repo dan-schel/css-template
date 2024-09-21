@@ -347,7 +347,7 @@ The `no-select-override` mixin is also available to undo the effects of `no-sele
 
 ## Text
 
-Text will use color `--color-ink-80` by default with the font size of `--font-size-default`. All text elements (including headers) will use this default color, and inherit the font of their parent, meaning settings the `font-family`/`font-weight` on the body should apply it to the whole page.
+Text will use color `--color-text` by default with the font size of `--font-size-default`. All text elements (including headers) will use this default color, and inherit the font of their parent, meaning settings the `font-family`/`font-weight` on the body should apply it to the whole page.
 
 Some fonts appear too tight or loose in a block paragraph, so `--line-spacing` can be adjusted to make text elements (`<p>`, `<h1>`, etc.) display it with more space without ruining the bottom margin.
 

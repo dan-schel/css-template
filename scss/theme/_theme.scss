@@ -8,6 +8,7 @@
 @use "built-in";
 
 @forward "define";
+@use "define";
 
 $-themes: built-in.generate() !default;
 $-custom-colors: () !default;
@@ -20,6 +21,14 @@ $-custom-colors: () !default;
   }
   @if $custom-colors {
     $-custom-colors: $custom-colors !global;
+  }
+
+  @each $name, $theme in $-themes {
+    @each $color-name in define.$template-colors {
+      @if not map.has-key($theme, $color-name) {
+        @error "Theme '#{$name}' is missing color '#{$color-name}'.";
+      }
+    }
   }
 
   @include apply.init($custom-colors: $custom-colors);
@@ -72,14 +81,9 @@ $-custom-colors: () !default;
     --color-#{$name}-ink-10: #{meta.call($ink-shade-function, 10)};
 
     // Add the accent/on-accent/shadow colors.
-    --color-#{$name}-accent: #{map.get($theme, "color-accent")};
-    --color-#{$name}-accent-hover: #{map.get($theme, "color-accent-hover")};
-    --color-#{$name}-accent-active: #{map.get($theme, "color-accent-active")};
-    --color-#{$name}-on-accent: #{map.get($theme, "color-on-accent")};
-    --color-#{$name}-shadow-100: #{map.get($theme, "color-shadow-100")};
-    --color-#{$name}-shadow-30: #{map.get($theme, "color-shadow-30")};
-    --color-#{$name}-shadow-20: #{map.get($theme, "color-shadow-20")};
-    --color-#{$name}-shadow-10: #{map.get($theme, "color-shadow-10")};
+    @each $color-name in define.$template-colors {
+      --color-#{$name}-#{$color-name}: #{map.get($theme, $color-name)};
+    }
   }
 
   // For each custom color...

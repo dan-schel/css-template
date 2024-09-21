@@ -1,3 +1,5 @@
+@use "define";
+
 $-custom-colors: () !default;
 
 @mixin init($custom-colors) {
@@ -25,14 +27,10 @@ $-custom-colors: () !default;
   --color-ink-20: var(--color-#{$theme}-ink-20);
   --color-ink-10: var(--color-#{$theme}-ink-10);
 
-  --color-accent: var(--color-#{$theme}-accent);
-  --color-accent-hover: var(--color-#{$theme}-accent-hover);
-  --color-accent-active: var(--color-#{$theme}-accent-active);
-  --color-on-accent: var(--color-#{$theme}-on-accent);
-  --color-shadow-100: var(--color-#{$theme}-shadow-100);
-  --color-shadow-30: var(--color-#{$theme}-shadow-30);
-  --color-shadow-20: var(--color-#{$theme}-shadow-20);
-  --color-shadow-10: var(--color-#{$theme}-shadow-10);
+  // Set --color-accent to --color-{$theme}-accent, etc.
+  @each $color-name in define.$template-colors {
+    --color-#{$color-name}: var(--color-#{$theme}-#{$color-name});
+  }
 
   // For each custom color...
   @each $color-name, $_ in $-custom-colors {

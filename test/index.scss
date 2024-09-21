@@ -1,7 +1,18 @@
 @use "../../import" as template;
 // {{INSERT_HERE}}
 
-@include template.init;
+@include template.init(
+  $custom-colors: (
+    "text-strong": (
+      "light": template.theme-light-ink-shade-function(100),
+      "dark": template.theme-dark-ink-shade-function(100),
+    ),
+    "card-background": (
+      "light": template.theme-light-paper-shade-function(20),
+      "dark": template.theme-dark-paper-shade-function(20),
+    ),
+  )
+);
 
 @font-face {
   font-family: "Mona Sans";
@@ -31,12 +42,12 @@ main {
 }
 
 .header {
-  border-bottom: 1px solid var(--color-ink-20);
+  border-bottom: 1px solid var(--color-soft-border);
 
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    color: var(--color-ink-100);
+    color: var(--color-text-strong);
   }
 
   .theme-picker {
@@ -53,14 +64,14 @@ main {
 h2 {
   font-size: 1.2rem;
   font-weight: bold;
-  color: var(--color-ink-100);
-  border-bottom: 1px solid var(--color-ink-20);
+  color: var(--color-text-strong);
+  border-bottom: 1px solid var(--color-soft-border);
   padding-bottom: 0.5rem;
   margin-top: 3rem;
 }
 
 .card {
-  background-color: var(--color-paper-20);
+  background-color: var(--color-card-background);
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;

@@ -9,8 +9,6 @@
 
 @function light-definition() {
   @return (
-    "paper-shade-function": meta.get-function("light-paper-shade-function"),
-    "ink-shade-function": meta.get-function("light-ink-shade-function"),
     "body-background": light-paper-shade-function(10),
     "text": light-ink-shade-function(80),
     "text-weak": light-ink-shade-function(50),
@@ -23,7 +21,7 @@
     "soft-active": light-ink-shade-function(16),
     "soft-border": light-ink-shade-function(20),
     "soft-border-disabled": light-ink-shade-function(12),
-    "dialog-background": light-paper-shade-function(10),
+    "dialog-background": light-paper-shade-function(30),
     "dialog-shadow": rgba(0, 0, 0, 40%),
     "field-border": light-ink-shade-function(50)
   );
@@ -39,8 +37,6 @@
 
 @function dark-definition() {
   @return (
-    "paper-shade-function": meta.get-function("dark-paper-shade-function"),
-    "ink-shade-function": meta.get-function("dark-ink-shade-function"),
     "body-background": dark-paper-shade-function(10),
     "text": dark-ink-shade-function(80),
     "text-weak": dark-ink-shade-function(50),

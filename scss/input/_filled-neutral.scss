@@ -3,11 +3,11 @@
 @mixin filled-neutral {
   @include styling-base.base;
 
-  background-color: var(--color-ink-10);
+  background-color: var(--color-soft);
 
   &:hover,
   &:focus-visible {
-    background-color: var(--color-ink-20);
+    background-color: var(--color-soft-hover);
   }
 
   &:focus {

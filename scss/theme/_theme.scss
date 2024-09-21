@@ -22,6 +22,7 @@ $-custom-colors: () !default;
     $-custom-colors: $custom-colors !global;
   }
 
+  // Check that all themes have all the colors.
   @each $name, $theme in $-themes {
     @each $color-name in color-list.$color-list {
       @if not map.has-key($theme, $color-name) {
@@ -29,6 +30,8 @@ $-custom-colors: () !default;
       }
     }
   }
+
+  // TODO: Check that all custom colors have a value for each theme?
 
   @include apply.init($custom-colors: $custom-colors);
   @include default-styles;

@@ -7,7 +7,7 @@
       "light": template.theme-light-ink(100),
       "dark": template.theme-dark-ink(100),
     ),
-    "card-background": (
+    "background-card": (
       "light": template.theme-light-paper(20),
       "dark": template.theme-dark-paper(20),
     ),
@@ -71,7 +71,7 @@ h2 {
 }
 
 .card {
-  background-color: var(--color-card-background);
+  background-color: var(--color-background-card);
   padding: 1rem;
   border-radius: 0.5rem;
   margin-top: 1rem;

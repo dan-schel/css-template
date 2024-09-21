@@ -8,7 +8,8 @@
 }
 
 $light-definition: (
-  "body-background": light-paper(10),
+  "background": light-paper(10),
+  "background-dialog": light-paper(30),
   "text": light-ink(80),
   "text-weak": light-ink(50),
   "accent": hsl(210, 100%, 45%),
@@ -20,8 +21,7 @@ $light-definition: (
   "soft-active": light-ink(16),
   "soft-border": light-ink(20),
   "soft-border-disabled": light-ink(12),
-  "dialog-background": light-paper(30),
-  "dialog-shadow": rgba(0, 0, 0, 40%),
+  "shadow-dialog": rgba(0, 0, 0, 40%),
   "field-border": light-ink(50),
 );
 
@@ -34,7 +34,8 @@ $light-definition: (
 }
 
 $dark-definition: (
-  "body-background": dark-paper(10),
+  "background": dark-paper(10),
+  "background-dialog": dark-paper(30),
   "text": dark-ink(80),
   "text-weak": dark-ink(50),
   "accent": hsl(210, 100%, 65%),
@@ -46,8 +47,7 @@ $dark-definition: (
   "soft-active": dark-ink(8),
   "soft-border": dark-ink(20),
   "soft-border-disabled": dark-ink(12),
-  "dialog-background": dark-paper(30),
-  "dialog-shadow": rgba(0, 0, 0, 60%),
+  "shadow-dialog": rgba(0, 0, 0, 60%),
   "field-border": dark-ink(50),
 );
 

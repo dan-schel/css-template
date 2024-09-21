@@ -183,7 +183,8 @@ By default, light theme is applied unless the browser's `prefers-color-scheme` i
 ### Color swatches
 
 Each theme contains the following color swatches:
-- `body-background`
+- `background`
+- `background-dialog`
 - `text`
 - `text-weak`
 - `accent`
@@ -195,8 +196,7 @@ Each theme contains the following color swatches:
 - `soft-active`
 - `soft-border`
 - `soft-border-disabled`
-- `dialog-background`
-- `dialog-shadow`
+- `shadow-dialog`
 - `field-border`
 
 ### Adding custom color swatches
@@ -236,11 +236,11 @@ Regardless of the page theme, the theme inside each element can be changed by in
 ```scss
 #foo {
   @include template.theme-dark;
-  background-color: var(--color-body-background);
+  background-color: var(--color-background);
 }
 #bar {
   @include template.theme-light;
-  background-color: var(--color-body-background);
+  background-color: var(--color-background);
 }
 ```
 
@@ -266,7 +266,8 @@ If the two built-in themes ("light" and "dark") are not enough, additional theme
 
 ```scss
 $theme-amoled-definition: (
-  "body-background": black,
+  "background": black,
+  "background-dialog": template.theme-dark-paper(30),
   "text": template.theme-dark-ink(80),
   "text-weak": template.theme-dark-ink(50),
   "accent": hsl(210, 100%, 65%),
@@ -278,8 +279,7 @@ $theme-amoled-definition: (
   "soft-active": template.theme-dark-ink(8),
   "soft-border": template.theme-dark-ink(20),
   "soft-border-disabled": template.theme-dark-ink(12),
-  "dialog-background": template.theme-dark-paper(30),
-  "dialog-shadow": rgba(0, 0, 0, 60%),
+  "shadow-dialog": rgba(0, 0, 0, 60%),
   "field-border": template.theme-dark-ink(50)
 )
 ```

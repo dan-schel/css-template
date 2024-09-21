@@ -10,7 +10,6 @@
   );
 
   .#{$highlight-class} {
-    transition: background-color 0.05s;
     background-color: var(--color-ink-10);
   }
   .#{$arrow-class} {

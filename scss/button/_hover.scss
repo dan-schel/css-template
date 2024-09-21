@@ -3,10 +3,6 @@
 @mixin hover {
   @include styling-base.base;
 
-  &::before {
-    transition: background-color 0.05s;
-  }
-
   &:hover,
   &:focus-visible {
     &::before {

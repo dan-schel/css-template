@@ -3,7 +3,6 @@
 @mixin text {
   > p {
     color: var(--content-color);
-    transition: color var(--content-color-transition);
   }
 }
 
@@ -11,6 +10,5 @@
   > p,
   > svg {
     color: var(--content-color);
-    transition: color var(--content-color-transition);
   }
 }

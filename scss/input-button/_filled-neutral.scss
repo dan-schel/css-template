@@ -3,7 +3,6 @@
 @mixin filled-neutral {
   @include styling-base.base;
 
-  transition: background-color 0.05s;
   background-color: var(--color-ink-10);
 
   &:hover,

@@ -20,9 +20,6 @@
       height: 1.2rem;
       border-radius: 1rem;
       border: 0.1rem solid var(--color-ink-50);
-      transition:
-        border-color 0.1s,
-        background-color 0.1s;
 
       &::before {
         content: "";
@@ -34,10 +31,10 @@
         left: 0.2rem;
         background-color: var(--color-ink-50);
         border-radius: 1rem;
-        transition:
-          transform 0.2s,
-          background-color 0.1s,
-          opacity 0.1s;
+        // transition:
+        //   transform 0.2s,
+        //   background-color 0.1s,
+        //   opacity 0.1s;
       }
     }
   }

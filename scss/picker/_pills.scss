@@ -12,7 +12,6 @@
       justify-content: center;
 
       background-color: var(--color-ink-10);
-      transition: background-color 0.1s;
       border-radius: var(--button-rounding);
     }
     > input[type="radio"]:hover + .#{$content-class},

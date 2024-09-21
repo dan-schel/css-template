@@ -25,7 +25,7 @@
   &:disabled,
   &[disabled] {
     // Set back to normal color. 50% opacity is also applied on top of this.
-    --content-color: var(--color-ink-80);
+    --content-color: var(--color-text);
 
     &::before {
       background-color: transparent;

@@ -14,7 +14,7 @@
       justify-content: center;
       border-bottom: 2px solid transparent;
 
-      --content-color: var(--color-ink-80);
+      --content-color: var(--color-text);
     }
     input[type="radio"]:hover + .#{$content-class},
     input[type="radio"]:focus-visible + .#{$content-class} {

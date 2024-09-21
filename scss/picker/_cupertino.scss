@@ -12,7 +12,7 @@
       justify-content: center;
 
       border: 2px solid var(--color-accent);
-      --content-color: var(--color-ink-90);
+      --content-color: var(--color-text);
     }
     > input[type="radio"]:hover + .#{$content-class},
     > input[type="radio"]:focus-visible + .#{$content-class} {

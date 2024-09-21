@@ -26,7 +26,7 @@
     font-family: inherit;
     font-weight: inherit;
     font-size: var(--font-size-default);
-    color: var(--color-ink-80);
+    color: var(--color-text);
   }
   input::placeholder {
     opacity: 100%;
@@ -34,7 +34,7 @@
   }
 
   svg {
-    color: var(--color-ink-80);
+    color: var(--color-text);
   }
 
   h1,

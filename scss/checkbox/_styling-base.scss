@@ -17,7 +17,7 @@
     @include utils.no-select;
 
     > .#{$content-class} {
-      --content-color: var(--color-ink-80);
+      --content-color: var(--color-text);
     }
   }
 }

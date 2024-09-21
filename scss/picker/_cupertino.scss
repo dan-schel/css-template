@@ -16,10 +16,10 @@
     }
     > input[type="radio"]:hover + .#{$content-class},
     > input[type="radio"]:focus-visible + .#{$content-class} {
-      background-color: var(--color-ink-10);
+      background-color: var(--color-soft-hover);
     }
     > input[type="radio"]:active + .#{$content-class} {
-      background-color: var(--color-ink-20);
+      background-color: var(--color-soft-active);
     }
     > input[type="radio"]:checked + .#{$content-class} {
       background-color: var(--color-accent);

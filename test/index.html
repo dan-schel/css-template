@@ -9,7 +9,67 @@
   <body>
     <main>
       <div>
-        <h1>CSS Template Demo Page</h1>
+        <div class="header">
+          <h1>CSS Template Demo Page</h1>
+          <div class="theme-picker">
+            <label>
+              <input
+                type="radio"
+                id="theme-picker-auto"
+                name="theme-picker"
+                autocomplete="off"
+                checked
+              />
+              <div class="picker-content">
+                <p>Auto</p>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="theme-picker-light"
+                name="theme-picker"
+                autocomplete="off"
+              />
+              <div class="picker-content">
+                <p>Light</p>
+              </div>
+            </label>
+            <label>
+              <input
+                type="radio"
+                id="theme-picker-dark"
+                name="theme-picker"
+                autocomplete="off"
+              />
+              <div class="picker-content">
+                <p>Dark</p>
+              </div>
+            </label>
+          </div>
+          <script>
+            const themePickerAuto =
+              document.getElementById("theme-picker-auto");
+            const themePickerLight =
+              document.getElementById("theme-picker-light");
+            const themePickerDark =
+              document.getElementById("theme-picker-dark");
+
+            themePickerAuto.addEventListener("change", () => {
+              document.documentElement.classList.remove("light", "dark");
+            });
+
+            themePickerLight.addEventListener("change", () => {
+              document.documentElement.classList.remove("dark");
+              document.documentElement.classList.add("light");
+            });
+
+            themePickerDark.addEventListener("change", () => {
+              document.documentElement.classList.remove("light");
+              document.documentElement.classList.add("dark");
+            });
+          </script>
+        </div>
         <!-- {{INSERT_HERE}} -->
       </div>
     </main>

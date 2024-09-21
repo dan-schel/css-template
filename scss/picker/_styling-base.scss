@@ -17,7 +17,7 @@
       pointer-events: none;
     }
     & > input[type="radio"] + .#{$content-class} {
-      --content-color: var(--color-ink-80);
+      --content-color: var(--color-text);
     }
   }
 }

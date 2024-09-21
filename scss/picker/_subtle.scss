@@ -10,14 +10,14 @@
       align-items: center;
       justify-content: center;
 
-      --content-color: var(--color-ink-50);
+      --content-color: var(--color-text-weak);
     }
     input[type="radio"]:hover + .#{$content-class},
     input[type="radio"]:focus-visible + .#{$content-class} {
-      --content-color: var(--color-ink-80);
+      --content-color: var(--color-accent-hover);
     }
     input[type="radio"]:active + .#{$content-class} {
-      --content-color: var(--color-ink-100);
+      --content-color: var(--color-accent-active);
     }
     input[type="radio"]:checked + .#{$content-class} {
       --content-color: var(--color-accent);

@@ -1,12 +1,12 @@
 @use "styling-base";
+@use "../utils";
 
 @mixin outlined {
   @include styling-base.base;
 
   border: 1px solid var(--color-field-border);
 
-  &:hover,
-  &:focus-visible {
+  @include utils.on-hover {
     border-color: var(--color-accent-hover);
   }
 

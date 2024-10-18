@@ -49,8 +49,7 @@
     }
 
     // Checked and hovered
-    &:hover,
-    &:focus-visible {
+    @include utils.on-hover {
       + div > .#{$graphic-class}::before {
         transform: translate(0.75rem, 0rem) scale(133%, 133%);
       }
@@ -69,8 +68,7 @@
 
   input[type="checkbox"]:not(:checked) {
     // Not checked, but hovered
-    &:hover,
-    &:focus-visible {
+    @include utils.on-hover {
       + div > .#{$graphic-class}::before {
         transform: scale(133%, 133%);
       }

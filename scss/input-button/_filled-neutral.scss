@@ -1,12 +1,12 @@
 @use "styling-base";
+@use "../utils";
 
 @mixin filled-neutral {
   @include styling-base.base;
 
   background-color: var(--color-soft);
 
-  &:hover,
-  &:focus-visible {
+  @include utils.on-hover {
     background-color: var(--color-soft-hover);
   }
 

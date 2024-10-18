@@ -1,12 +1,12 @@
 @use "styling-base";
+@use "../utils";
 
 @mixin filled {
   @include styling-base.base;
   color: var(--color-on-accent);
   background-color: var(--color-accent);
 
-  &:hover,
-  &:focus-visible {
+  @include utils.on-hover {
     background-color: var(--color-accent-hover);
   }
 

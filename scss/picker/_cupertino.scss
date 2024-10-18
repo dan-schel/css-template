@@ -14,10 +14,15 @@
       border: 2px solid var(--color-accent);
       --content-color: var(--color-text);
     }
-    > input[type="radio"]:hover + .#{$content-class},
-    > input[type="radio"]:focus-visible + .#{$content-class} {
-      background-color: var(--color-soft-hover);
+
+    > input[type="radio"] {
+      @include utils.on-hover {
+        & + .#{$content-class} {
+          background-color: var(--color-soft-hover);
+        }
+      }
     }
+
     > input[type="radio"]:active + .#{$content-class} {
       background-color: var(--color-soft-active);
     }

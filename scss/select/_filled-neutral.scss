@@ -1,4 +1,5 @@
 @use "styling-base";
+@use "../utils";
 
 @mixin filled-neutral(
   $highlight-class: "select-highlight",
@@ -19,8 +20,12 @@
     height: 1.5rem;
   }
 
-  select:is(:hover, :focus-visible) + .#{$highlight-class} {
-    background-color: var(--color-soft-hover);
+  select {
+    @include utils.on-hover {
+      & + .#{$highlight-class} {
+        background-color: var(--color-soft-hover);
+      }
+    }
   }
 
   select:is(:focus) + .#{$highlight-class} {

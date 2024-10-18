@@ -10,6 +10,7 @@ const sourceDir = "test/src";
 const destDir = "test/dist";
 const indexFile = "test/index.html";
 const indexCssFile = "test/index.scss";
+const publicFiles = ["mona-sans.woff2"];
 const keywordHtml = "        <!-- {{INSERT_HERE}} -->";
 const keywordCss = "// {{INSERT_HERE}}";
 
@@ -66,6 +67,10 @@ async function compile() {
   await fsp.writeFile(`${destDir}/index.scss`, outCss);
 
   await exec(`sass ${destDir}/index.scss ${destDir}/index.css`);
+
+  for (const file of publicFiles) {
+    await fsp.cp(`${sourceDir}/${file}`, `${destDir}/${file}`);
+  }
 
   console.log("✅ Compiled.");
 }

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/dan-schel/css-template#readme",
   "dependencies": {
-    "sass": "^1.77.8"
+    "sass": "^1.80.2"
   },
   "devDependencies": {
     "@types/node": "^22.5.5",

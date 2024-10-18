@@ -29,11 +29,10 @@
   @include utils.no-select-override;
 
   color: var(--color-accent);
-  text-decoration-color: var(--color-accent);
 
   // One-liner "text-decoration" shorthand doesn't work in Safari for this case.
   text-decoration-line: underline;
-  text-decoration-color: transparent;
+  text-decoration-color: var(--color-accent);
   text-decoration-thickness: 1px;
 
   outline: none;

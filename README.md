@@ -94,7 +94,8 @@ The mixins available in this template:
 | `button-hover`                | Button with transparent highlight until hovered.           |
 | `button-outlined`             | Button with outline only until hovered.                    |
 | `checkbox-base`               | Base mixin for all checkbox stylings.                      |
-| `checkbox-switch`             | A "Windows 10" style switch.                               |
+| `checkbox-switch`             | A "Windows 10" style switch (using HTML for the graphic).  |
+| `checkbox-switch-svg`         | A "Windows 10" style switch (using SVG for the graphic).   |
 | `content-text`                | Text inside conforms to `--content-color`.                 |
 | `content-text-icon`           | Text and icons inside conform to `--content-color`.        |
 | `dialog`                      | Centers `<dialog>` and adds nice shadow.                   |
@@ -114,6 +115,7 @@ The mixins available in this template:
 | `link`                        | Inline accent colored text with underline on hover.        |
 | `no-select`                   | Makes text inside element unselectable.                    |
 | `no-select-override`          | Undoes `no-select` (to fight specificity).                 |
+| `on-hover`                    | Touch friendly selector for `:hover` and `:focus-visible`. |
 | `odometer`                    | Content with a slide-up animation when it updates.         |
 | `one-line`                    | Forces child text to a single line with elipsis if needed. |
 | `page-centerer`               | Centers child element when `--page-width` reached.         |
@@ -646,7 +648,61 @@ Note the use of `content-text`, since the picker may desire to change the conten
 
 ## Checkbox styling
 
-Checkbox styling in this template is achieved using a checkbox under the hood for the state management, but it is made invisible and other elements are used so the appearance can be fully customizable. The checkbox stylings supported by this library require the following HTML structure:
+Checkbox styling in this template is achieved using a checkbox under the hood for the state management, but it is made invisible and other elements are used so the appearance can be fully customizable.
+
+### Switch (SVG-based)
+
+To create a vertically centered "Windows 10" style switch on the left-side of the content, use the following HTML structure:
+
+```html
+<label class="switch-svg">
+  <input id="switch" type="checkbox" autocomplete="off" />
+  <div>
+    <svg
+      class="switch-graphic"
+      viewBox="0 0 32 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <clipPath id="a">
+          <rect width="32" height="20" rx="10" />
+        </clipPath>
+      </defs>
+      <rect
+        width="32"
+        height="20"
+        rx="10"
+        stroke-width="4"
+        clip-path="url(#a)"
+      />
+      <circle r="1" />
+    </svg>
+    <div class="switch-content">
+      <p>Switch SVG</p>
+    </div>
+  </div>
+</label>
+```
+
+Then the styling can be achieved with this CSS:
+
+```scss
+.switch-svg {
+  @include template.checkbox-switch-svg(
+    $graphic-class: "switch-graphic",
+    $content-class: "switch-content"
+  );
+
+  .switch-content {
+    @include template.content-text;
+    margin-left: 1rem;
+  }
+}
+```
+
+### Switch (deprecated)
+
+This template used to suggest the following structure for creating switches:
 
 ```html
 <label class="switch">
@@ -660,7 +716,7 @@ Checkbox styling in this template is achieved using a checkbox under the hood fo
 </label>
 ```
 
-Then the styling can be achieve with this CSS:
+Using this CSS:
 
 ```scss
 .switch {
@@ -675,9 +731,7 @@ Then the styling can be achieve with this CSS:
 }
 ```
 
-### Available stylings
-
-- `checkbox-switch` puts a vertically centered "Windows 10" style switch on the left-side on the content.
+However these HTML-based switches are now deprecated in favour of SVG-based switches, due to how browsers round the HTML elements to the nearest pixel, ruining the appearance of the switch on some devices. Please use `checkbox-switch-svg` instead.
 
 ## Known issues/inconsistencies
 

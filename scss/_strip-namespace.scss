@@ -39,6 +39,10 @@
   @include utils.no-select-override;
 }
 
+@mixin on-hover {
+  @include utils.on-hover;
+}
+
 @mixin page-centerer {
   @include utils.page-centerer;
 }

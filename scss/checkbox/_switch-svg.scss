@@ -1,0 +1,71 @@
+@use "styling-base";
+@use "../utils";
+
+@mixin switch-svg(
+  $graphic-class: "switch-graphic",
+  $content-class: "switch-content"
+) {
+  @include styling-base.base(
+    $graphic-class: $graphic-class,
+    $content-class: $content-class
+  );
+
+  input[type="checkbox"] {
+    @include utils.on-hover {
+      + div > .#{$graphic-class} circle {
+        --r: 6;
+      }
+    }
+  }
+
+  input[type="checkbox"] + div {
+    @include utils.row;
+
+    // Not checked
+    > .#{$graphic-class} {
+      width: 2rem;
+      rect {
+        stroke: var(--color-field-border);
+        fill: none;
+      }
+      circle {
+        fill: var(--color-field-border);
+
+        --x: 10px;
+        --r: 5;
+        transform: translate(var(--x), 10px) scale(var(--r));
+        transition: transform 0.1s;
+      }
+    }
+  }
+
+  input[type="checkbox"]:checked {
+    // Checked
+    + div > .#{$graphic-class} {
+      rect {
+        fill: var(--color-accent);
+        stroke: none;
+      }
+      circle {
+        fill: var(--color-on-accent);
+        --x: 22px;
+      }
+    }
+
+    // Checked and pressed
+    &:active {
+      + div > .#{$graphic-class} rect {
+        fill: var(--color-accent-active);
+      }
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) {
+    // Not checked, but pressed
+    &:active {
+      + div > .#{$graphic-class} rect {
+        fill: var(--color-soft-active);
+      }
+    }
+  }
+}

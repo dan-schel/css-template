@@ -40,7 +40,9 @@
 }
 
 @mixin on-hover {
-  @include utils.on-hover;
+  @include utils.on-hover {
+    @content;
+  }
 }
 
 @mixin page-centerer {
